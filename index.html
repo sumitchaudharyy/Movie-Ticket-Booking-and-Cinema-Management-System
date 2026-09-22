@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hanuman Ansh</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Arial;background:#fff}
+
+.movie-section{
+    min-height:460px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 13%;
+    color:white;
+    background:linear-gradient(to right,#101014,rgba(16,16,20,.65)),
+    url("images/hanuman-bg.jpg") center/cover;
+}
+
+.movie-content{max-width:900px}
+h1{font-size:64px;margin-bottom:18px}
+.info,.release{margin-bottom:20px;font-size:18px}
+.description{font-size:18px;line-height:1.6;margin-bottom:20px}
+
+.tags{display:flex;gap:10px;margin-bottom:16px}
+.tags span{
+    background:#303033;
+    padding:7px 14px;
+    border-radius:20px;
+    font-size:14px;
+    font-weight:bold;
+}
+
+button{
+    padding:20px 45px;
+    border:0;
+    border-radius:14px;
+    background:white;
+    font-size:18px;
+    font-weight:bold;
+    cursor:pointer;
+}
+button:hover{background:#ddd}
+
+.movie-poster{position:relative;width:250px}
+.movie-poster img{
+    width:250px;
+    height:375px;
+    object-fit:cover;
+    border-radius:15px;
+}
+.play{
+    position:absolute;
+    top:48%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    font-size:28px;
+}
+
+@media(max-width:768px){
+    .movie-section{
+        flex-direction:column;
+        padding:40px 20px;
+        gap:30px;
+        text-align:center;
+    }
+    h1{font-size:40px}
+    .description{font-size:16px}
+    .tags{justify-content:center}
+    .movie-poster,.movie-poster img{width:220px}
+    .movie-poster img{height:330px}
+}
+</style>
+</head>
+
+<body>
+<section class="movie-section">
+
+<div class="movie-content">
+<h1>Hanuman Ansh</h1>
+<p class="info">U | Hindi | 2h 30m</p>
+
+<p class="description">
+After a devastating loss, a young boy embarks on a transformative
+spiritual journey inspired by Neem Karoli Baba. Along the way,
+faith, compassion and selfless service reshape his understanding
+of life. Accessibility through Audio Description (AD) & Closed
+Captions (CC) is available for this movie on the XL Cinema app.
+</p>
+
+<div class="tags">
+<span>Biography</span>
+<span>Devotional</span>
+<span>Drama</span>
+</div>
+
+<p class="release">Released 7 August 2026</p>
+<button>Book Tickets</button>
+</div>
+
+<div class="movie-poster">
+<img src="images/hanuman.jpg" alt="Hanuman Ansh">
+<div class="play">▷</div>
+</div>
+
+</section>
+</body>
+</html>
