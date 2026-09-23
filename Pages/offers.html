@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Offers &amp; Gift Cards — CineBuzz</title>
+<meta name="description" content="Latest movie ticket offers, bank discounts and gift cards.">
+<link rel="stylesheet" href="assets/css/style.css">
+<style>
+  .offer-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:6px;}
+  .offer-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);overflow:hidden;display:flex;flex-direction:column;}
+  .offer-banner{padding:26px;color:#fff;background:linear-gradient(120deg,#f84464,#ff7a59);display:flex;align-items:center;gap:14px;}
+  .offer-banner.blue{background:linear-gradient(120deg,#2563eb,#38bdf8);}
+  .offer-banner.green{background:linear-gradient(120deg,#0e9f6e,#6ee7b7);}
+  .offer-banner.purple{background:linear-gradient(120deg,#7c3aed,#c084fc);}
+  .offer-banner.gold{background:linear-gradient(120deg,#b45309,#fbbf24);}
+  .offer-banner.teal{background:linear-gradient(120deg,#0f766e,#2dd4bf);}
+  .offer-banner .ob-ic{font-size:34px;}
+  .offer-banner b{font-size:1.25rem;display:block;}
+  .offer-body{padding:18px 20px;display:flex;flex-direction:column;gap:10px;flex:1;}
+  .offer-body p{color:var(--muted);font-size:.9rem;flex:1;}
+  .code{display:inline-flex;align-items:center;gap:8px;background:var(--navy);color:#fff;border-radius:8px;padding:7px 12px;font-weight:700;font-size:.82rem;letter-spacing:1px;align-self:flex-start;}
+  @media(max-width:900px){.offer-grid{grid-template-columns:1fr 1fr;}}
+  @media(max-width:620px){.offer-grid{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="index.html"><span class="logo-ic">🎬</span> CineBuzz</a>
+    <div class="search"><span class="ic">🔍</span><input type="text" placeholder="Search for movies, events, plays, sports and activities"></div>
+    <a class="loc" href="about.html"><span class="pin">📍</span><span><small>Location</small>New Delhi</span></a>
+    <nav class="nav-actions">
+      <a class="nav-link" href="movies.html"><span class="ic">🎞️</span>Movies</a>
+      <a class="nav-link active" href="offers.html"><span class="ic">🎁</span>Offers</a>
+      <a class="nav-link" href="events.html"><span class="ic">🎟️</span>Events</a>
+      <a class="nav-link" href="about.html"><span class="ic">🛈</span>About</a>
+      <a class="btn btn-ghost btn-sm signin-btn" href="index.html#signin">Sign in</a>
+    </nav>
+    <a class="menu-toggle" href="#mobile-nav">☰</a>
+  </div>
+</header>
+<nav class="mobile-nav" id="mobile-nav">
+  <a href="movies.html">🎞️ Movies <span class="ic">›</span></a>
+  <a href="offers.html">🎁 Offers <span class="ic">›</span></a>
+  <a href="events.html">🎟️ Events <span class="ic">›</span></a>
+  <a href="about.html">🛈 About <span class="ic">›</span></a>
+  <a href="contact.html">📞 Contact <span class="ic">›</span></a>
+  <a href="index.html#signin">👤 Sign in <span class="ic">›</span></a>
+</nav>
+
+<section class="page-hero">
+  <div class="container">
+    <div class="crumb">Home / Offers</div>
+    <h1>Offers &amp; Gift Cards</h1>
+    <p>Save big on every booking — bank offers, first-movie deals, f&amp;b combos and CineBuzz gift cards.</p>
+  </div>
+</section>
+
+<section class="section container">
+  <div class="chip-row" style="padding-top:0;">
+    <button class="chip on">All offers</button>
+    <button class="chip">Bank offers</button>
+    <button class="chip">Wallet / UPI</button>
+    <button class="chip">Food &amp; Beverage</button>
+    <button class="chip">Gift Cards</button>
+  </div>
+
+  <div class="offer-grid">
+    <div class="offer-card">
+      <div class="offer-banner"><span class="ob-ic">🍿</span><div><b>Flat ₹125 OFF</b><span style="font-size:.8rem;opacity:.9;">on Tuesdays</span></div></div>
+      <div class="offer-body">
+        <p>Book any movie on a Tuesday and get ₹125 off on 2 or more tickets. Applies automatically with the code.</p>
+        <span class="code">TUESDAY50</span>
+      </div>
+    </div>
+    <div class="offer-card">
+      <div class="offer-banner blue"><span class="ob-ic">🏦</span><div><b>15% OFF · HDFC</b><span style="font-size:.8rem;opacity:.9;">cards, up to ₹150</span></div></div>
+      <div class="offer-body">
+        <p>Pay with your HDFC Bank credit or debit card on weekends and get 15% instant discount.</p>
+        <span class="code">HDFC15</span>
+      </div>
+    </div>
+    <div class="offer-card">
+      <div class="offer-banner green"><span class="ob-ic">👶</span><div><b>First Movie FREE</b><span style="font-size:.8rem;opacity:.9;">for new users</span></div></div>
+      <div class="offer-body">
+        <p>New to CineBuzz? Your first-ever booking's convenience fee is on us — ₹0 platform fee.</p>
+        <span class="code">WELCOME0</span>
+      </div>
+    </div>
+    <div class="offer-card">
+      <div class="offer-banner purple"><span class="ob-ic">📱</span><div><b>₹75 OFF via UPI</b><span style="font-size:.8rem;opacity:.9;">daily 9 AM – 11 AM</span></div></div>
+      <div class="offer-body">
+        <p>Morning-show lovers rejoice — pay via any UPI app before 11 AM and get ₹75 cashback.</p>
+        <span class="code">EARLYBIRD</span>
+      </div>
+    </div>
+    <div class="offer-card">
+      <div class="offer-banner gold"><span class="ob-ic">🎟️</span><div><b>Gift Cards</b><span style="font-size:.8rem;opacity:.9;">₹500 – ₹5000</span></div></div>
+      <div class="offer-body">
+        <p>Gift movie magic to someone you love. Valid for tickets, food &amp; beverages at all partner cinemas.</p>
+        <a class="btn btn-dark btn-sm" href="offers.html">Buy a gift card</a>
+      </div>
+    </div>
+    <div class="offer-card">
+      <div class="offer-banner teal"><span class="ob-ic">🥤</span><div><b>Combo @ ₹199</b><span style="font-size:.8rem;opacity:.9;">medium popcorn + Coke</span></div></div>
+      <div class="offer-body">
+        <p>Add a medium salted popcorn and a soft drink to any booking for just ₹199.</p>
+        <span class="code">COMBO199</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="promo-banner" style="margin-top:36px;">
+    <span class="pb-ic">🎁</span>
+    <div>
+      <h3>Refer a friend, both get ₹100</h3>
+      <p>Share your referral link. Your friend gets ₹100 off their first booking — and so do you.</p>
+    </div>
+    <a class="btn btn-block" href="contact.html">Invite now</a>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div>
+      <a class="brand" href="index.html"><span class="logo-ic">🎬</span> CineBuzz</a>
+      <p style="margin-top:14px;">India's friendliest movie ticket booking &amp; cinema management platform.</p>
+      <div class="social-row"><a href="#">f</a><a href="#">𝕏</a><a href="#">◎</a><a href="#">▶</a></div>
+    </div>
+    <div><h4>Movies</h4><a href="movies.html">Now Showing</a><a href="movies.html">Coming Soon</a><a href="movies.html">Top Rated</a><a href="offers.html">Offers</a></div>
+    <div><h4>Company</h4><a href="about.html">About Us</a><a href="about.html">Careers</a><a href="contact.html">Contact Us</a><a href="about.html">Press</a></div>
+    <div><h4>Support</h4><a href="contact.html">Help Center</a><a href="contact.html">Payment Options</a><a href="contact.html">Terms &amp; Conditions</a><a href="contact.html">Privacy Policy</a></div>
+  </div>
+  <div class="container footer-bottom">
+    <span>© 2026 CineBuzz Entertainment Pvt. Ltd. All rights reserved.</span>
+    <span>Made with 🍿 in India · Front-end demo</span>
+  </div>
+</footer>
+
+</body>
+</html>

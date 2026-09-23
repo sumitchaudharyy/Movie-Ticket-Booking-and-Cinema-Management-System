@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Events &amp; Shows — CineBuzz</title>
+<meta name="description" content="Concerts, comedy shows, sports and plays near you.">
+<link rel="stylesheet" href="assets/css/style.css">
+<style>
+  .evt-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:6px;}
+  .evt-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);overflow:hidden;transition:.2s;}
+  .evt-card:hover{transform:translateY(-3px);box-shadow:var(--shadow);}
+  .evt-cover{height:150px;color:#fff;display:flex;align-items:flex-end;padding:16px;font-size:1.6rem;}
+  .evt-body{padding:16px;}
+  .evt-date{color:var(--brand);font-weight:800;font-size:.8rem;margin-bottom:4px;}
+  .evt-card h3{font-size:1.05rem;margin-bottom:6px;}
+  .evt-card p{color:var(--muted);font-size:.86rem;margin-bottom:12px;}
+  .evt-row{display:flex;justify-content:space-between;align-items:center;}
+  .evt-price{font-weight:800;font-size:.9rem;}
+  @media(max-width:900px){.evt-grid{grid-template-columns:1fr 1fr;}}
+  @media(max-width:620px){.evt-grid{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="index.html"><span class="logo-ic">🎬</span> CineBuzz</a>
+    <div class="search"><span class="ic">🔍</span><input type="text" placeholder="Search for movies, events, plays, sports and activities"></div>
+    <a class="loc" href="about.html"><span class="pin">📍</span><span><small>Location</small>New Delhi</span></a>
+    <nav class="nav-actions">
+      <a class="nav-link" href="movies.html"><span class="ic">🎞️</span>Movies</a>
+      <a class="nav-link" href="offers.html"><span class="ic">🎁</span>Offers</a>
+      <a class="nav-link active" href="events.html"><span class="ic">🎟️</span>Events</a>
+      <a class="nav-link" href="about.html"><span class="ic">🛈</span>About</a>
+      <a class="btn btn-ghost btn-sm signin-btn" href="index.html#signin">Sign in</a>
+    </nav>
+    <a class="menu-toggle" href="#mobile-nav">☰</a>
+  </div>
+</header>
+<nav class="mobile-nav" id="mobile-nav">
+  <a href="movies.html">🎞️ Movies <span class="ic">›</span></a>
+  <a href="offers.html">🎁 Offers <span class="ic">›</span></a>
+  <a href="events.html">🎟️ Events <span class="ic">›</span></a>
+  <a href="about.html">🛈 About <span class="ic">›</span></a>
+  <a href="contact.html">📞 Contact <span class="ic">›</span></a>
+  <a href="index.html#signin">👤 Sign in <span class="ic">›</span></a>
+</nav>
+
+<section class="page-hero">
+  <div class="container">
+    <div class="crumb">Home / Events</div>
+    <h1>Events &amp; Live Shows</h1>
+    <p>Concerts, stand-up comedy, sports and theatre — book live experiences near you.</p>
+  </div>
+</section>
+
+<section class="section container">
+  <div class="chip-row" style="padding-top:0;">
+    <button class="chip on">All</button>
+    <button class="chip">🎤 Concerts</button>
+    <button class="chip">😄 Comedy</button>
+    <button class="chip">🏏 Sports</button>
+    <button class="chip">🎭 Theatre</button>
+    <button class="chip">👨‍👩‍👧 Family</button>
+  </div>
+
+  <div class="evt-grid">
+    <div class="evt-card">
+      <div class="evt-cover" style="background:linear-gradient(120deg,#7c3aed,#c084fc);">🎤</div>
+      <div class="evt-body">
+        <div class="evt-date">SAT, 03 OCT · INDIRA GANDHI STADIUM</div>
+        <h3>Indie Nights Live</h3>
+        <p>Six indie bands, one unforgettable night under the stars.</p>
+        <div class="evt-row"><span class="evt-price">from ₹799</span><a class="btn btn-primary btn-sm" href="#" onclick="alert('Event booking (demo)');return false;">Book</a></div>
+      </div>
+    </div>
+    <div class="evt-card">
+      <div class="evt-cover" style="background:linear-gradient(120deg,#f84464,#fbbf24);">😄</div>
+      <div class="evt-body">
+        <div class="evt-date">FRI, 02 OCT · SIRI FORT AUDITORIUM</div>
+        <h3>Laugh Riot Stand-up</h3>
+        <p>A 90-minute comedy special with three headliners.</p>
+        <div class="evt-row"><span class="evt-price">from ₹499</span><a class="btn btn-primary btn-sm" href="#" onclick="alert('Event booking (demo)');return false;">Book</a></div>
+      </div>
+    </div>
+    <div class="evt-card">
+      <div class="evt-cover" style="background:linear-gradient(120deg,#0e9f6e,#2dd4bf);">🏏</div>
+      <div class="evt-body">
+        <div class="evt-date">SUN, 04 OCT · ARUN JAITLEY STADIUM</div>
+        <h3>Delhi Kings vs Mumbai Titans</h3>
+        <p>T20 league match — watch the city derby live from the stands.</p>
+        <div class="evt-row"><span class="evt-price">from ₹1,199</span><a class="btn btn-primary btn-sm" href="#" onclick="alert('Event booking (demo)');return false;">Book</a></div>
+      </div>
+    </div>
+    <div class="evt-card">
+      <div class="evt-cover" style="background:linear-gradient(120deg,#b45309,#fbbf24);">🎭</div>
+      <div class="evt-body">
+        <div class="evt-date">WED, 07 OCT · KAMANI AUDITORIUM</div>
+        <h3>The Mughal Court</h3>
+        <p>A grand period drama staged by the National Theatre Company.</p>
+        <div class="evt-row"><span class="evt-price">from ₹399</span><a class="btn btn-primary btn-sm" href="#" onclick="alert('Event booking (demo)');return false;">Book</a></div>
+      </div>
+    </div>
+    <div class="evt-card">
+      <div class="evt-cover" style="background:linear-gradient(120deg,#2563eb,#38bdf8);">👨‍👩‍👧</div>
+      <div class="evt-body">
+        <div class="evt-date">SUN, 11 OCT · THYAGARAJ STADIUM</div>
+        <h3>Magic Circus Family Day</h3>
+        <p>Acrobats, illusionists and a petting zoo for the whole family.</p>
+        <div class="evt-row"><span class="evt-price">from ₹299</span><a class="btn btn-primary btn-sm" href="#" onclick="alert('Event booking (demo)');return false;">Book</a></div>
+      </div>
+    </div>
+    <div class="evt-card">
+      <div class="evt-cover" style="background:linear-gradient(120deg,#0f766e,#2dd4bf);">🎤</div>
+      <div class="evt-body">
+        <div class="evt-date">SAT, 17 OCT · JN STADIUM</div>
+        <h3>Sufi &amp; Fusion Evening</h3>
+        <p>An open-air qawwali and fusion concert as the sun goes down.</p>
+        <div class="evt-row"><span class="evt-price">from ₹649</span><a class="btn btn-primary btn-sm" href="#" onclick="alert('Event booking (demo)');return false;">Book</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div>
+      <a class="brand" href="index.html"><span class="logo-ic">🎬</span> CineBuzz</a>
+      <p style="margin-top:14px;">India's friendliest movie ticket booking &amp; cinema management platform.</p>
+      <div class="social-row"><a href="#">f</a><a href="#">𝕏</a><a href="#">◎</a><a href="#">▶</a></div>
+    </div>
+    <div><h4>Movies</h4><a href="movies.html">Now Showing</a><a href="movies.html">Coming Soon</a><a href="movies.html">Top Rated</a><a href="offers.html">Offers</a></div>
+    <div><h4>Company</h4><a href="about.html">About Us</a><a href="about.html">Careers</a><a href="contact.html">Contact Us</a><a href="about.html">Press</a></div>
+    <div><h4>Support</h4><a href="contact.html">Help Center</a><a href="contact.html">Payment Options</a><a href="contact.html">Terms &amp; Conditions</a><a href="contact.html">Privacy Policy</a></div>
+  </div>
+  <div class="container footer-bottom">
+    <span>© 2026 CineBuzz Entertainment Pvt. Ltd. All rights reserved.</span>
+    <span>Made with 🍿 in India · Front-end demo</span>
+  </div>
+</footer>
+
+</body>
+</html>

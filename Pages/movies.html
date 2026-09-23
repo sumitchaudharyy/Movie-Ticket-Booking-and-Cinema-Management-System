@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Movies — CineBuzz</title>
+<meta name="description" content="Browse all movies running now and coming soon. Filter by language, genre and format.">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="index.html"><span class="logo-ic">🎬</span> CineBuzz</a>
+    <div class="search">
+      <span class="ic">🔍</span>
+      <input type="text" placeholder="Search for movies, events, plays, sports and activities">
+    </div>
+    <a class="loc" href="about.html"><span class="pin">📍</span><span><small>Location</small>New Delhi</span></a>
+    <nav class="nav-actions">
+      <a class="nav-link active" href="movies.html"><span class="ic">🎞️</span>Movies</a>
+      <a class="nav-link" href="offers.html"><span class="ic">🎁</span>Offers</a>
+      <a class="nav-link" href="events.html"><span class="ic">🎟️</span>Events</a>
+      <a class="nav-link" href="about.html"><span class="ic">🛈</span>About</a>
+      <a class="btn btn-ghost btn-sm signin-btn" href="index.html#signin">Sign in</a>
+    </nav>
+    <a class="menu-toggle" href="#mobile-nav">☰</a>
+  </div>
+</header>
+<nav class="mobile-nav" id="mobile-nav">
+  <a href="movies.html">🎞️ Movies <span class="ic">›</span></a>
+  <a href="offers.html">🎁 Offers <span class="ic">›</span></a>
+  <a href="events.html">🎟️ Events <span class="ic">›</span></a>
+  <a href="about.html">🛈 About <span class="ic">›</span></a>
+  <a href="contact.html">📞 Contact <span class="ic">›</span></a>
+  <a href="index.html#signin">👤 Sign in <span class="ic">›</span></a>
+</nav>
+
+<section class="page-hero">
+  <div class="container">
+    <div class="crumb">Home / Movies</div>
+    <h1>Movies</h1>
+    <p>Blockbusters, indie gems and everything in between — all running near New Delhi.</p>
+  </div>
+</section>
+
+<section class="container">
+  <div class="chip-row">
+    <span class="fb-label" style="display:flex;align-items:center;margin-right:4px;">Genre:</span>
+    <button class="chip on">All</button>
+    <button class="chip">Action</button>
+    <button class="chip">Comedy</button>
+    <button class="chip">Romance</button>
+    <button class="chip">Sci-Fi</button>
+    <button class="chip">Horror</button>
+    <button class="chip">Drama</button>
+    <button class="chip">Kids</button>
+  </div>
+</section>
+
+<section class="section container">
+  <div class="filter-bar">
+    <span class="fb-label">Filters</span>
+    <select>
+      <option>Language: All</option>
+      <option>Hindi</option>
+      <option>English</option>
+      <option>Tamil</option>
+      <option>Telugu</option>
+    </select>
+    <select>
+      <option>Format: All</option>
+      <option>2D</option>
+      <option>3D</option>
+      <option>IMAX</option>
+      <option>4DX</option>
+    </select>
+    <select>
+      <option>Sort: Popularity</option>
+      <option>Rating: High to Low</option>
+      <option>Newest First</option>
+      <option>Release Date</option>
+    </select>
+    <input class="grow" type="text" placeholder="Search movie title…">
+  </div>
+
+  <div class="movie-grid">
+
+    <div class="movie-card">
+      <div class="poster" onclick="location.href='booking.html'">
+        <img src="assets/posters/the-last-horizon.jpg" alt="The Last Horizon">
+        <span class="post-flag">NEW</span>
+        <span class="post-heart">🤍</span>
+        <div class="post-hover"><p>The Last Horizon</p><a class="btn btn-primary btn-sm" href="booking.html">Book Now</a></div>
+      </div>
+      <h3>The Last Horizon</h3>
+      <div class="meta">Sci-Fi · U/A · Hindi, English</div>
+      <div class="rating"><span class="star">★</span> 8.9/10 <span style="color:#9aa">· 24.5K</span></div>
+    </div>
+
+    <div class="movie-card">
+      <div class="poster" onclick="location.href='booking.html'">
+        <img src="assets/posters/neon-rains.jpg" alt="Neon Rains">
+        <span class="post-heart">🤍</span>
+        <div class="post-hover"><p>Neon Rains</p><a class="btn btn-primary btn-sm" href="booking.html">Book Now</a></div>
+      </div>
+      <h3>Neon Rains</h3>
+      <div class="meta">Action · A · English</div>
+      <div class="rating"><span class="star">★</span> 8.1/10 <span style="color:#9aa">· 12.8K</span></div>
+    </div>
+
+    <div class="movie-card">
+      <div class="poster" onclick="location.href='booking.html'">
+        <img src="assets/posters/dil-ka-safar.jpg" alt="Dil Ka Safar">
+        <span class="post-heart">🤍</span>
+        <div class="post-hover"><p>Dil Ka Safar</p><a class="btn btn-primary btn-sm" href="booking.html">Book Now</a></div>
+      </div>
+      <h3>Dil Ka Safar</h3>
+      <div class="meta">Romance · U · Hindi</div>
+      <div class="rating"><span class="star">★</span> 8.6/10 <span style="color:#9aa">· 18.2K</span></div>
+    </div>
+
+    <div class="movie-card">
+      <div class="poster" onclick="location.href='booking.html'">
+        <img src="assets/posters/the-silent-crown.jpg" alt="The Silent Crown">
+        <span class="post-flag">HIT</span>
+        <span class="post-heart">🤍</span>
+        <div class="post-hover"><p>The Silent Crown</p><a class="btn btn-primary btn-sm" href="booking.html">Book Now</a></div>
+      </div>
+      <h3>The Silent Crown</h3>
+      <div class="meta">Historical · U/A · Hindi</div>
+      <div class="rating"><span class="star">★</span> 9.0/10 <span style="color:#9aa">· 31.1K</span></div>
+    </div>
+
+    <div class="movie-card">
+      <div class="poster" onclick="location.href='booking.html'">
+        <img src="assets/posters/chai-pe-charcha.jpg" alt="Chai Pe Charcha">
+        <span class="post-heart">🤍</span>
+        <div class="post-hover"><p>Chai Pe Charcha</p><a class="btn btn-primary btn-sm" href="booking.html">Book Now</a></div>
+      </div>
+      <h3>Chai Pe Charcha</h3>
+      <div class="meta">Comedy · U · Hindi</div>
+      <div class="rating"><span class="star">★</span> 7.8/10 <span style="color:#9aa">· 9.4K</span></div>
+    </div>
+
+    <div class="movie-card">
+      <div class="poster" onclick="location.href='booking.html'">
+        <img src="assets/posters/asteroid-run.jpg" alt="Asteroid Run">
+        <span class="post-heart">🤍</span>
+        <div class="post-hover"><p>Asteroid Run</p><a class="btn btn-primary btn-sm" href="booking.html">Book Now</a></div>
+      </div>
+      <h3>Asteroid Run</h3>
+      <div class="meta">Adventure · U/A · English</div>
+      <div class="rating"><span class="star">★</span> 7.9/10 <span style="color:#9aa">· 15.7K</span></div>
+    </div>
+
+    <div class="movie-card">
+      <div class="poster" onclick="location.href='booking.html'">
+        <img src="assets/posters/maya-lost-city.jpg" alt="Maya: The Lost City">
+        <span class="post-heart">🤍</span>
+        <div class="post-hover"><p>Maya: The Lost City</p><a class="btn btn-primary btn-sm" href="booking.html">Book Now</a></div>
+      </div>
+      <h3>Maya: The Lost City</h3>
+      <div class="meta">Fantasy · U/A · English</div>
+      <div class="rating"><span class="star">★</span> 7.5/10 <span style="color:#9aa">· 6.3K</span></div>
+    </div>
+
+    <div class="movie-card">
+      <div class="poster" onclick="location.href='booking.html'">
+        <img src="assets/posters/phantom-beats.jpg" alt="Phantom Beats">
+        <span class="post-heart">🤍</span>
+        <div class="post-hover"><p>Phantom Beats</p><a class="btn btn-primary btn-sm" href="booking.html">Book Now</a></div>
+      </div>
+      <h3>Phantom Beats</h3>
+      <div class="meta">Musical · U · Tamil</div>
+      <div class="rating"><span class="star">★</span> 8.3/10 <span style="color:#9aa">· 11.9K</span></div>
+    </div>
+
+    <div class="movie-card">
+      <div class="poster" onclick="location.href='booking.html'">
+        <img src="assets/posters/the-last-horizon.jpg" alt="The Last Horizon (IMAX)">
+        <span class="post-flag">IMAX</span>
+        <span class="post-heart">🤍</span>
+        <div class="post-hover"><p>The Last Horizon — IMAX</p><a class="btn btn-primary btn-sm" href="booking.html">Book Now</a></div>
+      </div>
+      <h3>The Last Horizon — IMAX</h3>
+      <div class="meta">Sci-Fi · U/A · IMAX 3D</div>
+      <div class="rating"><span class="star">★</span> 9.1/10 <span style="color:#9aa">· 8.4K</span></div>
+    </div>
+
+    <div class="movie-card">
+      <div class="poster" onclick="location.href='booking.html'">
+        <img src="assets/posters/neon-rains.jpg" alt="Neon Rains (4DX)">
+        <span class="post-flag">4DX</span>
+        <span class="post-heart">🤍</span>
+        <div class="post-hover"><p>Neon Rains — 4DX</p><a class="btn btn-primary btn-sm" href="booking.html">Book Now</a></div>
+      </div>
+      <h3>Neon Rains — 4DX</h3>
+      <div class="meta">Action · A · 4DX</div>
+      <div class="rating"><span class="star">★</span> 8.4/10 <span style="color:#9aa">· 3.7K</span></div>
+    </div>
+
+    <div class="movie-card">
+      <div class="poster" onclick="location.href='booking.html'">
+        <img src="assets/posters/the-silent-crown.jpg" alt="The Silent Crown (2D)">
+        <span class="post-heart">🤍</span>
+        <div class="post-hover"><p>The Silent Crown</p><a class="btn btn-primary btn-sm" href="booking.html">Book Now</a></div>
+      </div>
+      <h3>The Silent Crown</h3>
+      <div class="meta">Historical · U/A · Hindi</div>
+      <div class="rating"><span class="star">★</span> 9.0/10 <span style="color:#9aa">· 31.1K</span></div>
+    </div>
+
+    <div class="movie-card">
+      <div class="poster" onclick="location.href='booking.html'">
+        <img src="assets/posters/dil-ka-safar.jpg" alt="Dil Ka Safar (Hindi)">
+        <span class="post-heart">🤍</span>
+        <div class="post-hover"><p>Dil Ka Safar</p><a class="btn btn-primary btn-sm" href="booking.html">Book Now</a></div>
+      </div>
+      <h3>Dil Ka Safar</h3>
+      <div class="meta">Romance · U · Hindi</div>
+      <div class="rating"><span class="star">★</span> 8.6/10 <span style="color:#9aa">· 18.2K</span></div>
+    </div>
+
+  </div>
+
+  <div class="pagination">
+    <a class="on" href="#">1</a>
+    <a href="#">2</a>
+    <a href="#">3</a>
+    <a href="#">Next ›</a>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div>
+      <a class="brand" href="index.html"><span class="logo-ic">🎬</span> CineBuzz</a>
+      <p style="margin-top:14px;">India's friendliest movie ticket booking &amp; cinema management platform.</p>
+      <div class="social-row">
+        <a href="#">f</a><a href="#">𝕏</a><a href="#">◎</a><a href="#">▶</a>
+      </div>
+    </div>
+    <div>
+      <h4>Movies</h4>
+      <a href="movies.html">Now Showing</a><a href="movies.html">Coming Soon</a><a href="movies.html">Top Rated</a><a href="offers.html">Offers</a>
+    </div>
+    <div>
+      <h4>Company</h4>
+      <a href="about.html">About Us</a><a href="about.html">Careers</a><a href="contact.html">Contact Us</a><a href="about.html">Press</a>
+    </div>
+    <div>
+      <h4>Support</h4>
+      <a href="contact.html">Help Center</a><a href="contact.html">Payment Options</a><a href="contact.html">Terms &amp; Conditions</a><a href="contact.html">Privacy Policy</a>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <span>© 2026 CineBuzz Entertainment Pvt. Ltd. All rights reserved.</span>
+    <span>Made with 🍿 in India · Front-end demo</span>
+  </div>
+</footer>
+
+</body>
+</html>

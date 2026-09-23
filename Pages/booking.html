@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Book Tickets — The Last Horizon | CineBuzz</title>
+<meta name="description" content="Choose your showtime and pick your seats.">
+<link rel="stylesheet" href="assets/css/style.css">
+<style>
+  /* page-specific tuning */
+  .flow-steps{display:flex;gap:8px;align-items:center;flex-wrap:wrap;font-size:.82rem;font-weight:700;color:var(--muted);padding:18px 0 4px;}
+  .flow-steps .step{display:inline-flex;gap:8px;align-items:center;}
+  .flow-steps .step.done{color:var(--green);}
+  .flow-steps .step.now{color:var(--brand);}
+  .flow-steps .arrow{opacity:.5;}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="index.html"><span class="logo-ic">🎬</span> CineBuzz</a>
+    <div class="search"><span class="ic">🔍</span><input type="text" placeholder="Search for movies, events, plays, sports and activities"></div>
+    <a class="loc" href="about.html"><span class="pin">📍</span><span><small>Location</small>New Delhi</span></a>
+    <nav class="nav-actions">
+      <a class="nav-link" href="movies.html"><span class="ic">🎞️</span>Movies</a>
+      <a class="nav-link" href="offers.html"><span class="ic">🎁</span>Offers</a>
+      <a class="nav-link" href="events.html"><span class="ic">🎟️</span>Events</a>
+      <a class="nav-link" href="about.html"><span class="ic">🛈</span>About</a>
+      <a class="btn btn-ghost btn-sm signin-btn" href="index.html#signin">Sign in</a>
+    </nav>
+    <a class="menu-toggle" href="#mobile-nav">☰</a>
+  </div>
+</header>
+<nav class="mobile-nav" id="mobile-nav">
+  <a href="movies.html">🎞️ Movies <span class="ic">›</span></a>
+  <a href="offers.html">🎁 Offers <span class="ic">›</span></a>
+  <a href="events.html">🎟️ Events <span class="ic">›</span></a>
+  <a href="about.html">🛈 About <span class="ic">›</span></a>
+  <a href="contact.html">📞 Contact <span class="ic">›</span></a>
+  <a href="index.html#signin">👤 Sign in <span class="ic">›</span></a>
+</nav>
+
+<!-- ============ MOVIE HERO ============ -->
+<section class="movie-hero">
+  <img class="mh-img" src="assets/posters/the-last-horizon.jpg" alt="The Last Horizon backdrop">
+  <div class="mh-content">
+    <div class="mh-poster"><img src="assets/posters/the-last-horizon.jpg" alt="The Last Horizon poster"></div>
+    <div class="mh-info">
+      <h1>The Last Horizon</h1>
+      <div class="mh-meta">
+        <span class="rate">★ 8.9/10</span>
+        <span>24.5K votes</span>
+        <span class="badge">2D · IMAX · 4DX</span>
+        <span class="badge">U/A</span>
+        <span>2h 28m</span>
+        <span>Hindi · English</span>
+        <span>Released 18 Sep 2026</span>
+      </div>
+      <div class="mh-tags">
+        <span class="tag">Sci-Fi</span><span class="tag">Adventure</span><span class="tag">Thriller</span>
+      </div>
+      <div class="mh-actions">
+        <a class="btn btn-primary" href="#showtimes">Book tickets</a>
+        <button class="btn btn-ghost" type="button" onclick="alert('Added to your wishlist! ❤️ (demo)')">🤍 Watchlist</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STEP INDICATOR ============ -->
+<div class="container">
+  <div class="flow-steps">
+    <span class="step done">✓ Select showtime</span><span class="arrow">›</span>
+    <span class="step now">① Choose seats</span><span class="arrow">›</span>
+    <span class="step">② Payment</span><span class="arrow">›</span>
+    <span class="step">③ Confirmation</span>
+  </div>
+</div>
+
+<!-- ============ DATE PICKER ============ -->
+<section class="section container">
+  <div class="section-head"><h2>Select a date</h2></div>
+  <div class="date-strip">
+    <a class="date-pill" href="#"><span class="dow">Mon</span><span class="day">21</span><span class="mon">Sep</span></a>
+    <a class="date-pill on" href="#"><span class="dow">Tue</span><span class="day">22</span><span class="mon">Sep</span></a>
+    <a class="date-pill" href="#"><span class="dow">Wed</span><span class="day">23</span><span class="mon">Sep</span></a>
+    <a class="date-pill" href="#"><span class="dow">Thu</span><span class="day">24</span><span class="mon">Sep</span></a>
+    <a class="date-pill" href="#"><span class="dow">Fri</span><span class="day">25</span><span class="mon">Sep</span></a>
+    <a class="date-pill" href="#"><span class="dow">Sat</span><span class="day">26</span><span class="mon">Sep</span></a>
+    <a class="date-pill" href="#"><span class="dow">Sun</span><span class="day">27</span><span class="mon">Sep</span></a>
+  </div>
+</section>
+
+<!-- ============ SHOWTIMES ============ -->
+<section class="section container" id="showtimes">
+  <div class="section-head"><h2>Showtimes near New Delhi</h2></div>
+  <div class="venue-filters">
+    <button class="chip on">All</button>
+    <button class="chip">2D</button>
+    <button class="chip">3D</button>
+    <button class="chip">IMAX</button>
+    <button class="chip">4DX</button>
+  </div>
+
+  <div class="venue-card banner">
+    <div style="display:flex;align-items:center;gap:12px;">
+      <span style="font-size:22px;">💜</span>
+      <span class="v-name">CineBuzz Super Cinemas — Select Citywalk</span>
+      <span class="v-love">CineBuzz Favourite</span>
+    </div>
+    <div class="showtimes">
+      <a class="showtime" href="#seats">09:15 AM</a>
+      <a class="showtime" href="#seats">12:20 PM <span class="muted"> 4DX</span></a>
+      <a class="showtime" href="#seats">03:45 PM</a>
+      <a class="showtime" href="#seats">06:10 PM <span class="muted"> IMAX</span></a>
+      <a class="showtime" href="#seats">09:30 PM</a>
+    </div>
+  </div>
+
+  <div class="venue-card">
+    <div>
+      <div class="v-name">PVR Ambience Mall, Gurugram</div>
+      <div class="v-sub">₹180 – ₹420 · Recliners available</div>
+    </div>
+    <div class="showtimes">
+      <a class="showtime" href="#seats">10:00 AM</a>
+      <a class="showtime" href="#seats">01:40 PM</a>
+      <a class="showtime" href="#seats">05:20 PM <span class="muted"> 3D</span></a>
+      <a class="showtime" href="#seats">08:50 PM</a>
+    </div>
+  </div>
+
+  <div class="venue-card">
+    <div>
+      <div class="v-name">INOX Nehru Place</div>
+      <div class="v-sub">₹150 – ₹350 · Club Lounge seats</div>
+    </div>
+    <div class="showtimes">
+      <a class="showtime" href="#seats">11:15 AM</a>
+      <a class="showtime" href="#seats">02:30 PM</a>
+      <a class="showtime" href="#seats">06:45 PM</a>
+    </div>
+  </div>
+
+  <div class="venue-card">
+    <div>
+      <div class="v-name">Miraj Cinemas — Connaught Place</div>
+      <div class="v-sub">₹140 – ₹300 · Free parking</div>
+    </div>
+    <div class="showtimes">
+      <a class="showtime" href="#seats">09:45 AM</a>
+      <a class="showtime" href="#seats">01:20 PM</a>
+      <a class="showtime" href="#seats">04:55 PM</a>
+      <a class="showtime" href="#seats">08:15 PM</a>
+      <a class="showtime" href="#seats">11:10 PM</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SEAT SELECTION ============ -->
+<section class="section container" id="seats">
+  <div class="section-head">
+    <h2>Choose your seats</h2>
+    <span class="hint" style="padding:0;">CineBuzz Super Cinemas · IMAX · 06:10 PM · Tue, 22 Sep</span>
+  </div>
+
+  <div class="book-panel">
+    <div class="seat-legend">
+      <span><span class="s s-empty"></span> Available</span>
+      <span><span class="s s-taken"></span> Booked</span>
+      <span><span class="s s-selected"></span> Your selection</span>
+      <span><span class="s s-vip"></span> Recliner (₹420)</span>
+      <span><span class="s s-empty"></span> Silver (₹280)</span>
+      <span><span class="s s-empty"></span> Balcony (₹320)</span>
+    </div>
+
+    <div class="screen">
+      <div class="scr"></div>
+      <small>Screen this way</small>
+    </div>
+
+    <form class="seat-map" onsubmit="if(document.querySelectorAll('.seat:checked').length===0){alert('Please select at least one seat 🙂');return false;}alert('Seats locked! Redirecting to payment…');location.href='payment.html';return false;">
+
+      <div class="row"><span class="row-label">H</span><span class="seat-group">
+        <input type="checkbox" class="seat vip" id="H1" aria-label="H1"><label for="H1" class="seat vip"></label>
+        <input type="checkbox" class="seat vip" id="H2" aria-label="H2"><label for="H2" class="seat vip"></label>
+        <input type="checkbox" class="seat vip" id="H3" aria-label="H3"><label for="H3" class="seat vip"></label>
+        <input type="checkbox" class="seat vip taken" id="H4" disabled aria-label="H4"><label for="H4" class="seat vip taken"></label>
+        <input type="checkbox" class="seat vip" id="H5" aria-label="H5"><label for="H5" class="seat vip"></label>
+        <span class="aisle"></span>
+        <input type="checkbox" class="seat vip" id="H6" aria-label="H6"><label for="H6" class="seat vip"></label>
+        <input type="checkbox" class="seat vip taken" id="H7" disabled aria-label="H7"><label for="H7" class="seat vip taken"></label>
+        <input type="checkbox" class="seat vip" id="H8" aria-label="H8"><label for="H8" class="seat vip"></label>
+        <input type="checkbox" class="seat vip" id="H9" aria-label="H9"><label for="H9" class="seat vip"></label>
+        <input type="checkbox" class="seat vip" id="H10" aria-label="H10"><label for="H10" class="seat vip"></label>
+      </span></div>
+
+      <div class="row"><span class="row-label">G</span><span class="seat-group">
+        <input type="checkbox" class="seat" id="G1"><label for="G1" class="seat"></label>
+        <input type="checkbox" class="seat" id="G2"><label for="G2" class="seat"></label>
+        <input type="checkbox" class="seat taken" id="G3" disabled><label for="G3" class="seat taken"></label>
+        <input type="checkbox" class="seat" id="G4"><label for="G4" class="seat"></label>
+        <input type="checkbox" class="seat" id="G5"><label for="G5" class="seat"></label>
+        <span class="aisle"></span>
+        <input type="checkbox" class="seat" id="G6"><label for="G6" class="seat"></label>
+        <input type="checkbox" class="seat taken" id="G7" disabled><label for="G7" class="seat taken"></label>
+        <input type="checkbox" class="seat" id="G8"><label for="G8" class="seat"></label>
+        <input type="checkbox" class="seat" id="G9"><label for="G9" class="seat"></label>
+        <input type="checkbox" class="seat" id="G10"><label for="G10" class="seat"></label>
+      </span></div>
+
+      <div class="row"><span class="row-label">F</span><span class="seat-group">
+        <input type="checkbox" class="seat" id="F1"><label for="F1" class="seat"></label>
+        <input type="checkbox" class="seat" id="F2"><label for="F2" class="seat"></label>
+        <input type="checkbox" class="seat" id="F3"><label for="F3" class="seat"></label>
+        <input type="checkbox" class="seat" id="F4"><label for="F4" class="seat"></label>
+        <input type="checkbox" class="seat" id="F5"><label for="F5" class="seat"></label>
+        <span class="aisle"></span>
+        <input type="checkbox" class="seat" id="F6"><label for="F6" class="seat"></label>
+        <input type="checkbox" class="seat taken" id="F7" disabled><label for="F7" class="seat taken"></label>
+        <input type="checkbox" class="seat" id="F8"><label for="F8" class="seat"></label>
+        <input type="checkbox" class="seat" id="F9"><label for="F9" class="seat"></label>
+        <input type="checkbox" class="seat" id="F10"><label for="F10" class="seat"></label>
+      </span></div>
+
+      <div class="row"><span class="row-label">E</span><span class="seat-group">
+        <input type="checkbox" class="seat" id="E1"><label for="E1" class="seat"></label>
+        <input type="checkbox" class="seat taken" id="E2" disabled><label for="E2" class="seat taken"></label>
+        <input type="checkbox" class="seat" id="E3"><label for="E3" class="seat"></label>
+        <input type="checkbox" class="seat" id="E4"><label for="E4" class="seat"></label>
+        <input type="checkbox" class="seat" id="E5"><label for="E5" class="seat"></label>
+        <span class="aisle"></span>
+        <input type="checkbox" class="seat" id="E6"><label for="E6" class="seat"></label>
+        <input type="checkbox" class="seat" id="E7"><label for="E7" class="seat"></label>
+        <input type="checkbox" class="seat" id="E8"><label for="E8" class="seat"></label>
+        <input type="checkbox" class="seat" id="E9"><label for="E9" class="seat"></label>
+        <input type="checkbox" class="seat" id="E10"><label for="E10" class="seat"></label>
+      </span></div>
+
+      <div class="row"><span class="row-label">D</span><span class="seat-group">
+        <input type="checkbox" class="seat" id="D1"><label for="D1" class="seat"></label>
+        <input type="checkbox" class="seat" id="D2"><label for="D2" class="seat"></label>
+        <input type="checkbox" class="seat" id="D3"><label for="D3" class="seat"></label>
+        <input type="checkbox" class="seat" id="D4"><label for="D4" class="seat"></label>
+        <input type="checkbox" class="seat" id="D5"><label for="D5" class="seat"></label>
+        <span class="aisle"></span>
+        <input type="checkbox" class="seat" id="D6"><label for="D6" class="seat"></label>
+        <input type="checkbox" class="seat" id="D7"><label for="D7" class="seat"></label>
+        <input type="checkbox" class="seat taken" id="D8" disabled><label for="D8" class="seat taken"></label>
+        <input type="checkbox" class="seat" id="D9"><label for="D9" class="seat"></label>
+        <input type="checkbox" class="seat" id="D10"><label for="D10" class="seat"></label>
+      </span></div>
+
+      <div class="row"><span class="row-label">C</span><span class="seat-group">
+        <input type="checkbox" class="seat" id="C1"><label for="C1" class="seat"></label>
+        <input type="checkbox" class="seat" id="C2"><label for="C2" class="seat"></label>
+        <input type="checkbox" class="seat" id="C3"><label for="C3" class="seat"></label>
+        <input type="checkbox" class="seat" id="C4"><label for="C4" class="seat"></label>
+        <input type="checkbox" class="seat" id="C5"><label for="C5" class="seat"></label>
+        <span class="aisle"></span>
+        <input type="checkbox" class="seat" id="C6"><label for="C6" class="seat"></label>
+        <input type="checkbox" class="seat" id="C7"><label for="C7" class="seat"></label>
+        <input type="checkbox" class="seat taken" id="C8" disabled><label for="C8" class="seat taken"></label>
+        <input type="checkbox" class="seat" id="C9"><label for="C9" class="seat"></label>
+        <input type="checkbox" class="seat" id="C10"><label for="C10" class="seat"></label>
+      </span></div>
+
+      <div class="row"><span class="row-label">B</span><span class="seat-group">
+        <input type="checkbox" class="seat" id="B1"><label for="B1" class="seat"></label>
+        <input type="checkbox" class="seat taken" id="B2" disabled><label for="B2" class="seat taken"></label>
+        <input type="checkbox" class="seat" id="B3"><label for="B3" class="seat"></label>
+        <input type="checkbox" class="seat" id="B4"><label for="B4" class="seat"></label>
+        <input type="checkbox" class="seat" id="B5"><label for="B5" class="seat"></label>
+        <span class="aisle"></span>
+        <input type="checkbox" class="seat" id="B6"><label for="B6" class="seat"></label>
+        <input type="checkbox" class="seat" id="B7"><label for="B7" class="seat"></label>
+        <input type="checkbox" class="seat" id="B8"><label for="B8" class="seat"></label>
+        <input type="checkbox" class="seat" id="B9"><label for="B9" class="seat"></label>
+        <input type="checkbox" class="seat" id="B10"><label for="B10" class="seat"></label>
+      </span></div>
+
+      <div class="row"><span class="row-label">A</span><span class="seat-group">
+        <input type="checkbox" class="seat" id="A1"><label for="A1" class="seat"></label>
+        <input type="checkbox" class="seat" id="A2"><label for="A2" class="seat"></label>
+        <input type="checkbox" class="seat taken" id="A3" disabled><label for="A3" class="seat taken"></label>
+        <input type="checkbox" class="seat taken" id="A4" disabled><label for="A4" class="seat taken"></label>
+        <input type="checkbox" class="seat" id="A5"><label for="A5" class="seat"></label>
+        <span class="aisle"></span>
+        <input type="checkbox" class="seat" id="A6"><label for="A6" class="seat"></label>
+        <input type="checkbox" class="seat" id="A7"><label for="A7" class="seat"></label>
+        <input type="checkbox" class="seat" id="A8"><label for="A8" class="seat"></label>
+        <input type="checkbox" class="seat" id="A9"><label for="A9" class="seat"></label>
+        <input type="checkbox" class="seat" id="A10"><label for="A10" class="seat"></label>
+      </span></div>
+
+      <div class="booking-summary">
+        <div class="bs-item">Tickets<b>2 Seats</b></div>
+        <div class="bs-item">Show<b>IMAX · 06:10 PM</b></div>
+        <div class="bs-item">Date<b>Tue, 22 Sep</b></div>
+        <div class="total">Total to pay <b>₹840</b></div>
+        <button class="btn btn-primary" type="submit">Proceed to pay →</button>
+      </div>
+    </form>
+  </div>
+</section>
+
+<!-- ============ CONTACT DETAILS FORM ============ -->
+<section class="section container">
+  <div class="book-panel">
+    <h2>Who's watching?</h2>
+    <form class="form-grid" onsubmit="alert('Details saved (demo). Complete seat selection above to pay.');return false;">
+      <div class="field"><label>Full name</label><input type="text" placeholder="e.g. Aarav Sharma" required></div>
+      <div class="field"><label>Mobile number</label><input type="tel" placeholder="+91 98765 43210" required></div>
+      <div class="field"><label>Email address</label><input type="email" placeholder="you@example.com" required></div>
+      <div class="field"><label>Number of tickets</label>
+        <select><option>2</option><option>1</option><option>3</option><option>4</option><option>5</option></select>
+      </div>
+      <div class="field" style="grid-column:1/-1;">
+        <label>Any special requests (optional)</label>
+        <input type="text" placeholder="e.g. wheelchair-accessible seating">
+      </div>
+    </form>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div>
+      <a class="brand" href="index.html"><span class="logo-ic">🎬</span> CineBuzz</a>
+      <p style="margin-top:14px;">India's friendliest movie ticket booking &amp; cinema management platform.</p>
+      <div class="social-row"><a href="#">f</a><a href="#">𝕏</a><a href="#">◎</a><a href="#">▶</a></div>
+    </div>
+    <div><h4>Movies</h4><a href="movies.html">Now Showing</a><a href="movies.html">Coming Soon</a><a href="movies.html">Top Rated</a><a href="offers.html">Offers</a></div>
+    <div><h4>Company</h4><a href="about.html">About Us</a><a href="about.html">Careers</a><a href="contact.html">Contact Us</a><a href="about.html">Press</a></div>
+    <div><h4>Support</h4><a href="contact.html">Help Center</a><a href="contact.html">Payment Options</a><a href="contact.html">Terms &amp; Conditions</a><a href="contact.html">Privacy Policy</a></div>
+  </div>
+  <div class="container footer-bottom">
+    <span>© 2026 CineBuzz Entertainment Pvt. Ltd. All rights reserved.</span>
+    <span>Made with 🍿 in India · Front-end demo</span>
+  </div>
+</footer>
+
+</body>
+</html>

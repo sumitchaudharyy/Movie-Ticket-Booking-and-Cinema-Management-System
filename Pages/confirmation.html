@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Booking Confirmed — CineBuzz</title>
+<meta name="description" content="Your CineBuzz booking is confirmed.">
+<link rel="stylesheet" href="assets/css/style.css">
+<style>
+  .success-head{text-align:center;padding:16px 0 0;}
+  .success-badge{width:86px;height:86px;border-radius:50%;background:var(--green-soft);display:grid;place-items:center;font-size:40px;margin:0 auto 16px;border:2px solid var(--green);}
+  .ticket{
+    background:var(--surface);border-radius:var(--radius-lg);border:1px solid var(--line);
+    box-shadow:var(--shadow);overflow:hidden;margin-top:28px;
+  }
+  .ticket-top{background:linear-gradient(120deg,#1f2533,#12151f);color:#fff;display:flex;gap:20px;align-items:center;padding:24px;}
+  .ticket-top .tp-poster{width:96px;border-radius:10px;overflow:hidden;aspect-ratio:2/3;flex-shrink:0;}
+  .ticket-top h2{font-size:1.3rem;}
+  .ticket-top .tt-meta{opacity:.85;font-size:.88rem;margin-top:6px;}
+  .ticket-body{display:flex;flex-wrap:wrap;gap:24px;padding:26px;align-items:center;}
+  .ticket-info{flex:1;min-width:240px;display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  .ti-item{font-size:.8rem;color:var(--muted);font-weight:600;}
+  .ti-item b{display:block;color:var(--ink);font-size:1rem;margin-top:2px;}
+  .ticket-divider{border-top:2px dashed var(--line);margin:0 26px;position:relative;}
+  .ticket-divider::before,.ticket-divider::after{content:"";position:absolute;top:-14px;width:28px;height:28px;background:var(--bg);border-radius:50%;}
+  .ticket-divider::before{left:-40px;}
+  .ticket-divider::after{right:-40px;}
+  .ticket-actions{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin:28px 0 8px;}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="index.html"><span class="logo-ic">🎬</span> CineBuzz</a>
+    <div class="search"><span class="ic">🔍</span><input type="text" placeholder="Search for movies, events, plays, sports and activities"></div>
+    <a class="loc" href="about.html"><span class="pin">📍</span><span><small>Location</small>New Delhi</span></a>
+    <nav class="nav-actions">
+      <a class="nav-link" href="movies.html"><span class="ic">🎞️</span>Movies</a>
+      <a class="nav-link" href="offers.html"><span class="ic">🎁</span>Offers</a>
+      <a class="nav-link" href="events.html"><span class="ic">🎟️</span>Events</a>
+      <a class="nav-link" href="about.html"><span class="ic">🛈</span>About</a>
+      <a class="btn btn-ghost btn-sm signin-btn" href="index.html#signin">Sign in</a>
+    </nav>
+    <a class="menu-toggle" href="#mobile-nav">☰</a>
+  </div>
+</header>
+<nav class="mobile-nav" id="mobile-nav">
+  <a href="movies.html">🎞️ Movies <span class="ic">›</span></a>
+  <a href="offers.html">🎁 Offers <span class="ic">›</span></a>
+  <a href="events.html">🎟️ Events <span class="ic">›</span></a>
+  <a href="about.html">🛈 About <span class="ic">›</span></a>
+  <a href="contact.html">📞 Contact <span class="ic">›</span></a>
+  <a href="index.html#signin">👤 Sign in <span class="ic">›</span></a>
+</nav>
+
+<section class="container">
+  <div class="success-head">
+    <div class="success-badge">✅</div>
+    <h1 style="font-size:1.9rem;letter-spacing:-.5px;">Booking Confirmed!</h1>
+    <p style="color:var(--muted);margin-top:6px;">Booking ID <b>CB-20260922-4831</b> · A confirmation has been sent to <b>aarav@example.com</b> &amp; SMS to <b>+91 98765 43210</b></p>
+  </div>
+
+  <div class="ticket">
+    <div class="ticket-top">
+      <div class="tp-poster"><img src="assets/posters/the-last-horizon.jpg" alt="The Last Horizon"></div>
+      <div>
+        <h2>The Last Horizon</h2>
+        <div class="tt-meta">IMAX · U/A · Hindi, English · 2h 28m</div>
+        <div class="tt-meta" style="margin-top:10px;"><span style="background:var(--brand);border-radius:6px;padding:2px 8px;font-weight:700;">E-TICKET · M-TICKET</span></div>
+      </div>
+    </div>
+
+    <div class="ticket-body">
+      <div class="ticket-info">
+        <div class="ti-item">Cinema<b>CineBuzz Super Cinemas</b></div>
+        <div class="ti-item">Screen<b>Audi 07 (IMAX)</b></div>
+        <div class="ti-item">Date<b>Tue, 22 Sep 2026</b></div>
+        <div class="ti-item">Time<b>06:10 PM</b></div>
+        <div class="ti-item">Seats<b>H1, H2 (Recliner)</b></div>
+        <div class="ti-item">Tickets<b>2 × Recliner</b></div>
+        <div class="ti-item">Paid<b>₹715 (TUESDAY50 applied)</b></div>
+        <div class="ti-item">Status<b style="color:var(--green);">CONFIRMED</b></div>
+      </div>
+      <div class="qr-box">
+        <svg width="104" height="104" viewBox="0 0 104 104" xmlns="http://www.w3.org/2000/svg">
+          <rect width="104" height="104" fill="#fff"/>
+          <g fill="#1f2533">
+            <rect x="6" y="6" width="26" height="26"/><rect x="12" y="12" width="14" height="14" fill="#fff"/><rect x="17" y="17" width="4" height="4"/>
+            <rect x="72" y="6" width="26" height="26"/><rect x="78" y="12" width="14" height="14" fill="#fff"/><rect x="83" y="17" width="4" height="4"/>
+            <rect x="6" y="72" width="26" height="26"/><rect x="12" y="78" width="14" height="14" fill="#fff"/><rect x="17" y="83" width="4" height="4"/>
+            <rect x="46" y="6" width="6" height="6"/><rect x="38" y="16" width="6" height="6"/><rect x="58" y="8" width="6" height="6"/>
+            <rect x="6" y="42" width="6" height="6"/><rect x="18" y="38" width="6" height="6"/><rect x="32" y="42" width="6" height="6"/>
+            <rect x="44" y="36" width="6" height="6"/><rect x="60" y="42" width="6" height="6"/><rect x="76" y="38" width="6" height="6"/>
+            <rect x="92" y="42" width="6" height="6"/><rect x="42" y="52" width="6" height="6"/><rect x="56" y="52" width="6" height="6"/>
+            <rect x="70" y="50" width="6" height="6"/><rect x="86" y="58" width="6" height="6"/><rect x="46" y="70" width="6" height="6"/>
+            <rect x="38" y="86" width="6" height="6"/><rect x="54" y="84" width="6" height="6"/><rect x="70" y="76" width="6" height="6"/>
+            <rect x="88" y="74" width="6" height="6"/><rect x="94" y="90" width="6" height="6"/><rect x="74" y="90" width="6" height="6"/>
+          </g>
+        </svg>
+        <small style="color:var(--muted);font-size:.7rem;margin-top:6px;">Scan at entry (demo)</small>
+      </div>
+    </div>
+
+    <div class="ticket-divider"></div>
+
+    <div class="ticket-actions">
+      <a class="btn btn-primary" href="movies.html">Book another movie</a>
+      <button class="btn btn-outline" onclick="alert('Ticket downloaded (demo) 🎟️')">⬇ Download ticket</button>
+      <a class="btn btn-dark" href="index.html">Back to home</a>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div>
+      <a class="brand" href="index.html"><span class="logo-ic">🎬</span> CineBuzz</a>
+      <p style="margin-top:14px;">India's friendliest movie ticket booking &amp; cinema management platform.</p>
+      <div class="social-row"><a href="#">f</a><a href="#">𝕏</a><a href="#">◎</a><a href="#">▶</a></div>
+    </div>
+    <div><h4>Movies</h4><a href="movies.html">Now Showing</a><a href="movies.html">Coming Soon</a><a href="movies.html">Top Rated</a><a href="offers.html">Offers</a></div>
+    <div><h4>Company</h4><a href="about.html">About Us</a><a href="about.html">Careers</a><a href="contact.html">Contact Us</a><a href="about.html">Press</a></div>
+    <div><h4>Support</h4><a href="contact.html">Help Center</a><a href="contact.html">Payment Options</a><a href="contact.html">Terms &amp; Conditions</a><a href="contact.html">Privacy Policy</a></div>
+  </div>
+  <div class="container footer-bottom">
+    <span>© 2026 CineBuzz Entertainment Pvt. Ltd. All rights reserved.</span>
+    <span>Made with 🍿 in India · Front-end demo</span>
+  </div>
+</footer>
+
+</body>
+</html>
