@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Payment — CineBuzz</title>
+<meta name="description" content="Secure checkout for your CineBuzz booking.">
+<link rel="stylesheet" href="assets/css/style.css">
+<style>
+  /* Live card preview (pure CSS) */
+  .cp-num[contenteditable], .cp-row [contenteditable]{outline:none;border-radius:4px;background:rgba(255,255,255,.08);padding:2px 6px;min-width:12px;display:inline-block;}
+  #num:empty::before{content:"•••• •••• •••• ••••";opacity:.7;}
+  #name:empty::before{content:"YOUR NAME";opacity:.7;}
+  #exp:empty::before{content:"MM/YY";opacity:.7;}
+  #cvv:empty::before{content:"CVV";opacity:.7;}
+  .pay-methods{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:22px;}
+  .pay-method{border:1px solid var(--line);border-radius:10px;padding:10px 14px;font-weight:700;font-size:.85rem;background:#fff;display:flex;align-items:center;gap:8px;cursor:pointer;}
+  .pay-method.on{border-color:var(--brand);color:var(--brand);background:var(--brand-soft);}
+  .secure-note{display:flex;align-items:center;gap:8px;color:var(--green);font-size:.8rem;font-weight:700;margin-top:12px;}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="index.html"><span class="logo-ic">🎬</span> CineBuzz</a>
+    <div class="search"><span class="ic">🔍</span><input type="text" placeholder="Search for movies, events, plays, sports and activities"></div>
+    <a class="loc" href="about.html"><span class="pin">📍</span><span><small>Location</small>New Delhi</span></a>
+    <nav class="nav-actions">
+      <a class="nav-link" href="movies.html"><span class="ic">🎞️</span>Movies</a>
+      <a class="nav-link" href="offers.html"><span class="ic">🎁</span>Offers</a>
+      <a class="nav-link" href="events.html"><span class="ic">🎟️</span>Events</a>
+      <a class="nav-link" href="about.html"><span class="ic">🛈</span>About</a>
+      <a class="btn btn-ghost btn-sm signin-btn" href="index.html#signin">Sign in</a>
+    </nav>
+    <a class="menu-toggle" href="#mobile-nav">☰</a>
+  </div>
+</header>
+<nav class="mobile-nav" id="mobile-nav">
+  <a href="movies.html">🎞️ Movies <span class="ic">›</span></a>
+  <a href="offers.html">🎁 Offers <span class="ic">›</span></a>
+  <a href="events.html">🎟️ Events <span class="ic">›</span></a>
+  <a href="about.html">🛈 About <span class="ic">›</span></a>
+  <a href="contact.html">📞 Contact <span class="ic">›</span></a>
+  <a href="index.html#signin">👤 Sign in <span class="ic">›</span></a>
+</nav>
+
+<section class="page-hero">
+  <div class="container">
+    <div class="crumb">Home / The Last Horizon / Seats / Payment</div>
+    <h1>Secure Payment</h1>
+    <p>Pay securely to confirm your seats. Time left to complete payment: <b>04:38</b></p>
+  </div>
+</section>
+
+<section class="section container">
+  <div class="pay-grid">
+
+    <!-- LEFT: payment form -->
+    <div class="card-form">
+      <h2 style="font-size:1.2rem;margin-bottom:14px;">💳 Pay with card</h2>
+
+      <div class="pay-methods">
+        <button class="pay-method on">💳 Card</button>
+        <button class="pay-method" onclick="alert('UPI payment (demo)')">🏦 UPI</button>
+        <button class="pay-method" onclick="alert('Net banking (demo)')">🏛️ Net Banking</button>
+        <button class="pay-method" onclick="alert('Wallet payment (demo)')">👛 Wallet</button>
+      </div>
+
+      <!-- live card preview driven by the inputs below -->
+      <div class="card-preview">
+        <span class="chip-ic">💳</span>
+        <span class="wireless">📶</span>
+        <span class="cp-num" id="num"></span>
+        <div class="cp-row">
+          <span>Cardholder<br><span id="name"></span></span>
+          <span>Expires<br><span id="exp"></span></span>
+          <span>CVV<br><span id="cvv"></span></span>
+        </div>
+      </div>
+
+      <form onsubmit="alert('Payment successful! 🎉 (demo — this would charge your card)');location.href='confirmation.html';return false;">
+        <div class="field" style="margin-bottom:14px;">
+          <label>Card number</label>
+          <input type="text" inputmode="numeric" maxlength="19" placeholder="1234 5678 9012 3456"
+                 oninput="document.getElementById('num').textContent=this.value;">
+        </div>
+        <div class="field" style="margin-bottom:14px;">
+          <label>Cardholder name</label>
+          <input type="text" placeholder="AARAV SHARMA" oninput="document.getElementById('name').textContent=this.value;">
+        </div>
+        <div class="card-row">
+          <div class="field" style="flex:1;"><label>Expiry</label>
+            <input type="text" maxlength="5" placeholder="MM/YY" oninput="document.getElementById('exp').textContent=this.value;">
+          </div>
+          <div class="field" style="flex:1;"><label>CVV</label>
+            <input type="password" maxlength="4" placeholder="•••" oninput="document.getElementById('cvv').textContent='•••';">
+          </div>
+        </div>
+        <div class="field" style="margin:16px 0 18px;">
+          <label>Promo code</label>
+          <input type="text" placeholder="TUESDAY50" value="TUESDAY50" oninput="document.getElementById('promo-line').style.display=(this.value.toLowerCase()==='tuesday50'||this.value.toLowerCase()==='saket25')?'flex':'none';">
+        </div>
+        <button class="btn btn-primary btn-block submit" type="submit" style="padding:14px;">Pay ₹715 securely →</button>
+        <div class="secure-note">🔒 256-bit SSL encrypted · PCI-DSS compliant gateway (demo)</div>
+      </form>
+    </div>
+
+    <!-- RIGHT: order summary -->
+    <aside class="order-box">
+      <h2 style="font-size:1.1rem;margin-bottom:14px;">Order summary</h2>
+      <div class="order-line"><span>The Last Horizon (IMAX)</span></div>
+      <div class="order-line"><span>CineBuzz Super Cinemas — Select Citywalk</span></div>
+      <div class="order-line"><span>Tue, 22 Sep · 06:10 PM</span></div>
+      <div class="order-line"><span>Seats</span><b>H1, H2 (Recliner)</b></div>
+      <div class="order-line"><span>Recliner × 2</span><b>₹840</b></div>
+      <div class="order-line"><span>Convenience fee</span><b>₹0 (Offer)</b></div>
+      <div class="order-line" id="promo-line" style="display:flex;color:var(--green);"><span>Promo TUESDAY50</span><b>−₹125</b></div>
+      <div class="order-bold"><span>Amount payable</span><span>₹715</span></div>
+      <button class="btn btn-outline btn-block" style="margin-top:16px;" onclick="alert('Cancelled. Your seats were released (demo).');location.href='booking.html';">Cancel booking</button>
+    </aside>
+
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div>
+      <a class="brand" href="index.html"><span class="logo-ic">🎬</span> CineBuzz</a>
+      <p style="margin-top:14px;">India's friendliest movie ticket booking &amp; cinema management platform.</p>
+      <div class="social-row"><a href="#">f</a><a href="#">𝕏</a><a href="#">◎</a><a href="#">▶</a></div>
+    </div>
+    <div><h4>Movies</h4><a href="movies.html">Now Showing</a><a href="movies.html">Coming Soon</a><a href="movies.html">Top Rated</a><a href="offers.html">Offers</a></div>
+    <div><h4>Company</h4><a href="about.html">About Us</a><a href="about.html">Careers</a><a href="contact.html">Contact Us</a><a href="about.html">Press</a></div>
+    <div><h4>Support</h4><a href="contact.html">Help Center</a><a href="contact.html">Payment Options</a><a href="contact.html">Terms &amp; Conditions</a><a href="contact.html">Privacy Policy</a></div>
+  </div>
+  <div class="container footer-bottom">
+    <span>© 2026 CineBuzz Entertainment Pvt. Ltd. All rights reserved.</span>
+    <span>Made with 🍿 in India · Front-end demo</span>
+  </div>
+</footer>
+
+</body>
+</html>
