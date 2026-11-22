@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Booking Confirmed — CineBuzz</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:"Segoe UI",Arial,sans-serif;background:#14101c;color:#f2eef8;line-height:1.5}
+
+/* ---------- NAVBAR ---------- */
+.navbar{
+    background:#14101c;
+    border-top:4px solid #ff4d6d;
+    border-bottom:1px solid #352e47;
+    height:88px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 13%;
+}
+.brand{color:#fff;text-decoration:none;font-size:24px;font-weight:bold}
+.nav-links{display:flex;gap:8px;list-style:none}
+.nav-links a{
+    display:block;
+    padding:14px 22px;
+    border-radius:30px;
+    text-decoration:none;
+    color:#a79fb8;
+    font-size:17px;
+    font-weight:600;
+    white-space:nowrap;
+}
+.nav-links a:hover{background:#1d1829;color:#fff}
+.nav-links a.active{background:#2b1a3d;color:#ff4d6d;font-weight:700}
+
+/* ---------- SUCCESS HEADER ---------- */
+.content{padding:50px 13% 60px}
+.success{text-align:center}
+.success-badge{
+    width:86px;height:86px;
+    margin:0 auto 18px;
+    border-radius:50%;
+    background:rgba(61,220,151,.15);
+    border:2px solid #3ddc97;
+    display:flex;align-items:center;justify-content:center;
+    font-size:40px;
+}
+h1{font-size:36px;margin-bottom:8px}
+.success p{color:#a79fb8;font-size:17px}
+.success b{color:#f2eef8}
+
+/* ---------- TICKET ---------- */
+.ticket{
+    max-width:820px;
+    margin:36px auto 0;
+    background:#1d1829;
+    border:1px solid #352e47;
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:0 20px 50px rgba(0,0,0,.4);
+}
+.ticket-top{
+    display:flex;
+    align-items:center;
+    gap:22px;
+    padding:24px;
+    background:linear-gradient(120deg,#2b1a3d,#14101c);
+}
+.ticket-top img{
+    width:96px;height:144px;
+    object-fit:cover;
+    border-radius:10px;
+    background:#262035;
+}
+.ticket-top h2{font-size:26px;margin-bottom:6px}
+.ticket-top p{color:#a79fb8;font-size:15px}
+.tag{
+    display:inline-block;
+    margin-top:12px;
+    background:#ff4d6d;
+    color:#fff;
+    padding:3px 10px;
+    border-radius:6px;
+    font-size:13px;
+    font-weight:bold;
+}
+
+.ticket-body{
+    display:flex;
+    flex-wrap:wrap;
+    align-items:center;
+    gap:24px;
+    padding:28px 26px;
+}
+.ticket-info{
+    flex:1;
+    min-width:260px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:18px;
+}
+.item{font-size:14px;font-weight:600;color:#a79fb8}
+.item b{display:block;margin-top:2px;font-size:17px;color:#f2eef8}
+.item .ok{color:#3ddc97}
+
+.qr{text-align:center}
+.qr svg{border-radius:10px}
+.qr small{display:block;margin-top:6px;font-size:12px;color:#a79fb8}
+
+.divider{
+    position:relative;
+    margin:0 26px;
+    border-top:2px dashed #352e47;
+}
+.divider::before,.divider::after{
+    content:"";
+    position:absolute;
+    top:-14px;
+    width:28px;height:28px;
+    border-radius:50%;
+    background:#14101c;
+}
+.divider::before{left:-40px}
+.divider::after{right:-40px}
+
+.ticket-actions{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:12px;
+    padding:28px 26px;
+}
+
+/* ---------- BUTTONS ---------- */
+.btn{
+    display:inline-block;
+    padding:14px 28px;
+    border:1.5px solid transparent;
+    border-radius:12px;
+    font-family:inherit;
+    font-size:16px;
+    font-weight:bold;
+    text-decoration:none;
+    color:#fff;
+    cursor:pointer;
+}
+.btn.primary{background:linear-gradient(135deg,#ff4d6d,#ff7a59)}
+.btn.outline{background:none;border-color:#ff4d6d;color:#ff4d6d}
+.btn.dark{background:#262035;border-color:#352e47}
+.btn:hover{opacity:.85}
+
+/* ---------- FOOTER ---------- */
+.footer{background:#0f0b16;color:#a79fb8;padding:60px 13% 0}
+.footer-grid{
+    display:grid;
+    grid-template-columns:2fr 1fr 1fr 1fr;
+    gap:40px;
+}
+.footer-logo{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    color:#fff;
+    font-size:26px;
+    font-weight:bold;
+    margin-bottom:18px;
+}
+.footer p{font-size:17px;line-height:1.6}
+.footer h4{color:#fff;font-size:17px;margin-bottom:18px}
+.footer a{
+    display:block;
+    color:#a79fb8;
+    text-decoration:none;
+    font-size:17px;
+    margin-bottom:12px;
+}
+.footer a:hover{color:#fff}
+.social{display:flex;gap:12px;margin-top:22px}
+.social a{
+    width:42px;height:42px;
+    margin:0;
+    border:1px solid #352e47;
+    border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    font-size:15px;
+}
+.footer-bottom{
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:8px;
+    margin-top:40px;
+    padding:22px 0;
+    border-top:1px solid #352e47;
+    font-size:15px;
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media(max-width:1024px){
+    .navbar{padding:0 20px}
+    .footer-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:768px){
+    .navbar{height:72px;padding:0 15px;gap:10px}
+    .nav-links{overflow-x:auto;scrollbar-width:none}
+    .nav-links a{padding:10px 16px;font-size:15px}
+
+    .content{padding:36px 20px 50px}
+    h1{font-size:28px}
+    .ticket-top{padding:18px}
+    .ticket-top img{width:72px;height:108px}
+    .ticket-top h2{font-size:21px}
+    .ticket-body{padding:22px 18px;justify-content:center}
+    .divider{margin:0 18px}
+    .divider::before{left:-32px}
+    .divider::after{right:-32px}
+    .footer{padding:40px 20px 0}
+}
+</style>
+</head>
+
+<body>
+
+<header class="navbar">
+    <a class="brand" href="index.html">🎬 CineBuzz</a>
+
+    <ul class="nav-links">
+        <li><a href="movies.html">Movies</a></li>
+        <li><a href="offers.html">Offers</a></li>
+        <li><a href="events.html">Events</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
+</header>
+
+<!-- ========== CONFIRMATION ========== -->
+<main class="content">
+
+    <div class="success">
+        <div class="success-badge">✅</div>
+        <h1>Booking Confirmed!</h1>
+        <p>Booking ID <b>CB-20260922-4831</b> · A confirmation has been sent to <b>aarav@example.com</b> &amp; SMS to <b>+91 98765 43210</b></p>
+    </div>
+
+    <div class="ticket">
+
+        <div class="ticket-top">
+            <img src="assets/posters/the-last-horizon.jpg" alt="The Last Horizon">
+            <div>
+                <h2>The Last Horizon</h2>
+                <p>IMAX · U/A · Hindi, English · 2h 28m</p>
+                <span class="tag">E-TICKET · M-TICKET</span>
+            </div>
+        </div>
+
+        <div class="ticket-body">
+            <div class="ticket-info">
+                <div class="item">Cinema<b>CineBuzz Super Cinemas</b></div>
+                <div class="item">Screen<b>Audi 07 (IMAX)</b></div>
+                <div class="item">Date<b>Tue, 22 Sep 2026</b></div>
+                <div class="item">Time<b>06:10 PM</b></div>
+                <div class="item">Seats<b>H1, H2 (Recliner)</b></div>
+                <div class="item">Tickets<b>2 × Recliner</b></div>
+                <div class="item">Paid<b>₹715 (TUESDAY50 applied)</b></div>
+                <div class="item">Status<b class="ok">CONFIRMED</b></div>
+            </div>
+
+            <div class="qr">
+                <svg width="104" height="104" viewBox="0 0 104 104" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="104" height="104" fill="#fff"/>
+                    <g fill="#1f2533">
+                        <rect x="6" y="6" width="26" height="26"/><rect x="12" y="12" width="14" height="14" fill="#fff"/><rect x="17" y="17" width="4" height="4"/>
+                        <rect x="72" y="6" width="26" height="26"/><rect x="78" y="12" width="14" height="14" fill="#fff"/><rect x="83" y="17" width="4" height="4"/>
+                        <rect x="6" y="72" width="26" height="26"/><rect x="12" y="78" width="14" height="14" fill="#fff"/><rect x="17" y="83" width="4" height="4"/>
+                        <rect x="46" y="6" width="6" height="6"/><rect x="38" y="16" width="6" height="6"/><rect x="58" y="8" width="6" height="6"/>
+                        <rect x="6" y="42" width="6" height="6"/><rect x="18" y="38" width="6" height="6"/><rect x="32" y="42" width="6" height="6"/>
+                        <rect x="44" y="36" width="6" height="6"/><rect x="60" y="42" width="6" height="6"/><rect x="76" y="38" width="6" height="6"/>
+                        <rect x="92" y="42" width="6" height="6"/><rect x="42" y="52" width="6" height="6"/><rect x="56" y="52" width="6" height="6"/>
+                        <rect x="70" y="50" width="6" height="6"/><rect x="86" y="58" width="6" height="6"/><rect x="46" y="70" width="6" height="6"/>
+                        <rect x="38" y="86" width="6" height="6"/><rect x="54" y="84" width="6" height="6"/><rect x="70" y="76" width="6" height="6"/>
+                        <rect x="88" y="74" width="6" height="6"/><rect x="94" y="90" width="6" height="6"/><rect x="74" y="90" width="6" height="6"/>
+                    </g>
+                </svg>
+                <small>Scan at entry (demo)</small>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="ticket-actions">
+            <a class="btn primary" href="movies.html">Book another movie</a>
+            <button class="btn outline" onclick="alert('Ticket downloaded (demo) 🎟️')">⬇ Download ticket</button>
+            <a class="btn dark" href="index.html">Back to home</a>
+        </div>
+
+    </div>
+
+</main>
+
+<!-- ========== FOOTER ========== -->
+<footer class="footer">
+    <div class="footer-grid">
+        <div>
+            <div class="footer-logo">🎬 CineBuzz</div>
+            <p>India's friendliest movie ticket booking &amp; cinema management platform.</p>
+            <div class="social">
+                <a href="#">f</a><a href="#">𝕏</a><a href="#">◎</a><a href="#">▶</a>
+            </div>
+        </div>
+
+        <div>
+            <h4>Movies</h4>
+            <a href="movies.html">Now Showing</a>
+            <a href="movies.html">Coming Soon</a>
+            <a href="movies.html">Top Rated</a>
+            <a href="offers.html">Offers</a>
+        </div>
+
+        <div>
+            <h4>Company</h4>
+            <a href="about.html">About Us</a>
+            <a href="about.html">Careers</a>
+            <a href="contact.html">Contact Us</a>
+            <a href="about.html">Press</a>
+        </div>
+
+        <div>
+            <h4>Support</h4>
+            <a href="contact.html">Help Center</a>
+            <a href="contact.html">Payment Options</a>
+            <a href="contact.html">Terms &amp; Conditions</a>
+            <a href="contact.html">Privacy Policy</a>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <span>© 2026 CineBuzz Entertainment Pvt. Ltd. All rights reserved.</span>
+        <span>Made with 🍿 in India · Front-end demo</span>
+    </div>
+</footer>
+
+</body>
+</html>
