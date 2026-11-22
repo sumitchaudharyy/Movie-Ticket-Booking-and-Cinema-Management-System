@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Book Tickets — The Last Horizon | CineBuzz</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:"Segoe UI",Arial,sans-serif;background:#14101c;color:#f2eef8;line-height:1.5}
+
+/* ---------- NAVBAR ---------- */
+.navbar{
+    background:#14101c;
+    border-top:4px solid #ff4d6d;
+    border-bottom:1px solid #352e47;
+    height:88px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 13%;
+}
+.nav-links{display:flex;gap:8px;list-style:none}
+.nav-links a{
+    display:block;
+    padding:14px 22px;
+    border-radius:30px;
+    text-decoration:none;
+    color:#a79fb8;
+    font-size:17px;
+    font-weight:600;
+    white-space:nowrap;
+}
+.nav-links a:hover{background:#1d1829;color:#fff}
+.nav-links a.active{background:#2b1a3d;color:#ff4d6d;font-weight:700}
+
+.nav-right{display:flex;align-items:center;gap:28px}
+.search-btn{background:none;border:0;cursor:pointer;display:flex}
+.search-btn svg{width:26px;height:26px;stroke:#ff4d6d}
+.avatar{
+    width:52px;height:52px;border-radius:50%;
+    background:#352e47;
+    display:flex;align-items:center;justify-content:center;
+}
+.avatar svg{width:22px;height:22px;stroke:#fff}
+
+/* ---------- MOVIE SECTION ---------- */
+.movie-section{
+    min-height:420px;
+    display:flex;
+    flex-direction:row-reverse;
+    justify-content:flex-end;
+    align-items:center;
+    gap:40px;
+    padding:0 13%;
+    color:white;
+    background:linear-gradient(120deg,#2b1a3d,#14101c 70%);
+}
+.movie-content{max-width:800px}
+h1{font-size:60px;line-height:1.1;margin-bottom:16px}
+.info{
+    display:flex;
+    flex-wrap:wrap;
+    align-items:center;
+    gap:10px 16px;
+    margin-bottom:18px;
+    font-size:17px;
+    color:#a79fb8;
+}
+.info .rate{color:#ffc857;font-weight:bold}
+.info .badge{
+    background:#1d1829;
+    border:1px solid #352e47;
+    color:#fff;
+    padding:3px 12px;
+    border-radius:8px;
+    font-size:14px;
+    font-weight:bold;
+}
+
+.tags{display:flex;gap:10px;margin-bottom:22px}
+.tags span{
+    background:#262035;
+    padding:7px 18px;
+    border-radius:20px;
+    font-size:15px;
+}
+.movie-poster img{
+    width:250px;height:375px;
+    object-fit:cover;
+    border-radius:16px;
+    background:#262035;
+    box-shadow:0 20px 50px rgba(0,0,0,.5);
+}
+.movie-buttons{display:flex;gap:14px;flex-wrap:wrap}
+
+/* ---------- BUTTON ---------- */
+.btn{
+    padding:16px 32px;
+    border:0;
+    border-radius:12px;
+    background:linear-gradient(135deg,#ff4d6d,#ff7a59);
+    color:white;
+    font-size:17px;
+    font-weight:bold;
+    cursor:pointer;
+}
+.btn.ghost{background:none;border:1.5px solid #352e47}
+.btn:hover{opacity:.85}
+
+/* ---------- BOOKING ---------- */
+.booking{padding:10px 13% 60px}
+h2{margin:36px 0 16px;font-size:24px}
+
+.steps{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+    padding-top:20px;
+    font-size:14px;
+    font-weight:bold;
+    color:#a79fb8;
+}
+.steps .done{color:#3ddc97}
+.steps .now{color:#ff4d6d}
+
+.dates,.times,.chips{display:flex;gap:10px;flex-wrap:wrap}
+.date{
+    width:85px;
+    padding:10px 0;
+    text-align:center;
+    line-height:1.3;
+    background:#1d1829;
+    border:1px solid #352e47;
+    border-radius:12px;
+    color:#a79fb8;
+    cursor:pointer;
+}
+.date b{display:block;font-size:22px;color:#f2eef8}
+.date.on{background:#ff4d6d;border-color:#ff4d6d;color:white}
+.date.on b{color:white}
+
+.chips{margin-bottom:18px}
+.chip{
+    padding:9px 22px;
+    border-radius:30px;
+    background:#1d1829;
+    border:1px solid #352e47;
+    color:#a79fb8;
+    font-size:15px;
+    font-weight:bold;
+    cursor:pointer;
+}
+.chip.on{background:#f2eef8;color:#14101c;border-color:#f2eef8}
+
+.venue{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:12px;
+    flex-wrap:wrap;
+    background:#1d1829;
+    border:1px solid #352e47;
+    border-radius:16px;
+    padding:20px 22px;
+    margin-bottom:14px;
+}
+.venue.fav{
+    border-color:#ff4d6d;
+    background:linear-gradient(90deg,rgba(255,77,109,.16),#1d1829);
+}
+.venue b{font-size:18px}
+.venue small{display:block;color:#a79fb8;font-size:15px}
+.love{
+    background:rgba(255,77,109,.2);
+    color:#ff4d6d;
+    padding:4px 12px;
+    border-radius:8px;
+    font-size:14px;
+    font-weight:bold;
+    margin-left:10px;
+}
+.time{
+    border:1px solid #3ddc97;
+    color:#3ddc97;
+    border-radius:10px;
+    padding:9px 18px;
+    font-weight:bold;
+    cursor:pointer;
+}
+.time:hover{background:#3ddc97;color:#14101c}
+.time i{font-style:normal;font-size:12px;opacity:.8;margin-left:4px}
+
+/* ---------- SEATS ---------- */
+.legend{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:8px 22px;
+    margin-bottom:24px;
+    font-size:14px;
+    color:#a79fb8;
+}
+.legend span{display:flex;align-items:center;gap:6px}
+.legend i{width:18px;height:18px;border:2px solid #3ddc97;border-radius:5px 5px 3px 3px}
+.legend .taken{background:#352e47;border-color:#352e47}
+.legend .sel{background:#ff4d6d;border-color:#ff4d6d}
+.legend .vip{border-color:#ffc857}
+
+.screen{
+    height:8px;width:60%;margin:0 auto 28px;
+    background:#ff4d6d;
+    border-radius:50% 50% 0 0;
+    box-shadow:0 12px 30px rgba(255,77,109,.55);
+}
+#seats{display:flex;flex-direction:column;align-items:center;gap:8px}
+.row{display:flex;gap:6px;align-items:center}
+.row b{width:20px;color:#a79fb8}
+.seat{
+    width:28px;height:26px;
+    background:none;
+    border:2px solid #3ddc97;
+    border-radius:7px 7px 4px 4px;
+    cursor:pointer;
+}
+.seat.vip{border-color:#ffc857}
+.seat.on{background:#ff4d6d;border-color:#ff4d6d}
+.seat:disabled{background:#352e47;border-color:#352e47;cursor:not-allowed}
+.aisle{width:24px}
+
+.summary{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:12px;
+    flex-wrap:wrap;
+    margin-top:28px;
+    padding-top:20px;
+    border-top:1px dashed #352e47;
+    font-size:18px;
+}
+
+/* ---------- WHO'S WATCHING FORM ---------- */
+.watch-form{
+    background:#1d1829;
+    border:1px solid #352e47;
+    border-radius:20px;
+    padding:36px 32px;
+    margin:50px 0 0;
+    color:#f2eef8;
+}
+.watch-form h2{margin:0 0 22px;font-size:26px}
+.field{margin-bottom:20px}
+.field label{
+    display:block;
+    margin-bottom:8px;
+    font-size:14px;
+    font-weight:bold;
+    color:#a79fb8;
+}
+.field input,.field select{
+    width:100%;
+    padding:18px 20px;
+    background:#14101c;
+    border:1px solid #352e47;
+    border-radius:14px;
+    color:#f2eef8;
+    font-size:17px;
+}
+.field input::placeholder{color:#6e6680}
+.field input:focus,.field select:focus{outline:0;border-color:#ff4d6d}
+
+/* ---------- FOOTER ---------- */
+.footer{background:#0f0b16;color:#a79fb8;padding:60px 13% 0}
+.footer-grid{
+    display:grid;
+    grid-template-columns:2fr 1fr 1fr 1fr;
+    gap:40px;
+}
+.footer-logo{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    color:#fff;
+    font-size:26px;
+    font-weight:bold;
+    margin-bottom:18px;
+}
+.footer p{font-size:17px;line-height:1.6}
+.footer h4{color:#fff;font-size:17px;margin-bottom:18px}
+.footer a{
+    display:block;
+    color:#a79fb8;
+    text-decoration:none;
+    font-size:17px;
+    margin-bottom:12px;
+}
+.footer a:hover{color:#fff}
+.social{display:flex;gap:12px;margin-top:22px}
+.social a{
+    width:42px;height:42px;
+    margin:0;
+    border:1px solid #352e47;
+    border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    font-size:15px;
+}
+.footer-bottom{
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:8px;
+    margin-top:40px;
+    padding:22px 0;
+    border-top:1px solid #352e47;
+    font-size:15px;
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media(max-width:1024px){
+    .navbar{padding:0 20px}
+    .footer-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:768px){
+    .navbar{height:72px;padding:0 15px;gap:10px}
+    .nav-links{overflow-x:auto;scrollbar-width:none}
+    .nav-links a{padding:10px 16px;font-size:15px}
+    .nav-right{gap:14px}
+    .avatar{width:40px;height:40px}
+
+    .movie-section{flex-direction:column;align-items:flex-start;padding:40px 20px;gap:30px}
+    h1{font-size:40px}
+    .movie-poster img{width:180px;height:270px}
+
+    .booking{padding:10px 20px 50px}
+    .seat{width:22px;height:22px}
+    .aisle{width:12px}
+
+    .watch-form{padding:26px 20px}
+    .footer{padding:40px 20px 0}
+}
+</style>
+</head>
+
+<body>
+
+<header class="navbar">
+    <ul class="nav-links">
+        <li><a href="#">For you</a></li>
+        <li><a href="#">Dining</a></li>
+        <li><a href="#" class="active">Movies</a></li>
+        <li><a href="#">Events</a></li>
+        <li><a href="#">Offers</a></li>
+    </ul>
+
+    <div class="nav-right">
+        <button class="search-btn" aria-label="Search">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round">
+                <circle cx="11" cy="11" r="7"/>
+                <line x1="16.5" y1="16.5" x2="21" y2="21"/>
+            </svg>
+        </button>
+        <div class="avatar" aria-label="Profile">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round">
+                <circle cx="12" cy="8" r="4"/>
+                <path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/>
+            </svg>
+        </div>
+    </div>
+</header>
+
+<!-- ========== MOVIE SECTION ========== -->
+<section class="movie-section">
+    <div class="movie-content">
+        <h1>The Last Horizon</h1>
+
+        <div class="info">
+            <span class="rate">★ 8.9/10</span>
+            <span>24.5K votes</span>
+            <span class="badge">2D · IMAX · 4DX</span>
+            <span class="badge">U/A</span>
+            <span>2h 28m</span>
+            <span>Hindi · English</span>
+            <span>Released 18 Sep 2026</span>
+        </div>
+
+        <div class="tags">
+            <span>Sci-Fi</span>
+            <span>Adventure</span>
+            <span>Thriller</span>
+        </div>
+
+        <div class="movie-buttons">
+            <a href="#showtimes"><button class="btn">Book tickets</button></a>
+            <button class="btn ghost" onclick="alert('Added to your watchlist!')">🤍 Watchlist</button>
+        </div>
+    </div>
+
+    <div class="movie-poster">
+        <img src="images/the-last-horizon.jpg" alt="The Last Horizon poster">
+    </div>
+</section>
+
+<!-- ========== BOOKING ========== -->
+<main class="booking">
+
+    <div class="steps">
+        <span class="done">✓ Select showtime</span>›
+        <span class="now">① Choose seats</span>›
+        <span>② Payment</span>›
+        <span>③ Confirmation</span>
+    </div>
+
+    <h2>Select a date</h2>
+    <div class="dates" id="dates"></div>
+
+    <h2 id="showtimes">Showtimes near New Delhi</h2>
+    <div class="chips" id="chips"></div>
+    <div id="venues"></div>
+
+    <h2>Choose your seats</h2>
+    <div class="legend">
+        <span><i></i>Available</span>
+        <span><i class="taken"></i>Booked</span>
+        <span><i class="sel"></i>Your selection</span>
+        <span><i class="vip"></i>Recliner (₹420)</span>
+    </div>
+    <div class="screen"></div>
+    <div id="seats"></div>
+
+    <div class="summary">
+        <span id="info">0 seats</span>
+        <b id="total">Total ₹0</b>
+        <button class="btn" id="pay">Proceed to pay →</button>
+    </div>
+
+    <!-- ========== WHO'S WATCHING ========== -->
+    <form class="watch-form">
+        <h2>Who's watching?</h2>
+
+        <div class="field">
+            <label>Full name</label>
+            <input type="text" placeholder="e.g. Aarav Sharma" required>
+        </div>
+        <div class="field">
+            <label>Mobile number</label>
+            <input type="tel" placeholder="+91 98765 43210" required>
+        </div>
+        <div class="field">
+            <label>Email address</label>
+            <input type="email" placeholder="you@example.com" required>
+        </div>
+        <div class="field">
+            <label>Number of tickets</label>
+            <select>
+                <option>2</option><option>1</option><option>3</option>
+                <option>4</option><option>5</option>
+            </select>
+        </div>
+        <div class="field">
+            <label>Any special requests (optional)</label>
+            <input type="text" placeholder="e.g. wheelchair-accessible seating">
+        </div>
+    </form>
+
+</main>
+
+<!-- ========== FOOTER ========== -->
+<footer class="footer">
+    <div class="footer-grid">
+        <div>
+            <div class="footer-logo">🎬 CineBuzz</div>
+            <p>India's friendliest movie ticket booking &amp; cinema management platform.</p>
+            <div class="social">
+                <a href="#">f</a><a href="#">𝕏</a><a href="#">◎</a><a href="#">▶</a>
+            </div>
+        </div>
+
+        <div>
+            <h4>Movies</h4>
+            <a href="#">Now Showing</a>
+            <a href="#">Coming Soon</a>
+            <a href="#">Top Rated</a>
+            <a href="#">Offers</a>
+        </div>
+
+        <div>
+            <h4>Company</h4>
+            <a href="#">About Us</a>
+            <a href="#">Careers</a>
+            <a href="#">Contact Us</a>
+            <a href="#">Press</a>
+        </div>
+
+        <div>
+            <h4>Support</h4>
+            <a href="#">Help Center</a>
+            <a href="#">Payment Options</a>
+            <a href="#">Terms &amp; Conditions</a>
+            <a href="#">Privacy Policy</a>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <span>© 2026 CineBuzz Entertainment Pvt. Ltd. All rights reserved.</span>
+        <span>Made with 🍿 in India · Front-end demo</span>
+    </div>
+</footer>
+
+<script>
+const $ = id => document.getElementById(id);
+
+// Dates
+[["Mon",21],["Tue",22],["Wed",23],["Thu",24],["Fri",25],["Sat",26],["Sun",27]].forEach(([d,n],i)=>{
+    $("dates").innerHTML += `<div class="date ${i==1?"on":""}">${d}<b>${n}</b>Sep</div>`;
+});
+$("dates").onclick = e => {
+    const d = e.target.closest(".date");
+    if(!d) return;
+    document.querySelectorAll(".date").forEach(x => x.classList.remove("on"));
+    d.classList.add("on");
+};
+
+// Filter chips
+["All","2D","3D","IMAX","4DX"].forEach((c,i)=>{
+    $("chips").innerHTML += `<button class="chip ${i==0?"on":""}">${c}</button>`;
+});
+$("chips").onclick = e => {
+    if(!e.target.classList.contains("chip")) return;
+    document.querySelectorAll(".chip").forEach(x => x.classList.remove("on"));
+    e.target.classList.add("on");
+};
+
+// Showtimes  (time, optional format)
+const venues = [
+    {name:"💜 CineBuzz Super Cinemas — Select Citywalk", fav:true,
+     times:[["09:15 AM"],["12:20 PM","4DX"],["03:45 PM"],["06:10 PM","IMAX"],["09:30 PM"]]},
+    {name:"PVR Ambience Mall, Gurugram", sub:"₹180 – ₹420 · Recliners available",
+     times:[["10:00 AM"],["01:40 PM"],["05:20 PM","3D"],["08:50 PM"]]},
+    {name:"INOX Nehru Place", sub:"₹150 – ₹350 · Club Lounge seats",
+     times:[["11:15 AM"],["02:30 PM"],["06:45 PM"]]},
+    {name:"Miraj Cinemas — Connaught Place", sub:"₹140 – ₹300 · Free parking",
+     times:[["09:45 AM"],["01:20 PM"],["04:55 PM"],["08:15 PM"],["11:10 PM"]]}
+];
+venues.forEach(v => {
+    $("venues").innerHTML += `<div class="venue ${v.fav?"fav":""}">
+        <div><b>${v.name}</b>${v.fav?'<span class="love">CineBuzz Favourite</span>':""}
+        ${v.sub?`<small>${v.sub}</small>`:""}</div>
+        <div class="times">${v.times.map(([t,f])=>`<div class="time">${t}${f?`<i>${f}</i>`:""}</div>`).join("")}</div>
+    </div>`;
+});
+
+// Seats (row H = recliner ₹420, others ₹280)
+const taken = ["H4","H7","G3","G7","F7","E2","D8","C8","B2","A3","A4"];
+for(const r of "HGFEDCBA"){
+    let html = `<b>${r}</b>`;
+    for(let n=1;n<=10;n++){
+        const id = r+n, vip = r=="H";
+        html += `<button class="seat ${vip?"vip":""}" data-price="${vip?420:280}"
+                 title="${id}" ${taken.includes(id)?"disabled":""}></button>`;
+        if(n==5) html += `<span class="aisle"></span>`;
+    }
+    $("seats").innerHTML += `<div class="row">${html}</div>`;
+}
+
+// Selection + total
+$("seats").onclick = e => {
+    if(!e.target.classList.contains("seat")) return;
+    e.target.classList.toggle("on");
+    const picked = [...document.querySelectorAll(".seat.on")];
+    $("info").textContent = picked.length + " seat" + (picked.length==1?"":"s");
+    $("total").textContent = "Total ₹" + picked.reduce((s,x)=>s+ +x.dataset.price,0);
+};
+
+$("pay").onclick = () =>
+    alert(document.querySelector(".seat.on") ? "Seats locked! Redirecting to payment…" : "Please select at least one seat 🙂");
+</script>
+
+</body>
+</html>
