@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Booking Confirmed — CineBuzz</title>
 <meta name="description" content="Your CineBuzz booking is confirmed.">
-<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="../assets/css/style.css">
 <style>
   .success-head{text-align:center;padding:16px 0 0;}
   .success-badge{width:86px;height:86px;border-radius:50%;background:var(--green-soft);display:grid;place-items:center;font-size:40px;margin:0 auto 16px;border:2px solid var(--green);}
@@ -32,15 +32,15 @@
 
 <header class="site-header">
   <div class="container header-inner">
-    <a class="brand" href="index.html"><span class="logo-ic">🎬</span> CineBuzz</a>
+    <a class="brand" href="home.html"><span class="logo-ic">🎬</span> CineBuzz</a>
     <div class="search"><span class="ic">🔍</span><input type="text" placeholder="Search for movies, events, plays, sports and activities"></div>
-    <a class="loc" href="about.html"><span class="pin">📍</span><span><small>Location</small>New Delhi</span></a>
+    <a class="loc location-nav" href="movies.html#location-panel"><span class="pin">⌖</span><span><small>Your location</small><strong class="location-name">Choose city</strong></span><span class="location-chevron">⌄</span></a>
     <nav class="nav-actions">
       <a class="nav-link" href="movies.html"><span class="ic">🎞️</span>Movies</a>
       <a class="nav-link" href="offers.html"><span class="ic">🎁</span>Offers</a>
       <a class="nav-link" href="events.html"><span class="ic">🎟️</span>Events</a>
       <a class="nav-link" href="about.html"><span class="ic">🛈</span>About</a>
-      <a class="btn btn-ghost btn-sm signin-btn" href="index.html#signin">Sign in</a>
+      <a class="btn btn-ghost btn-sm signin-btn" href="home.html#signin">Sign in</a>
     </nav>
     <a class="menu-toggle" href="#mobile-nav">☰</a>
   </div>
@@ -51,35 +51,35 @@
   <a href="events.html">🎟️ Events <span class="ic">›</span></a>
   <a href="about.html">🛈 About <span class="ic">›</span></a>
   <a href="contact.html">📞 Contact <span class="ic">›</span></a>
-  <a href="index.html#signin">👤 Sign in <span class="ic">›</span></a>
+  <a href="home.html#signin">👤 Sign in <span class="ic">›</span></a>
 </nav>
 
 <section class="container">
   <div class="success-head">
     <div class="success-badge">✅</div>
     <h1 style="font-size:1.9rem;letter-spacing:-.5px;">Booking Confirmed!</h1>
-    <p style="color:var(--muted);margin-top:6px;">Booking ID <b>CB-20260922-4831</b> · A confirmation has been sent to <b>aarav@example.com</b> &amp; SMS to <b>+91 98765 43210</b></p>
+    <p style="color:var(--muted);margin-top:6px;">Your booking number and confirmation details will appear here.</p>
   </div>
 
   <div class="ticket">
     <div class="ticket-top">
-      <div class="tp-poster"><img src="assets/posters/the-last-horizon.jpg" alt="The Last Horizon"></div>
+      <div class="tp-poster"><img src="../assets/posters/drishyam-the-conclusion.jpg" alt="Movie poster"></div>
       <div>
-        <h2>The Last Horizon</h2>
-        <div class="tt-meta">IMAX · U/A · Hindi, English · 2h 28m</div>
+        <h2>Movie title</h2>
+        <div class="tt-meta">Show format and movie details</div>
         <div class="tt-meta" style="margin-top:10px;"><span style="background:var(--brand);border-radius:6px;padding:2px 8px;font-weight:700;">E-TICKET · M-TICKET</span></div>
       </div>
     </div>
 
     <div class="ticket-body">
       <div class="ticket-info">
-        <div class="ti-item">Cinema<b>CineBuzz Super Cinemas</b></div>
-        <div class="ti-item">Screen<b>Audi 07 (IMAX)</b></div>
-        <div class="ti-item">Date<b>Tue, 22 Sep 2026</b></div>
-        <div class="ti-item">Time<b>06:10 PM</b></div>
-        <div class="ti-item">Seats<b>H1, H2 (Recliner)</b></div>
-        <div class="ti-item">Tickets<b>2 × Recliner</b></div>
-        <div class="ti-item">Paid<b>₹715 (TUESDAY50 applied)</b></div>
+        <div class="ti-item">Cinema<b>Selected cinema</b></div>
+        <div class="ti-item">Format<b>Selected format</b></div>
+        <div class="ti-item">Date<b>Selected date</b></div>
+        <div class="ti-item">Time<b>Selected time</b></div>
+        <div class="ti-item">Seats<b>Selected seats</b></div>
+        <div class="ti-item">Tickets<b>Ticket count</b></div>
+        <div class="ti-item">Paid<b>Amount</b></div>
         <div class="ti-item">Status<b style="color:var(--green);">CONFIRMED</b></div>
       </div>
       <div class="qr-box">
@@ -98,7 +98,7 @@
             <rect x="88" y="74" width="6" height="6"/><rect x="94" y="90" width="6" height="6"/><rect x="74" y="90" width="6" height="6"/>
           </g>
         </svg>
-        <small style="color:var(--muted);font-size:.7rem;margin-top:6px;">Scan at entry (demo)</small>
+        <small style="color:var(--muted);font-size:.7rem;margin-top:6px;">Sample ticket code</small>
       </div>
     </div>
 
@@ -106,8 +106,8 @@
 
     <div class="ticket-actions">
       <a class="btn btn-primary" href="movies.html">Book another movie</a>
-      <button class="btn btn-outline" onclick="alert('Ticket downloaded (demo) 🎟️')">⬇ Download ticket</button>
-      <a class="btn btn-dark" href="index.html">Back to home</a>
+      <button class="btn btn-outline" >⬇ Download ticket</button>
+      <a class="btn btn-dark" href="home.html">Back to home</a>
     </div>
   </div>
 </section>
@@ -115,7 +115,7 @@
 <footer class="site-footer">
   <div class="container footer-grid">
     <div>
-      <a class="brand" href="index.html"><span class="logo-ic">🎬</span> CineBuzz</a>
+      <a class="brand" href="home.html"><span class="logo-ic">🎬</span> CineBuzz</a>
       <p style="margin-top:14px;">India's friendliest movie ticket booking &amp; cinema management platform.</p>
       <div class="social-row"><a href="#">f</a><a href="#">𝕏</a><a href="#">◎</a><a href="#">▶</a></div>
     </div>
@@ -129,5 +129,7 @@
   </div>
 </footer>
 
+  <script src="../assets/js/movie-catalog.js" defer></script>
+  <script src="../assets/js/app.js" defer></script>
 </body>
 </html>
