@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Offers &amp; Gift Cards — CineBuzz</title>
 <meta name="description" content="Latest movie ticket offers, bank discounts and gift cards.">
-<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="../assets/css/style.css">
 <style>
   .offer-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:6px;}
   .offer-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);overflow:hidden;display:flex;flex-direction:column;}
@@ -28,15 +28,15 @@
 
 <header class="site-header">
   <div class="container header-inner">
-    <a class="brand" href="index.html"><span class="logo-ic">🎬</span> CineBuzz</a>
+    <a class="brand" href="home.html"><span class="logo-ic">🎬</span> CineBuzz</a>
     <div class="search"><span class="ic">🔍</span><input type="text" placeholder="Search for movies, events, plays, sports and activities"></div>
-    <a class="loc" href="about.html"><span class="pin">📍</span><span><small>Location</small>New Delhi</span></a>
+    <a class="loc location-nav" href="movies.html#location-panel"><span class="pin">⌖</span><span><small>Your location</small><strong class="location-name">Choose city</strong></span><span class="location-chevron">⌄</span></a>
     <nav class="nav-actions">
       <a class="nav-link" href="movies.html"><span class="ic">🎞️</span>Movies</a>
       <a class="nav-link active" href="offers.html"><span class="ic">🎁</span>Offers</a>
       <a class="nav-link" href="events.html"><span class="ic">🎟️</span>Events</a>
       <a class="nav-link" href="about.html"><span class="ic">🛈</span>About</a>
-      <a class="btn btn-ghost btn-sm signin-btn" href="index.html#signin">Sign in</a>
+      <a class="btn btn-ghost btn-sm signin-btn" href="home.html#signin">Sign in</a>
     </nav>
     <a class="menu-toggle" href="#mobile-nav">☰</a>
   </div>
@@ -47,7 +47,7 @@
   <a href="events.html">🎟️ Events <span class="ic">›</span></a>
   <a href="about.html">🛈 About <span class="ic">›</span></a>
   <a href="contact.html">📞 Contact <span class="ic">›</span></a>
-  <a href="index.html#signin">👤 Sign in <span class="ic">›</span></a>
+  <a href="home.html#signin">👤 Sign in <span class="ic">›</span></a>
 </nav>
 
 <section class="page-hero">
@@ -125,7 +125,7 @@
 <footer class="site-footer">
   <div class="container footer-grid">
     <div>
-      <a class="brand" href="index.html"><span class="logo-ic">🎬</span> CineBuzz</a>
+      <a class="brand" href="home.html"><span class="logo-ic">🎬</span> CineBuzz</a>
       <p style="margin-top:14px;">India's friendliest movie ticket booking &amp; cinema management platform.</p>
       <div class="social-row"><a href="#">f</a><a href="#">𝕏</a><a href="#">◎</a><a href="#">▶</a></div>
     </div>
@@ -139,5 +139,6 @@
   </div>
 </footer>
 
+  <script src="../assets/js/app.js" defer></script>
 </body>
 </html>

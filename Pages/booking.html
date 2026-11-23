@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Book Tickets — The Last Horizon | CineBuzz</title>
+<title>Choose Seats — CineBuzz</title>
 <meta name="description" content="Choose your showtime and pick your seats.">
-<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="../assets/css/style.css">
 <style>
   /* page-specific tuning */
   .flow-steps{display:flex;gap:8px;align-items:center;flex-wrap:wrap;font-size:.82rem;font-weight:700;color:var(--muted);padding:18px 0 4px;}
@@ -19,15 +19,15 @@
 
 <header class="site-header">
   <div class="container header-inner">
-    <a class="brand" href="index.html"><span class="logo-ic">🎬</span> CineBuzz</a>
+    <a class="brand" href="home.html"><span class="logo-ic">🎬</span> CineBuzz</a>
     <div class="search"><span class="ic">🔍</span><input type="text" placeholder="Search for movies, events, plays, sports and activities"></div>
-    <a class="loc" href="about.html"><span class="pin">📍</span><span><small>Location</small>New Delhi</span></a>
+    <a class="loc location-nav" href="movies.html#location-panel"><span class="pin">⌖</span><span><small>Your location</small><strong class="location-name">Choose city</strong></span><span class="location-chevron">⌄</span></a>
     <nav class="nav-actions">
       <a class="nav-link" href="movies.html"><span class="ic">🎞️</span>Movies</a>
       <a class="nav-link" href="offers.html"><span class="ic">🎁</span>Offers</a>
       <a class="nav-link" href="events.html"><span class="ic">🎟️</span>Events</a>
       <a class="nav-link" href="about.html"><span class="ic">🛈</span>About</a>
-      <a class="btn btn-ghost btn-sm signin-btn" href="index.html#signin">Sign in</a>
+      <a class="btn btn-ghost btn-sm signin-btn" href="home.html#signin">Sign in</a>
     </nav>
     <a class="menu-toggle" href="#mobile-nav">☰</a>
   </div>
@@ -38,31 +38,29 @@
   <a href="events.html">🎟️ Events <span class="ic">›</span></a>
   <a href="about.html">🛈 About <span class="ic">›</span></a>
   <a href="contact.html">📞 Contact <span class="ic">›</span></a>
-  <a href="index.html#signin">👤 Sign in <span class="ic">›</span></a>
+  <a href="home.html#signin">👤 Sign in <span class="ic">›</span></a>
 </nav>
 
 <!-- ============ MOVIE HERO ============ -->
 <section class="movie-hero">
-  <img class="mh-img" src="assets/posters/the-last-horizon.jpg" alt="The Last Horizon backdrop">
+  <img class="mh-img" id="movie-backdrop" src="../assets/posters/drishyam-the-conclusion.jpg" alt="">
   <div class="mh-content">
-    <div class="mh-poster"><img src="assets/posters/the-last-horizon.jpg" alt="The Last Horizon poster"></div>
+    <div class="mh-poster"><img id="movie-poster" src="../assets/posters/drishyam-the-conclusion.jpg" alt="Movie poster"></div>
     <div class="mh-info">
-      <h1>The Last Horizon</h1>
+      <h1 id="booking-movie-title">Choose a movie</h1>
       <div class="mh-meta">
-        <span class="rate">★ 8.9/10</span>
-        <span>24.5K votes</span>
-        <span class="badge">2D · IMAX · 4DX</span>
-        <span class="badge">U/A</span>
-        <span>2h 28m</span>
-        <span>Hindi · English</span>
-        <span>Released 18 Sep 2026</span>
+        <span class="rate" id="movie-rating"></span>
+        <span class="badge" id="movie-format"></span>
+        <span class="badge" id="movie-certificate"></span>
+        <span id="movie-runtime"></span>
+        <span id="movie-language"></span>
+        <span id="movie-release-date"></span>
       </div>
-      <div class="mh-tags">
-        <span class="tag">Sci-Fi</span><span class="tag">Adventure</span><span class="tag">Thriller</span>
-      </div>
+      <div class="mh-tags" id="movie-genres"></div>
+      <p class="booking-movie-description" id="booking-movie-description"></p>
       <div class="mh-actions">
         <a class="btn btn-primary" href="#showtimes">Book tickets</a>
-        <button class="btn btn-ghost" type="button" onclick="alert('Added to your wishlist! ❤️ (demo)')">🤍 Watchlist</button>
+        <a class="btn btn-ghost" href="movies.html#location-panel">⌖ Change city</a>
       </div>
     </div>
   </div>
@@ -80,89 +78,23 @@
 
 <!-- ============ DATE PICKER ============ -->
 <section class="section container">
-  <div class="section-head"><h2>Select a date</h2></div>
+  <div class="section-head"><h2>Show date</h2></div>
   <div class="date-strip">
-    <a class="date-pill" href="#"><span class="dow">Mon</span><span class="day">21</span><span class="mon">Sep</span></a>
-    <a class="date-pill on" href="#"><span class="dow">Tue</span><span class="day">22</span><span class="mon">Sep</span></a>
-    <a class="date-pill" href="#"><span class="dow">Wed</span><span class="day">23</span><span class="mon">Sep</span></a>
-    <a class="date-pill" href="#"><span class="dow">Thu</span><span class="day">24</span><span class="mon">Sep</span></a>
-    <a class="date-pill" href="#"><span class="dow">Fri</span><span class="day">25</span><span class="mon">Sep</span></a>
-    <a class="date-pill" href="#"><span class="dow">Sat</span><span class="day">26</span><span class="mon">Sep</span></a>
-    <a class="date-pill" href="#"><span class="dow">Sun</span><span class="day">27</span><span class="mon">Sep</span></a>
+    <div class="date-pill on selected-date-only"><span class="dow" id="booking-date-dow">Show date</span><span class="day" id="booking-date-day">—</span><span class="mon" id="booking-date-month">—</span></div>
   </div>
 </section>
 
 <!-- ============ SHOWTIMES ============ -->
 <section class="section container" id="showtimes">
-  <div class="section-head"><h2>Showtimes near New Delhi</h2></div>
-  <div class="venue-filters">
-    <button class="chip on">All</button>
-    <button class="chip">2D</button>
-    <button class="chip">3D</button>
-    <button class="chip">IMAX</button>
-    <button class="chip">4DX</button>
-  </div>
-
-  <div class="venue-card banner">
-    <div style="display:flex;align-items:center;gap:12px;">
-      <span style="font-size:22px;">💜</span>
-      <span class="v-name">CineBuzz Super Cinemas — Select Citywalk</span>
-      <span class="v-love">CineBuzz Favourite</span>
-    </div>
-    <div class="showtimes">
-      <a class="showtime" href="#seats">09:15 AM</a>
-      <a class="showtime" href="#seats">12:20 PM <span class="muted"> 4DX</span></a>
-      <a class="showtime" href="#seats">03:45 PM</a>
-      <a class="showtime" href="#seats">06:10 PM <span class="muted"> IMAX</span></a>
-      <a class="showtime" href="#seats">09:30 PM</a>
-    </div>
-  </div>
-
-  <div class="venue-card">
-    <div>
-      <div class="v-name">PVR Ambience Mall, Gurugram</div>
-      <div class="v-sub">₹180 – ₹420 · Recliners available</div>
-    </div>
-    <div class="showtimes">
-      <a class="showtime" href="#seats">10:00 AM</a>
-      <a class="showtime" href="#seats">01:40 PM</a>
-      <a class="showtime" href="#seats">05:20 PM <span class="muted"> 3D</span></a>
-      <a class="showtime" href="#seats">08:50 PM</a>
-    </div>
-  </div>
-
-  <div class="venue-card">
-    <div>
-      <div class="v-name">INOX Nehru Place</div>
-      <div class="v-sub">₹150 – ₹350 · Club Lounge seats</div>
-    </div>
-    <div class="showtimes">
-      <a class="showtime" href="#seats">11:15 AM</a>
-      <a class="showtime" href="#seats">02:30 PM</a>
-      <a class="showtime" href="#seats">06:45 PM</a>
-    </div>
-  </div>
-
-  <div class="venue-card">
-    <div>
-      <div class="v-name">Miraj Cinemas — Connaught Place</div>
-      <div class="v-sub">₹140 – ₹300 · Free parking</div>
-    </div>
-    <div class="showtimes">
-      <a class="showtime" href="#seats">09:45 AM</a>
-      <a class="showtime" href="#seats">01:20 PM</a>
-      <a class="showtime" href="#seats">04:55 PM</a>
-      <a class="showtime" href="#seats">08:15 PM</a>
-      <a class="showtime" href="#seats">11:10 PM</a>
-    </div>
-  </div>
+  <div class="section-head"><h2 id="showtimes-title">Your selected show</h2></div>
+  <p class="selected-show-note">Cinema, showtime and ticket prices are loaded from the CineBuzz partner listing you selected.</p>
 </section>
 
 <!-- ============ SEAT SELECTION ============ -->
 <section class="section container" id="seats">
   <div class="section-head">
     <h2>Choose your seats</h2>
-    <span class="hint" style="padding:0;">CineBuzz Super Cinemas · IMAX · 06:10 PM · Tue, 22 Sep</span>
+    <span class="hint" style="padding:0;">Cinema · format · showtime · date</span>
   </div>
 
   <div class="book-panel">
@@ -170,9 +102,8 @@
       <span><span class="s s-empty"></span> Available</span>
       <span><span class="s s-taken"></span> Booked</span>
       <span><span class="s s-selected"></span> Your selection</span>
-      <span><span class="s s-vip"></span> Recliner (₹420)</span>
-      <span><span class="s s-empty"></span> Silver (₹280)</span>
-      <span><span class="s s-empty"></span> Balcony (₹320)</span>
+      <span><span class="s s-vip"></span> Recliner</span>
+      <span><span class="s s-empty"></span> Standard</span>
     </div>
 
     <div class="screen">
@@ -180,7 +111,7 @@
       <small>Screen this way</small>
     </div>
 
-    <form class="seat-map" onsubmit="if(document.querySelectorAll('.seat:checked').length===0){alert('Please select at least one seat 🙂');return false;}alert('Seats locked! Redirecting to payment…');location.href='payment.html';return false;">
+    <form class="seat-map">
 
       <div class="row"><span class="row-label">H</span><span class="seat-group">
         <input type="checkbox" class="seat vip" id="H1" aria-label="H1"><label for="H1" class="seat vip"></label>
@@ -309,7 +240,7 @@
 <section class="section container">
   <div class="book-panel">
     <h2>Who's watching?</h2>
-    <form class="form-grid" onsubmit="alert('Details saved (demo). Complete seat selection above to pay.');return false;">
+    <form class="form-grid">
       <div class="field"><label>Full name</label><input type="text" placeholder="e.g. Aarav Sharma" required></div>
       <div class="field"><label>Mobile number</label><input type="tel" placeholder="+91 98765 43210" required></div>
       <div class="field"><label>Email address</label><input type="email" placeholder="you@example.com" required></div>
@@ -327,7 +258,7 @@
 <footer class="site-footer">
   <div class="container footer-grid">
     <div>
-      <a class="brand" href="index.html"><span class="logo-ic">🎬</span> CineBuzz</a>
+      <a class="brand" href="home.html"><span class="logo-ic">🎬</span> CineBuzz</a>
       <p style="margin-top:14px;">India's friendliest movie ticket booking &amp; cinema management platform.</p>
       <div class="social-row"><a href="#">f</a><a href="#">𝕏</a><a href="#">◎</a><a href="#">▶</a></div>
     </div>
@@ -341,5 +272,7 @@
   </div>
 </footer>
 
+  <script src="../assets/js/movie-catalog.js" defer></script>
+  <script src="../assets/js/app.js" defer></script>
 </body>
 </html>
