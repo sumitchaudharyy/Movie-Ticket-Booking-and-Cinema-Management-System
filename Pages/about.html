@@ -1,116 +1,381 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>About Us — CineBuzz</title>
-<meta name="description" content="About CineBuzz — India's friendly movie ticket booking platform.">
-<link rel="stylesheet" href="../assets/css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us — CineBuzz</title>
+  <meta name="description" content="Discover CineBuzz — India's fastest and friendliest movie ticket booking & entertainment platform.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
 </head>
-<body>
+<body class="about-page cinebuzz-body">
 
-<header class="site-header">
-  <div class="container header-inner">
-    <a class="brand" href="home.html"><span class="logo-ic">🎬</span> CineBuzz</a>
-    <div class="search"><span class="ic">🔍</span><input type="text" placeholder="Search for movies, events, plays, sports and activities"></div>
-    <a class="loc location-nav" href="movies.html#location-panel"><span class="pin">⌖</span><span><small>Your location</small><strong class="location-name">Choose city</strong></span><span class="location-chevron">⌄</span></a>
-    <nav class="nav-actions">
-      <a class="nav-link" href="movies.html"><span class="ic">🎞️</span>Movies</a>
-      <a class="nav-link" href="offers.html"><span class="ic">🎁</span>Offers</a>
-      <a class="nav-link" href="events.html"><span class="ic">🎟️</span>Events</a>
-      <a class="nav-link active" href="about.html"><span class="ic">🛈</span>About</a>
-      <a class="btn btn-ghost btn-sm signin-btn" href="home.html#signin">Sign in</a>
-    </nav>
-    <a class="menu-toggle" href="#mobile-nav">☰</a>
-  </div>
-</header>
-<nav class="mobile-nav" id="mobile-nav">
-  <a href="movies.html">🎞️ Movies <span class="ic">›</span></a>
-  <a href="offers.html">🎁 Offers <span class="ic">›</span></a>
-  <a href="events.html">🎟️ Events <span class="ic">›</span></a>
-  <a href="about.html">🛈 About <span class="ic">›</span></a>
-  <a href="contact.html">📞 Contact <span class="ic">›</span></a>
-  <a href="home.html#signin">👤 Sign in <span class="ic">›</span></a>
-</nav>
+  <!-- ================= SITE HEADER ================= -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="home.html">
+        <span class="logo-ic">🎬</span>
+        <span class="logo-text">Cine<span class="text-gradient">Buzz</span></span>
+      </a>
 
-<section class="page-hero">
-  <div class="container">
-    <div class="crumb">Home / About</div>
-    <h1>About CineBuzz</h1>
-    <p>The cinemas run the show. We run everything else.</p>
-  </div>
-</section>
+      <!-- Glass Header Search Bar -->
+      <div class="search cinema-header-search">
+        <span class="ic">⌕</span>
+        <input id="header-search" type="search" placeholder="Search movies, live events, venues…" aria-label="Search">
+      </div>
 
-<section class="section container">
-  <div class="panel" style="margin-top:26px;">
-    <div class="p-text">
-      <h3>Our story 🎬</h3>
-      <p>CineBuzz started with a simple idea: buying a movie ticket should be as fun as watching the movie. Today we power bookings across 700+ screens in 40+ cities, handling everything from seat selection to instant refunds — so all you have to do is show up with your popcorn.</p>
+      <!-- Location Trigger Pill -->
+      <a class="loc location-nav glass-pill-btn" href="movies.html#location-panel">
+        <span class="pin">⌖</span>
+        <span>
+          <small style="display:block; font-size:0.68rem; color:var(--muted); line-height:1;">Your location</small>
+          <strong class="location-name" id="header-location-name" style="color:#fff;">Choose city</strong>
+        </span>
+        <span class="chevron">⌄</span>
+      </a>
+
+      <!-- Nav Actions -->
+      <nav class="nav-actions">
+        <a class="nav-link" href="movies.html"><span class="ic">🎞️</span>Movies</a>
+        <a class="nav-link" href="offers.html"><span class="ic">🎁</span>Offers</a>
+        <a class="nav-link" href="events.html"><span class="ic">🎟️</span>Events</a>
+        <a class="nav-link active" href="about.html"><span class="ic">🛈</span>About</a>
+        <a class="btn btn-ghost btn-sm signin-btn" href="home.html#signin">Sign in</a>
+      </nav>
+
+      <a class="menu-toggle" href="#mobile-nav" aria-label="Open menu">☰</a>
     </div>
-    <div class="stat-grid" style="flex:1;min-width:320px;margin-top:0;grid-template-columns:1fr 1fr;">
-      <div class="stat-card"><div class="num">700+</div><span>Screens</span></div>
-      <div class="stat-card"><div class="num">40+</div><span>Cities</span></div>
-      <div class="stat-card"><div class="num">5M+</div><span>Tickets sold</span></div>
-      <div class="stat-card"><div class="num">4.8★</div><span>App rating</span></div>
-    </div>
-  </div>
-</section>
+  </header>
 
-<section class="section container">
-  <div class="section-head"><h2>What makes us different</h2></div>
-  <div class="feature-grid">
-    <div class="feature-card"><div class="fic">⚡</div><h3>3-tap booking</h3><p>Pick a movie, pick your seats, pay. The entire flow takes under 30 seconds.</p></div>
-    <div class="feature-card"><div class="fic">↩️</div><h3>Instant refunds</h3><p>Cancelled on your plans? Refunds land back in original payment method within minutes.</p></div>
-    <div class="feature-card"><div class="fic">🎁</div><h3>Real offers</h3><p>Bank deals and F&amp;B combos that actually save you money, applied at checkout automatically.</p></div>
-    <div class="feature-card"><div class="fic">🛡️</div><h3>Zero-show protection</h3><p>Show cancelled by the cinema? Choose a full refund or a free rebooking on any show.</p></div>
-    <div class="feature-card"><div class="fic">🎟️</div><h3>M-ticket entry</h3><p>Your ticket lives in your phone. Scan the QR at the gate and walk right in.</p></div>
-    <div class="feature-card"><div class="fic">💬</div><h3>24×7 support</h3><p>Real humans, around the clock, in your language. Average reply under 2 minutes.</p></div>
-  </div>
-</section>
+  <!-- Mobile Drawer Navigation -->
+  <nav class="mobile-nav" id="mobile-nav">
+    <a href="movies.html">🎞️ Movies <span class="ic">›</span></a>
+    <a href="offers.html">🎁 Offers <span class="ic">›</span></a>
+    <a href="events.html">🎟️ Events <span class="ic">›</span></a>
+    <a href="about.html">🛈 About <span class="ic">›</span></a>
+    <a href="contact.html">📞 Contact <span class="ic">›</span></a>
+    <a href="home.html#signin">👤 Sign in <span class="ic">›</span></a>
+  </nav>
 
-<section class="section container">
-  <div class="book-panel">
-    <h2>Frequently asked questions</h2>
-    <div class="faq-list">
-      <details open>
-        <summary>How do I cancel my booking?</summary>
-        <p>Open your booking from the confirmation email or the "My Bookings" section and tap Cancel. Refunds are processed to your original payment method within minutes, minus a small cancellation window fee.</p>
-      </details>
-      <details>
-        <summary>Can I book tickets without an account?</summary>
-        <p>Yes! Guest checkout is fully supported. However, creating an account unlocks offers, faster refunds and order history.</p>
-      </details>
-      <details>
-        <summary>Which payment methods do you accept?</summary>
-        <p>Credit &amp; debit cards, UPI (GPay, PhonePe, Paytm), net banking, and popular wallets. All payments are processed over 256-bit encrypted connections.</p>
-      </details>
-      <details>
-        <summary>Is there a convenience fee?</summary>
-        <p>A small platform fee helps us keep the lights on. It's always shown clearly before you pay, and first-time users pay ₹0.</p>
-      </details>
-      <details>
-        <summary>Do you work with cinema partners?</summary>
-        <p>Absolutely. If you run a cinema and want to offer online booking, reach out via the contact page — onboarding takes under 48 hours.</p>
-      </details>
-    </div>
-  </div>
-</section>
+  <main>
+    <!-- ================= HERO SECTION (MATCHES offers.html HERO) ================= -->
+    <section class="offers-hero-section cinema-hero-glass">
+      <div class="hero-badge-pill">
+        <span class="pulse-dot"></span>
+        <span>OUR STORY · THE CINEBUZZ MISSION</span>
+      </div>
+      <h1 class="offers-main-heading">
+        The Cinemas Run the Show. <br><span class="text-gradient">We Perfect Everything Else.</span>
+      </h1>
+      <p class="offers-subheading">
+        CineBuzz is built for cinema purists and casual movie-goers alike. We eliminate checkout friction, ensure zero waiting lines, and make ticketing an effortless pre-show ritual.
+      </p>
 
-<footer class="site-footer">
-  <div class="container footer-grid">
-    <div>
-      <a class="brand" href="home.html"><span class="logo-ic">🎬</span> CineBuzz</a>
-      <p style="margin-top:14px;">India's friendliest movie ticket booking &amp; cinema management platform.</p>
-      <div class="social-row"><a href="#">f</a><a href="#">𝕏</a><a href="#">◎</a><a href="#">▶</a></div>
+      <div class="offers-status-bar" style="justify-content: center; gap: 20px; margin-bottom: 1.5rem;">
+        <span class="trust-pill"><span>⚡</span> Sub-30-Second Booking</span>
+        <span class="trust-pill" style="color: var(--neon-cyan);"><span>✦</span> Over 700+ Verified Multiplex Screens</span>
+        <span class="trust-pill" style="color: #c084fc;"><span>🛡️</span> 100% Instant Refund Assurance</span>
+      </div>
+
+      <div style="display:flex; justify-content:center; gap:12px;">
+        <a class="btn btn-primary glow-btn" href="movies.html">
+          <span>🎬 Explore Now Showing</span>
+        </a>
+        <a class="btn btn-ghost" href="#stats">
+          <span>Our Milestones</span> <span>↓</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- ================= STORY & STATS SECTION ================= -->
+    <section class="section container" id="stats">
+      <div class="offers-controls-glass story-panel-grid">
+        <div class="story-copy">
+          <span class="eyebrow">BUILT FROM PASSION</span>
+          <h2 style="font-size: 1.85rem; font-weight: 800; color: #fff; line-height: 1.25; margin-bottom: 1rem;">
+            Ticketing should feel as enjoyable as the <span class="text-gradient">opening title roll</span>.
+          </h2>
+          <p style="color: rgba(255, 255, 255, 0.75); line-height: 1.7; margin-bottom: 1rem;">
+            CineBuzz began with a simple observation: buying tickets online had become bogged down by hidden fees, confusing seat maps, and clunky payment gates. We stripped that all away.
+          </p>
+          <p style="color: rgba(255, 255, 255, 0.65); line-height: 1.6;">
+            Today, our platform powers bookings across premier multiplexes and independent theatres in over 40 Indian cities. From instantaneous M-tickets to real-time seat lockouts and verified bank perks, CineBuzz ensures that from trailer to curtain call, your experience is pure cinema.
+          </p>
+        </div>
+
+        <!-- Neon Stat Counters (Matching Offers Stubs) -->
+        <div class="stat-grid">
+          <div class="stat-card">
+            <div class="stat-num text-gradient">700+</div>
+            <div class="stat-label">Active Screens</div>
+            <div class="stat-meta">IMAX, 4DX, ICE &amp; Dolby Atmos</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-num" style="color: var(--neon-cyan);">40+</div>
+            <div class="stat-label">Cities Covered</div>
+            <div class="stat-meta">Tier 1 &amp; Tier 2 Metros</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-num" style="color: #4ade80;">5M+</div>
+            <div class="stat-label">Tickets Issued</div>
+            <div class="stat-meta">Zero Gate Rejection Rate</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-num" style="color: #fbbf24;">4.8★</div>
+            <div class="stat-label">Customer Rating</div>
+            <div class="stat-meta">Over 180K Verified Reviews</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= FEATURES GRID (MATCHING OFFER CARDS) ================= -->
+    <section class="section container">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">ENGINEERED FOR ENTERTAINMENT</span>
+          <h2>What Makes CineBuzz Stand Out</h2>
+        </div>
+        <p style="color: var(--muted); font-size: 0.9rem; max-width: 480px;">
+          Every line of code and UI interaction is engineered to get you from poster to popcorn without hurdles.
+        </p>
+      </div>
+
+      <div class="feature-grid">
+        <!-- Feature 1 -->
+        <div class="feature-card">
+          <div class="feature-card-header">
+            <div class="feature-avatar-icon feat-cyan">⚡</div>
+            <span class="offer-tag tag-discount">SPEED</span>
+          </div>
+          <h3>3-Tap Express Checkout</h3>
+          <p>Pick your film, tap your preferred row, and authenticate via UPI or saved card. You are confirmed in under 30 seconds flat.</p>
+          <div class="feature-footer-line">
+            <span>Seamless flow</span>
+            <span style="color: var(--neon-cyan);">Optimized ↗</span>
+          </div>
+        </div>
+
+        <!-- Feature 2 -->
+        <div class="feature-card">
+          <div class="feature-card-header">
+            <div class="feature-avatar-icon feat-pink">↩️</div>
+            <span class="offer-tag tag-bogo">REFUNDS</span>
+          </div>
+          <h3>Instant Automated Refunds</h3>
+          <p>Plans derailed? Cancel eligible bookings in one tap. Your funds are returned immediately to your original payment source.</p>
+          <div class="feature-footer-line">
+            <span>Direct to bank</span>
+            <span style="color: #f472b6;">Under 2 mins ↗</span>
+          </div>
+        </div>
+
+        <!-- Feature 3 -->
+        <div class="feature-card">
+          <div class="feature-card-header">
+            <div class="feature-avatar-icon feat-gold">🎁</div>
+            <span class="offer-tag tag-special">REAL VALUE</span>
+          </div>
+          <h3>Curated Bank &amp; UPI Deals</h3>
+          <p>No dummy coupons. We partner directly with HDFC, ICICI, SBI, CRED, and Paytm to auto-calculate the highest discount on your cart.</p>
+          <div class="feature-footer-line">
+            <span>Up to ₹250 off</span>
+            <span style="color: #fbbf24;">Auto-applied ↗</span>
+          </div>
+        </div>
+
+        <!-- Feature 4 -->
+        <div class="feature-card">
+          <div class="feature-card-header">
+            <div class="feature-avatar-icon feat-green">🛡️</div>
+            <span class="offer-tag tag-waiver">PROTECTION</span>
+          </div>
+          <h3>Zero-Show Guarantee</h3>
+          <p>If a cinema experiences technical failure or cancels a screening, choose an unconditional 100% refund or an upgrade to any prime show.</p>
+          <div class="feature-footer-line">
+            <span>Full buyer cover</span>
+            <span style="color: #4ade80;">100% Assured ↗</span>
+          </div>
+        </div>
+
+        <!-- Feature 5 -->
+        <div class="feature-card">
+          <div class="feature-card-header">
+            <div class="feature-avatar-icon feat-purple">🎟️</div>
+            <span class="offer-tag tag-cashback">SMART ENTRY</span>
+          </div>
+          <h3>Paperless Digital M-Tickets</h3>
+          <p>Your admission ticket lives securely on your phone. Skip the box-office kiosk, flash the QR scanner at usher gates, and walk right in.</p>
+          <div class="feature-footer-line">
+            <span>Direct turnstile scan</span>
+            <span style="color: #c084fc;">No printouts ↗</span>
+          </div>
+        </div>
+
+        <!-- Feature 6 -->
+        <div class="feature-card">
+          <div class="feature-card-header">
+            <div class="feature-avatar-icon feat-blue">💬</div>
+            <span class="offer-tag tag-events">SUPPORT</span>
+          </div>
+          <h3>Round-the-Clock Human Support</h3>
+          <p>Got a question about a seat transfer or combo food voucher? Our support team responds in your preferred language in under 2 minutes.</p>
+          <div class="feature-footer-line">
+            <span>24/7 Desk availability</span>
+            <span style="color: #38bdf8;">Live chat ↗</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= PERFORATED CALLOUT VOUCHER ================= -->
+    <section class="section container">
+      <div class="offers-controls-glass about-perforated-cta">
+        <div class="voucher-notch notch-left"></div>
+        <div class="voucher-notch notch-right"></div>
+        <div class="cta-inner-flex">
+          <div>
+            <span class="hero-badge-pill" style="margin-bottom: 8px;">
+              <span class="pulse-dot"></span>
+              NEW TO CINEBUZZ?
+            </span>
+            <h3 style="font-size: 1.5rem; font-weight: 800; color: #fff;">Enjoy 100% Convenience Fee Waiver</h3>
+            <p style="color: rgba(255, 255, 255, 0.7); font-size: 0.9rem; margin-top: 4px;">
+              Apply promo code <strong style="color: var(--neon-cyan); letter-spacing: 1px;">WELCOME0</strong> at checkout on your first movie or live event ticket.
+            </p>
+          </div>
+          <div style="display:flex; gap:12px; align-items:center; flex-wrap:wrap;">
+            <a class="btn btn-outline-cyan" href="offers.html">View All 18 Offers</a>
+            <a class="btn btn-primary glow-btn" href="movies.html">Book A Movie</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= FREQUENTLY ASKED QUESTIONS (FROSTED ACCORDIONS) ================= -->
+    <section class="section container" style="margin-bottom: 4rem;">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">CLEAR ANSWERS</span>
+          <h2>Frequently Asked Questions</h2>
+        </div>
+        <p style="color: var(--muted); font-size: 0.9rem;">
+          Everything you need to know about ticket booking, cancellations, and partner cinema policies.
+        </p>
+      </div>
+
+      <div class="faq-accordion-container offers-controls-glass">
+        <!-- FAQ 1 -->
+        <details class="glass-faq-item" open>
+          <summary class="glass-faq-summary">
+            <span>How do I cancel my movie ticket or pass?</span>
+            <span class="faq-chevron"></span>
+          </summary>
+          <div class="glass-faq-content">
+            <p>
+              Navigate to your confirmation page or open your booking link from SMS/Email and click <strong>Cancel Booking</strong>. For supported multiplex chains (PVR INOX, Cinepolis, Miraj), cancellations requested up to 2 hours before showtime are immediately returned to your original payment method.
+            </p>
+          </div>
+        </details>
+
+        <!-- FAQ 2 -->
+        <details class="glass-faq-item">
+          <summary class="glass-faq-summary">
+            <span>Can I book tickets without creating an account?</span>
+            <span class="faq-chevron"></span>
+          </summary>
+          <div class="glass-faq-content">
+            <p>
+              Yes! Guest checkout is fully enabled on CineBuzz. Simply provide an email and mobile number where your digital M-Ticket and QR barcode will be delivered. However, having a registered account allows you to save favorite screens and view one-click order history.
+            </p>
+          </div>
+        </details>
+
+        <!-- FAQ 3 -->
+        <details class="glass-faq-item">
+          <summary class="glass-faq-summary">
+            <span>Which payment options and bank cards are supported?</span>
+            <span class="faq-chevron"></span>
+          </summary>
+          <div class="glass-faq-content">
+            <p>
+              We support all major Indian credit and debit cards (Visa, MasterCard, RuPay, Amex), instant UPI (Google Pay, PhonePe, Paytm, CRED Pay), and popular Net Banking portals. All transactions are protected via 256-bit bank-grade encryption with RBI 2-factor authentication.
+            </p>
+          </div>
+        </details>
+
+        <!-- FAQ 4 -->
+        <details class="glass-faq-item">
+          <summary class="glass-faq-summary">
+            <span>Are cinema offers automatically applied at payment?</span>
+            <span class="faq-chevron"></span>
+          </summary>
+          <div class="glass-faq-content">
+            <p>
+              Yes. When you arrive at the checkout payment screen, our system reads your order total and ticket count against our 18 verified partner offers (HDFC BOGO, ICICI 25%, CRED Flat ₹100, etc.) and auto-suggests the highest monetary discount available.
+            </p>
+          </div>
+        </details>
+
+        <!-- FAQ 5 -->
+        <details class="glass-faq-item">
+          <summary class="glass-faq-summary">
+            <span>I manage a theatre or live venue. How do we partner with CineBuzz?</span>
+            <span class="faq-chevron"></span>
+          </summary>
+          <div class="glass-faq-content">
+            <p>
+              We are constantly welcoming new multiplex chains, single-screen historical theatres, and live concert organizers. Drop our partnerships team a note via our <a href="contact.html" style="color: var(--neon-cyan); text-decoration: underline;">Contact Page</a> and our integration engineers will have your box-office online within 48 hours.
+            </p>
+          </div>
+        </details>
+      </div>
+    </section>
+  </main>
+
+  <!-- ================= SITE FOOTER ================= -->
+  <footer class="site-footer footer-glass">
+    <div class="container footer-grid">
+      <div>
+        <a class="brand" href="home.html">
+          <span class="logo-ic">🎬</span>
+          <span class="logo-text">Cine<span class="text-gradient">Buzz</span></span>
+        </a>
+        <p class="footer-tagline" style="margin-top:14px;">
+          India's most intuitive movie &amp; live entertainment booking hub. Explore films, discover authentic discounts, and reserve seats in seconds.
+        </p>
+        <div class="social-row" style="display:flex; gap:12px; margin-top:16px;">
+          <a class="btn-copy-code" href="#" aria-label="Facebook">FB</a>
+          <a class="btn-copy-code" href="#" aria-label="Twitter">𝕏</a>
+          <a class="btn-copy-code" href="#" aria-label="Instagram">IG</a>
+          <a class="btn-copy-code" href="#" aria-label="YouTube">YT</a>
+        </div>
+      </div>
+
+      <div class="footer-links">
+        <h4>Explore</h4>
+        <a href="movies.html">Now Showing</a>
+        <a href="movies.html#upcoming-title">Coming Soon</a>
+        <a href="events.html">Live Concerts &amp; Comedy</a>
+        <a href="offers.html">Bank &amp; Wallet Offers</a>
+      </div>
+
+      <div class="footer-links">
+        <h4>Company &amp; Legal</h4>
+        <a href="about.html">About CineBuzz</a>
+        <a href="contact.html">Customer Support</a>
+        <a href="contact.html">Terms of Service</a>
+        <a href="contact.html">Privacy Policy</a>
+      </div>
     </div>
-    <div><h4>Movies</h4><a href="movies.html">Now Showing</a><a href="movies.html">Coming Soon</a><a href="movies.html">Top Rated</a><a href="offers.html">Offers</a></div>
-    <div><h4>Company</h4><a href="about.html">About Us</a><a href="about.html">Careers</a><a href="contact.html">Contact Us</a><a href="about.html">Press</a></div>
-    <div><h4>Support</h4><a href="contact.html">Help Center</a><a href="contact.html">Payment Options</a><a href="contact.html">Terms &amp; Conditions</a><a href="contact.html">Privacy Policy</a></div>
-  </div>
-  <div class="container footer-bottom">
-    <span>© 2026 CineBuzz Entertainment Pvt. Ltd. All rights reserved.</span>
-    <span>Made with 🍿 in India · </span>
-  </div>
-</footer>
+
+    <div class="container footer-bottom">
+      <span>© 2026 CineBuzz Entertainment Private Limited. All rights reserved.</span>
+      <span style="color: var(--neon-cyan);">Crafted with 🍿 for movie lovers across India</span>
+    </div>
+  </footer>
 
   <script src="../assets/js/app.js" defer></script>
 </body>

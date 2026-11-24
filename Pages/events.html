@@ -3,37 +3,206 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Events &amp; Shows — CineBuzz</title>
-<meta name="description" content="Concerts, comedy shows, sports and plays near you.">
-<link rel="stylesheet" href="assets/css/style.css">
+<title>Live Events & Experiences — CineBuzz</title>
+<meta name="description" content="Discover live music concerts, stand-up comedy specials, sports matches, and theatrical performances with dedicated event passes on CineBuzz.">
+<link rel="stylesheet" href="../assets/css/style.css">
 <style>
-  .evt-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:6px;}
-  .evt-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);overflow:hidden;transition:.2s;}
-  .evt-card:hover{transform:translateY(-3px);box-shadow:var(--shadow);}
-  .evt-cover{height:150px;color:#fff;display:flex;align-items:flex-end;padding:16px;font-size:1.6rem;}
-  .evt-body{padding:16px;}
-  .evt-date{color:var(--brand);font-weight:800;font-size:.8rem;margin-bottom:4px;}
-  .evt-card h3{font-size:1.05rem;margin-bottom:6px;}
-  .evt-card p{color:var(--muted);font-size:.86rem;margin-bottom:12px;}
-  .evt-row{display:flex;justify-content:space-between;align-items:center;}
-  .evt-price{font-weight:800;font-size:.9rem;}
-  @media(max-width:900px){.evt-grid{grid-template-columns:1fr 1fr;}}
-  @media(max-width:620px){.evt-grid{grid-template-columns:1fr;}}
+/* Event Grid & Real Event Poster Styling */
+.evt-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 24px;
+  margin-top: 20px;
+}
+.evt-card {
+  background: rgba(18, 24, 38, 0.65);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: all var(--tr-smooth);
+  box-shadow: var(--glass-shadow);
+  position: relative;
+}
+.evt-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--glass-border-light);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.55), 0 0 24px rgba(248, 68, 100, 0.2);
+}
+.evt-poster-wrap {
+  position: relative;
+  width: 100%;
+  height: 190px;
+  overflow: hidden;
+  background: #0d121f;
+}
+.evt-poster-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  display: block;
+}
+.evt-card:hover .evt-poster-img {
+  transform: scale(1.06);
+}
+.evt-poster-gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(8, 11, 20, 0.2) 0%, rgba(8, 11, 20, 0.85) 100%);
+  pointer-events: none;
+}
+.evt-tags-overlay {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  right: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 2;
+}
+.evt-cat-badge {
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  background: rgba(8, 11, 20, 0.75);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+.evt-status-badge {
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  padding: 4px 9px;
+  border-radius: var(--radius-full);
+  background: rgba(248, 68, 100, 0.3);
+  backdrop-filter: blur(10px);
+  color: #ff7b94;
+  border: 1px solid rgba(248, 68, 100, 0.5);
+}
+.evt-status-badge.green {
+  background: rgba(16, 185, 129, 0.25);
+  color: #34d399;
+  border-color: rgba(16, 185, 129, 0.45);
+}
+.evt-body {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+.evt-date {
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: var(--brand);
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+}
+.evt-card h3 {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #fff;
+  line-height: 1.35;
+}
+.evt-venue {
+  font-size: 0.82rem;
+  color: var(--muted);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 4px;
+}
+.evt-desc {
+  font-size: 0.84rem;
+  color: var(--ink-secondary);
+  line-height: 1.45;
+  margin-bottom: 12px;
+  flex: 1;
+}
+.evt-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+  margin-top: auto;
+}
+.evt-price-box {
+  display: flex;
+  flex-direction: column;
+}
+.evt-price-box small {
+  font-size: 0.68rem;
+  color: var(--muted);
+  text-transform: uppercase;
+  font-weight: 700;
+}
+.evt-price {
+  font-weight: 800;
+  font-size: 1.15rem;
+  color: #fff;
+}
+/* Modal Event Header */
+.modal-event-preview {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  margin-bottom: 18px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--line);
+}
+.modal-event-poster {
+  width: 82px;
+  height: 82px;
+  border-radius: var(--radius-md);
+  object-fit: cover;
+  border: 1px solid var(--glass-border-light);
+  flex-shrink: 0;
+}
+.tier-pill {
+  display: flex;
+  justify-content: space-between;
+  padding: 11px 14px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-md);
+  margin-bottom: 8px;
+  cursor: pointer;
+  transition: all var(--tr-fast);
+}
+.tier-pill:hover, .tier-pill.selected {
+  background: var(--brand-soft);
+  border-color: var(--brand);
+}
 </style>
 </head>
-<body>
+<body class="cinema-page">
 
 <header class="site-header">
   <div class="container header-inner">
-    <a class="brand" href="index.html"><span class="logo-ic">🎬</span> CineBuzz</a>
-    <div class="search"><span class="ic">🔍</span><input type="text" placeholder="Search for movies, events, plays, sports and activities"></div>
-    <a class="loc" href="about.html"><span class="pin">📍</span><span><small>Location</small>New Delhi</span></a>
+    <a class="brand" href="home.html"><span class="logo-ic">🎬</span> CineBuzz</a>
+    <div class="search"><span class="ic">🔍</span><input type="text" placeholder="Search live concerts, comedy, plays, tournaments..."></div>
+    <a class="loc location-nav" href="movies.html#location-panel"><span class="pin">⌖</span><span><small>Your location</small><strong class="location-name">Choose city</strong></span><span class="location-chevron">⌄</span></a>
     <nav class="nav-actions">
       <a class="nav-link" href="movies.html"><span class="ic">🎞️</span>Movies</a>
       <a class="nav-link" href="offers.html"><span class="ic">🎁</span>Offers</a>
       <a class="nav-link active" href="events.html"><span class="ic">🎟️</span>Events</a>
       <a class="nav-link" href="about.html"><span class="ic">🛈</span>About</a>
-      <a class="btn btn-ghost btn-sm signin-btn" href="index.html#signin">Sign in</a>
+      <a class="btn btn-ghost btn-sm signin-btn" href="home.html#signin">Sign in</a>
     </nav>
     <a class="menu-toggle" href="#mobile-nav">☰</a>
   </div>
@@ -44,101 +213,510 @@
   <a href="events.html">🎟️ Events <span class="ic">›</span></a>
   <a href="about.html">🛈 About <span class="ic">›</span></a>
   <a href="contact.html">📞 Contact <span class="ic">›</span></a>
-  <a href="index.html#signin">👤 Sign in <span class="ic">›</span></a>
+  <a href="home.html#signin">👤 Sign in <span class="ic">›</span></a>
 </nav>
 
 <section class="page-hero">
   <div class="container">
     <div class="crumb">Home / Events</div>
-    <h1>Events &amp; Live Shows</h1>
-    <p>Concerts, stand-up comedy, sports and theatre — book live experiences near you.</p>
+    <h1>Live Events & Experiences</h1>
+    <p>Secure front-row passes for national tours, stand-up comedy, derby games, and grand theatrical productions.</p>
   </div>
 </section>
 
 <section class="section container">
-  <div class="chip-row" style="padding-top:0;">
-    <button class="chip on">All</button>
-    <button class="chip">🎤 Concerts</button>
-    <button class="chip">😄 Comedy</button>
-    <button class="chip">🏏 Sports</button>
-    <button class="chip">🎭 Theatre</button>
-    <button class="chip">👨‍👩‍👧 Family</button>
+  <!-- CATEGORY FILTER CHIPS -->
+  <div class="chip-row">
+    <button class="chip on" type="button">All events</button>
+    <button class="chip" type="button">🎤 Concerts</button>
+    <button class="chip" type="button">😄 Comedy</button>
+    <button class="chip" type="button">🏏 Sports</button>
+    <button class="chip" type="button">🎭 Theatre</button>
+    <button class="chip" type="button">👨‍👩‍👧 Family</button>
   </div>
 
+  <!-- LIVE EVENTS GRID WITH DEDICATED EVENT POSTERS -->
   <div class="evt-grid">
-    <div class="evt-card">
-      <div class="evt-cover" style="background:linear-gradient(120deg,#7c3aed,#c084fc);">🎤</div>
-      <div class="evt-body">
-        <div class="evt-date">SAT, 03 OCT · INDIRA GANDHI STADIUM</div>
-        <h3>Indie Nights Live</h3>
-        <p>Six indie bands, one unforgettable night under the stars.</p>
-        <div class="evt-row"><span class="evt-price">from ₹799</span><a class="btn btn-primary btn-sm" href="#" onclick="alert('Event booking (demo)');return false;">Book</a></div>
+
+    <!-- 1. CONCERT -->
+    <article class="evt-card" data-category="concert">
+      <div class="evt-poster-wrap">
+        <img class="evt-poster-img" src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=800&q=80" alt="Arijit Singh Symphony Tour poster" loading="lazy">
+        <div class="evt-poster-gradient"></div>
+        <div class="evt-tags-overlay">
+          <span class="evt-cat-badge">🎤 Concert</span>
+          <span class="evt-status-badge">Selling Fast</span>
+        </div>
       </div>
-    </div>
-    <div class="evt-card">
-      <div class="evt-cover" style="background:linear-gradient(120deg,#f84464,#fbbf24);">😄</div>
       <div class="evt-body">
-        <div class="evt-date">FRI, 02 OCT · SIRI FORT AUDITORIUM</div>
-        <h3>Laugh Riot Stand-up</h3>
-        <p>A 90-minute comedy special with three headliners.</p>
-        <div class="evt-row"><span class="evt-price">from ₹499</span><a class="btn btn-primary btn-sm" href="#" onclick="alert('Event booking (demo)');return false;">Book</a></div>
+        <span class="evt-date">SAT, 14 NOV · 07:00 PM</span>
+        <h3>Arijit Singh — Symphony of Love Tour</h3>
+        <p class="evt-venue">📍 Jawaharlal Nehru Stadium, New Delhi</p>
+        <p class="evt-desc">Experience an intimate, three-hour acoustic and grand orchestral set featuring Bollywood's biggest chartbusters under the stars.</p>
+        <div class="evt-row">
+          <div class="evt-price-box"><small>Starting from</small><span class="evt-price">₹1,499</span></div>
+          <button class="btn btn-primary btn-sm book-event-btn" 
+                  data-title="Arijit Singh — Symphony of Love Tour" 
+                  data-venue="JLN Stadium, New Delhi" 
+                  data-price="1499"
+                  data-poster="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=800&q=80">
+            Book Tickets
+          </button>
+        </div>
       </div>
-    </div>
-    <div class="evt-card">
-      <div class="evt-cover" style="background:linear-gradient(120deg,#0e9f6e,#2dd4bf);">🏏</div>
+    </article>
+
+    <!-- 2. COMEDY -->
+    <article class="evt-card" data-category="comedy">
+      <div class="evt-poster-wrap">
+        <img class="evt-poster-img" src="https://images.unsplash.com/photo-1585699324551-f6c309eedeca?auto=format&fit=crop&w=800&q=80" alt="Zakir Khan Tathastu Encore poster" loading="lazy">
+        <div class="evt-poster-gradient"></div>
+        <div class="evt-tags-overlay">
+          <span class="evt-cat-badge">😄 Comedy</span>
+          <span class="evt-status-badge green">Exclusive</span>
+        </div>
+      </div>
       <div class="evt-body">
-        <div class="evt-date">SUN, 04 OCT · ARUN JAITLEY STADIUM</div>
-        <h3>Delhi Kings vs Mumbai Titans</h3>
-        <p>T20 league match — watch the city derby live from the stands.</p>
-        <div class="evt-row"><span class="evt-price">from ₹1,199</span><a class="btn btn-primary btn-sm" href="#" onclick="alert('Event booking (demo)');return false;">Book</a></div>
+        <span class="evt-date">FRI, 06 NOV · 08:00 PM</span>
+        <h3>Zakir Khan — Tathastu Encore</h3>
+        <p class="evt-venue">📍 NCPA: Tata Theatre, Nariman Point, Mumbai</p>
+        <p class="evt-desc">The Sakht Launda returns with an introspective, laughter-filled storytelling special that explores life, family, and camaraderie.</p>
+        <div class="evt-row">
+          <div class="evt-price-box"><small>Starting from</small><span class="evt-price">₹999</span></div>
+          <button class="btn btn-primary btn-sm book-event-btn" 
+                  data-title="Zakir Khan — Tathastu Encore" 
+                  data-venue="NCPA Tata Theatre, Mumbai" 
+                  data-price="999"
+                  data-poster="https://images.unsplash.com/photo-1585699324551-f6c309eedeca?auto=format&fit=crop&w=800&q=80">
+            Book Tickets
+          </button>
+        </div>
       </div>
-    </div>
-    <div class="evt-card">
-      <div class="evt-cover" style="background:linear-gradient(120deg,#b45309,#fbbf24);">🎭</div>
+    </article>
+
+    <!-- 3. SPORTS -->
+    <article class="evt-card" data-category="sports">
+      <div class="evt-poster-wrap">
+        <img class="evt-poster-img" src="https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?auto=format&fit=crop&w=800&q=80" alt="India vs England T20 poster" loading="lazy">
+        <div class="evt-poster-gradient"></div>
+        <div class="evt-tags-overlay">
+          <span class="evt-cat-badge">🏏 Sports</span>
+          <span class="evt-status-badge">Almost Full</span>
+        </div>
+      </div>
       <div class="evt-body">
-        <div class="evt-date">WED, 07 OCT · KAMANI AUDITORIUM</div>
-        <h3>The Mughal Court</h3>
-        <p>A grand period drama staged by the National Theatre Company.</p>
-        <div class="evt-row"><span class="evt-price">from ₹399</span><a class="btn btn-primary btn-sm" href="#" onclick="alert('Event booking (demo)');return false;">Book</a></div>
+        <span class="evt-date">SUN, 08 NOV · 07:30 PM</span>
+        <h3>India vs England — T20 Super Series</h3>
+        <p class="evt-venue">📍 Wankhede Stadium, Mumbai</p>
+        <p class="evt-desc">High-voltage cricket under stadium floodlights as the Men in Blue take on England in the decisive 3rd T20 International.</p>
+        <div class="evt-row">
+          <div class="evt-price-box"><small>Starting from</small><span class="evt-price">₹1,250</span></div>
+          <button class="btn btn-primary btn-sm book-event-btn" 
+                  data-title="India vs England — T20 Super Series" 
+                  data-venue="Wankhede Stadium, Mumbai" 
+                  data-price="1250"
+                  data-poster="https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?auto=format&fit=crop&w=800&q=80">
+            Book Tickets
+          </button>
+        </div>
       </div>
-    </div>
-    <div class="evt-card">
-      <div class="evt-cover" style="background:linear-gradient(120deg,#2563eb,#38bdf8);">👨‍👩‍👧</div>
+    </article>
+
+    <!-- 4. CONCERT -->
+    <article class="evt-card" data-category="concert">
+      <div class="evt-poster-wrap">
+        <img class="evt-poster-img" src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=800&q=80" alt="Alan Walker Sunburn Arena poster" loading="lazy">
+        <div class="evt-poster-gradient"></div>
+        <div class="evt-tags-overlay">
+          <span class="evt-cat-badge">🎤 Concert</span>
+          <span class="evt-status-badge green">Newly Added</span>
+        </div>
+      </div>
       <div class="evt-body">
-        <div class="evt-date">SUN, 11 OCT · THYAGARAJ STADIUM</div>
-        <h3>Magic Circus Family Day</h3>
-        <p>Acrobats, illusionists and a petting zoo for the whole family.</p>
-        <div class="evt-row"><span class="evt-price">from ₹299</span><a class="btn btn-primary btn-sm" href="#" onclick="alert('Event booking (demo)');return false;">Book</a></div>
+        <span class="evt-date">SAT, 28 NOV · 05:00 PM</span>
+        <h3>Sunburn Arena ft. Alan Walker</h3>
+        <p class="evt-venue">📍 D.Y. Patil Stadium, Navi Mumbai</p>
+        <p class="evt-desc">The global electronic sensation brings his immersive Walkerworld audio-visual stage setup to India for one massive night.</p>
+        <div class="evt-row">
+          <div class="evt-price-box"><small>Starting from</small><span class="evt-price">₹1,999</span></div>
+          <button class="btn btn-primary btn-sm book-event-btn" 
+                  data-title="Sunburn Arena ft. Alan Walker" 
+                  data-venue="D.Y. Patil Stadium, Navi Mumbai" 
+                  data-price="1999"
+                  data-poster="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=800&q=80">
+            Book Tickets
+          </button>
+        </div>
       </div>
-    </div>
-    <div class="evt-card">
-      <div class="evt-cover" style="background:linear-gradient(120deg,#0f766e,#2dd4bf);">🎤</div>
+    </article>
+
+    <!-- 5. THEATRE -->
+    <article class="evt-card" data-category="theatre">
+      <div class="evt-poster-wrap">
+        <img class="evt-poster-img" src="https://images.unsplash.com/photo-1507676184212-d03ab07a01bf?auto=format&fit=crop&w=800&q=80" alt="Mughal-E-Azam Grand Musical poster" loading="lazy">
+        <div class="evt-poster-gradient"></div>
+        <div class="evt-tags-overlay">
+          <span class="evt-cat-badge">🎭 Theatre</span>
+          <span class="evt-status-badge">Grand Musical</span>
+        </div>
+      </div>
       <div class="evt-body">
-        <div class="evt-date">SAT, 17 OCT · JN STADIUM</div>
-        <h3>Sufi &amp; Fusion Evening</h3>
-        <p>An open-air qawwali and fusion concert as the sun goes down.</p>
-        <div class="evt-row"><span class="evt-price">from ₹649</span><a class="btn btn-primary btn-sm" href="#" onclick="alert('Event booking (demo)');return false;">Book</a></div>
+        <span class="evt-date">THU, 12 NOV · 06:30 PM</span>
+        <h3>Mughal-E-Azam: The Grand Musical</h3>
+        <p class="evt-venue">📍 The Grand Theatre, NMACC, Mumbai</p>
+        <p class="evt-desc">Feroz Abbas Khan’s Broadway-scale adaptation featuring 350+ costumes by Manish Malhotra and live Kathak ensembles.</p>
+        <div class="evt-row">
+          <div class="evt-price-box"><small>Starting from</small><span class="evt-price">₹1,500</span></div>
+          <button class="btn btn-primary btn-sm book-event-btn" 
+                  data-title="Mughal-E-Azam: The Grand Musical" 
+                  data-venue="The Grand Theatre, NMACC" 
+                  data-price="1500"
+                  data-poster="https://images.unsplash.com/photo-1507676184212-d03ab07a01bf?auto=format&fit=crop&w=800&q=80">
+            Book Tickets
+          </button>
+        </div>
       </div>
-    </div>
+    </article>
+
+    <!-- 6. COMEDY -->
+    <article class="evt-card" data-category="comedy">
+      <div class="evt-poster-wrap">
+        <img class="evt-poster-img" src="https://images.unsplash.com/photo-1527224857830-43a7acc85260?auto=format&fit=crop&w=800&q=80" alt="Anubhav Singh Bassi poster" loading="lazy">
+        <div class="evt-poster-gradient"></div>
+        <div class="evt-tags-overlay">
+          <span class="evt-cat-badge">😄 Comedy</span>
+          <span class="evt-status-badge">Selling Fast</span>
+        </div>
+      </div>
+      <div class="evt-body">
+        <span class="evt-date">SAT, 21 NOV · 07:30 PM</span>
+        <h3>Anubhav Singh Bassi — Kisi Ko Batana Mat</h3>
+        <p class="evt-venue">📍 Talkatora Indoor Stadium, New Delhi</p>
+        <p class="evt-desc">Bassi’s brand-new live set loaded with fresh tales of college misadventures, lawyers, and hilarious small-town encounters.</p>
+        <div class="evt-row">
+          <div class="evt-price-box"><small>Starting from</small><span class="evt-price">₹799</span></div>
+          <button class="btn btn-primary btn-sm book-event-btn" 
+                  data-title="Anubhav Singh Bassi — Kisi Ko Batana Mat" 
+                  data-venue="Talkatora Stadium, New Delhi" 
+                  data-price="799"
+                  data-poster="https://images.unsplash.com/photo-1527224857830-43a7acc85260?auto=format&fit=crop&w=800&q=80">
+            Book Tickets
+          </button>
+        </div>
+      </div>
+    </article>
+
+    <!-- 7. FAMILY & FESTIVALS -->
+    <article class="evt-card" data-category="family">
+      <div class="evt-poster-wrap">
+        <img class="evt-poster-img" src="https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?auto=format&fit=crop&w=800&q=80" alt="Delhi Comic Con 2026 poster" loading="lazy">
+        <div class="evt-poster-gradient"></div>
+        <div class="evt-tags-overlay">
+          <span class="evt-cat-badge">👨‍👩‍👧 Family</span>
+          <span class="evt-status-badge green">Weekend Pass</span>
+        </div>
+      </div>
+      <div class="evt-body">
+        <span class="evt-date">19–20 DEC · 11:00 AM ONWARDS</span>
+        <h3>Delhi Comic Con 2026</h3>
+        <p class="evt-venue">📍 NSIC Exhibition Grounds, Okhla, New Delhi</p>
+        <p class="evt-desc">The premier celebration of comics, anime, pop culture, cosplay tournaments, international artists, and gaming arenas.</p>
+        <div class="evt-row">
+          <div class="evt-price-box"><small>Starting from</small><span class="evt-price">₹899</span></div>
+          <button class="btn btn-primary btn-sm book-event-btn" 
+                  data-title="Delhi Comic Con 2026" 
+                  data-venue="NSIC Exhibition Grounds, Delhi" 
+                  data-price="899"
+                  data-poster="https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?auto=format&fit=crop&w=800&q=80">
+            Book Tickets
+          </button>
+        </div>
+      </div>
+    </article>
+
+    <!-- 8. CONCERT -->
+    <article class="evt-card" data-category="concert">
+      <div class="evt-poster-wrap">
+        <img class="evt-poster-img" src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=800&q=80" alt="Nizami Bandhu Sufi Qawwali poster" loading="lazy">
+        <div class="evt-poster-gradient"></div>
+        <div class="evt-tags-overlay">
+          <span class="evt-cat-badge">🎤 Concert</span>
+          <span class="evt-status-badge">Sufi Night</span>
+        </div>
+      </div>
+      <div class="evt-body">
+        <span class="evt-date">FRI, 27 NOV · 07:30 PM</span>
+        <h3>Nizami Bandhu Live — Jashn-e-Qawwali</h3>
+        <p class="evt-venue">📍 Siri Fort Auditorium, New Delhi</p>
+        <p class="evt-desc">The legendary Hazrat Nizamuddin Dargah qawwals perform mystical Sufi poetry and timeless Bollywood soul tracks.</p>
+        <div class="evt-row">
+          <div class="evt-price-box"><small>Starting from</small><span class="evt-price">₹699</span></div>
+          <button class="btn btn-primary btn-sm book-event-btn" 
+                  data-title="Nizami Bandhu Live — Jashn-e-Qawwali" 
+                  data-venue="Siri Fort Auditorium, New Delhi" 
+                  data-price="699"
+                  data-poster="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=800&q=80">
+            Book Tickets
+          </button>
+        </div>
+      </div>
+    </article>
+
+    <!-- 9. SPORTS -->
+    <article class="evt-card" data-category="sports">
+      <div class="evt-poster-wrap">
+        <img class="evt-poster-img" src="https://images.unsplash.com/photo-1508098682722-e99c43a406b2?auto=format&fit=crop&w=800&q=80" alt="Mohun Bagan vs East Bengal poster" loading="lazy">
+        <div class="evt-poster-gradient"></div>
+        <div class="evt-tags-overlay">
+          <span class="evt-cat-badge">🏏 Sports</span>
+          <span class="evt-status-badge">Kolkata Derby</span>
+        </div>
+      </div>
+      <div class="evt-body">
+        <span class="evt-date">SAT, 05 DEC · 07:30 PM</span>
+        <h3>Mohun Bagan vs East Bengal (ISL Derby)</h3>
+        <p class="evt-venue">📍 Salt Lake Stadium, Kolkata</p>
+        <p class="evt-desc">Asia's oldest and most passionate football rivalry resumes in front of 65,000 roaring supporters in Salt Lake Stadium.</p>
+        <div class="evt-row">
+          <div class="evt-price-box"><small>Starting from</small><span class="evt-price">₹350</span></div>
+          <button class="btn btn-primary btn-sm book-event-btn" 
+                  data-title="Mohun Bagan vs East Bengal (ISL Derby)" 
+                  data-venue="Salt Lake Stadium, Kolkata" 
+                  data-price="350"
+                  data-poster="https://images.unsplash.com/photo-1508098682722-e99c43a406b2?auto=format&fit=crop&w=800&q=80">
+            Book Tickets
+          </button>
+        </div>
+      </div>
+    </article>
+
+    <!-- 10. COMEDY -->
+    <article class="evt-card" data-category="comedy">
+      <div class="evt-poster-wrap">
+        <img class="evt-poster-img" src="https://images.unsplash.com/photo-1583795128727-6ec3642408f8?auto=format&fit=crop&w=800&q=80" alt="Samay Raina Unfiltered Live poster" loading="lazy">
+        <div class="evt-poster-gradient"></div>
+        <div class="evt-tags-overlay">
+          <span class="evt-cat-badge">😄 Comedy</span>
+          <span class="evt-status-badge green">All Ages</span>
+        </div>
+      </div>
+      <div class="evt-body">
+        <span class="evt-date">SUN, 22 NOV · 06:30 PM</span>
+        <h3>Samay Raina — Unfiltered Live</h3>
+        <p class="evt-venue">📍 Good Shepherd Auditorium, Bengaluru</p>
+        <p class="evt-desc">Dark comedy, sharp crowd roasts, and unscripted wit from YouTube and chess streaming sensation Samay Raina.</p>
+        <div class="evt-row">
+          <div class="evt-price-box"><small>Starting from</small><span class="evt-price">₹699</span></div>
+          <button class="btn btn-primary btn-sm book-event-btn" 
+                  data-title="Samay Raina — Unfiltered Live" 
+                  data-venue="Good Shepherd Auditorium, Bengaluru" 
+                  data-price="699"
+                  data-poster="https://images.unsplash.com/photo-1583795128727-6ec3642408f8?auto=format&fit=crop&w=800&q=80">
+            Book Tickets
+          </button>
+        </div>
+      </div>
+    </article>
+
+    <!-- 11. THEATRE -->
+    <article class="evt-card" data-category="theatre">
+      <div class="evt-poster-wrap">
+        <img class="evt-poster-img" src="https://images.unsplash.com/photo-1469488865564-c2de10f69f96?auto=format&fit=crop&w=800&q=80" alt="Piya Behrupiya Twelfth Night poster" loading="lazy">
+        <div class="evt-poster-gradient"></div>
+        <div class="evt-tags-overlay">
+          <span class="evt-cat-badge">🎭 Theatre</span>
+          <span class="evt-status-badge">Folk Musical</span>
+        </div>
+      </div>
+      <div class="evt-body">
+        <span class="evt-date">WED, 02 DEC · 07:00 PM</span>
+        <h3>Piya Behrupiya (Twelfth Night)</h3>
+        <p class="evt-venue">📍 Kamani Auditorium, Mandi House, New Delhi</p>
+        <p class="evt-desc">Atul Kumar’s internationally acclaimed nautanki adaptation of Shakespeare's Twelfth Night with folk songs and humor.</p>
+        <div class="evt-row">
+          <div class="evt-price-box"><small>Starting from</small><span class="evt-price">₹499</span></div>
+          <button class="btn btn-primary btn-sm book-event-btn" 
+                  data-title="Piya Behrupiya (Twelfth Night)" 
+                  data-venue="Kamani Auditorium, New Delhi" 
+                  data-price="499"
+                  data-poster="https://images.unsplash.com/photo-1469488865564-c2de10f69f96?auto=format&fit=crop&w=800&q=80">
+            Book Tickets
+          </button>
+        </div>
+      </div>
+    </article>
+
+    <!-- 12. FAMILY & FESTIVALS -->
+    <article class="evt-card" data-category="family">
+      <div class="evt-poster-wrap">
+        <img class="evt-poster-img" src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=800&q=80" alt="Cirque Du Magique poster" loading="lazy">
+        <div class="evt-poster-gradient"></div>
+        <div class="evt-tags-overlay">
+          <span class="evt-cat-badge">👨‍👩‍👧 Family</span>
+          <span class="evt-status-badge green">Kids Special</span>
+        </div>
+      </div>
+      <div class="evt-body">
+        <span class="evt-date">SUN, 13 DEC · 03:00 PM & 06:30 PM</span>
+        <h3>Cirque Du Magique — Global Illusion Show</h3>
+        <p class="evt-venue">📍 Thyagaraj Indoor Stadium, New Delhi</p>
+        <p class="evt-desc">Mind-bending grand illusions, high-wire acrobats, fire breathers, and aerial gymnastics for the whole family.</p>
+        <div class="evt-row">
+          <div class="evt-price-box"><small>Starting from</small><span class="evt-price">₹599</span></div>
+          <button class="btn btn-primary btn-sm book-event-btn" 
+                  data-title="Cirque Du Magique — Illusion Show" 
+                  data-venue="Thyagaraj Stadium, New Delhi" 
+                  data-price="599"
+                  data-poster="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=800&q=80">
+            Book Tickets
+          </button>
+        </div>
+      </div>
+    </article>
+
   </div>
 </section>
+
+<!-- FROSTED GLASS QUICK TICKET RESERVATION MODAL -->
+<div class="modal" id="event-booking-modal">
+  <a class="modal-backdrop" href="#close" aria-label="Close modal"></a>
+  <div class="modal-card">
+    <a class="close" href="#close" aria-label="Close">✕</a>
+    
+    <!-- EVENT POSTER & DETAILS IN MODAL -->
+    <div class="modal-event-preview">
+      <img id="modal-event-poster" class="modal-event-poster" src="" alt="Selected event poster">
+      <div>
+        <span class="eyebrow" style="margin-bottom:2px;">OFFICIAL EVENT PASS</span>
+        <h2 id="modal-event-title" style="font-size:1.15rem;margin:0 0 4px;line-height:1.25;color:#fff;">Event Name</h2>
+        <p id="modal-event-venue" style="color:var(--muted);font-size:0.8rem;margin:0;">Venue</p>
+      </div>
+    </div>
+
+    <div style="margin-bottom:18px;">
+      <label style="font-size:0.75rem;font-weight:700;color:var(--muted);text-transform:uppercase;display:block;margin-bottom:8px;">Choose Pass Tier</label>
+      <div class="tier-pill selected" data-tier="Silver Entry" data-multiplier="1">
+        <span>Silver Entry</span><b id="tier-silver-price">₹499</b>
+      </div>
+      <div class="tier-pill" data-tier="Gold (Fast-track Pass)" data-multiplier="1.6">
+        <span>Gold (Fast-track Entry)</span><b id="tier-gold-price">₹799</b>
+      </div>
+      <div class="tier-pill" data-tier="VIP Lounge + Front Row" data-multiplier="2.5">
+        <span>VIP Lounge + Front Row</span><b id="tier-vip-price">₹1,249</b>
+      </div>
+    </div>
+
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;padding-top:10px;border-top:1px solid var(--line);">
+      <span>Total to pay:</span>
+      <strong id="modal-total-price" style="font-size:1.4rem;color:var(--brand);">₹499</strong>
+    </div>
+
+    <button type="button" class="btn btn-primary btn-block" id="modal-confirm-btn">Confirm &amp; Proceed to Pass →</button>
+  </div>
+</div>
 
 <footer class="site-footer">
   <div class="container footer-grid">
     <div>
-      <a class="brand" href="index.html"><span class="logo-ic">🎬</span> CineBuzz</a>
-      <p style="margin-top:14px;">India's friendliest movie ticket booking &amp; cinema management platform.</p>
+      <a class="brand" href="home.html"><span class="logo-ic">🎬</span> CineBuzz</a>
+      <p style="margin-top:14px;">India's friendliest movie ticket booking &amp; live entertainment platform.</p>
       <div class="social-row"><a href="#">f</a><a href="#">𝕏</a><a href="#">◎</a><a href="#">▶</a></div>
     </div>
-    <div><h4>Movies</h4><a href="movies.html">Now Showing</a><a href="movies.html">Coming Soon</a><a href="movies.html">Top Rated</a><a href="offers.html">Offers</a></div>
-    <div><h4>Company</h4><a href="about.html">About Us</a><a href="about.html">Careers</a><a href="contact.html">Contact Us</a><a href="about.html">Press</a></div>
-    <div><h4>Support</h4><a href="contact.html">Help Center</a><a href="contact.html">Payment Options</a><a href="contact.html">Terms &amp; Conditions</a><a href="contact.html">Privacy Policy</a></div>
+    <div><h4>Explore</h4><a href="movies.html">Movies</a><a href="events.html">Live Events</a><a href="offers.html">Offers</a></div>
+    <div><h4>Company</h4><a href="about.html">About Us</a><a href="about.html">Careers</a><a href="contact.html">Contact Us</a></div>
+    <div><h4>Support</h4><a href="contact.html">Help Center</a><a href="contact.html">Terms &amp; Conditions</a><a href="contact.html">Privacy Policy</a></div>
   </div>
   <div class="container footer-bottom">
     <span>© 2026 CineBuzz Entertainment Pvt. Ltd. All rights reserved.</span>
-    <span>Made with 🍿 in India · Front-end demo</span>
+    <span>Made with 🍿 in India · Front-end live demo</span>
   </div>
 </footer>
 
+<script src="../assets/js/app.js" defer></script>
+<script>
+  // Event Booking Controller with dedicated Event Poster persistence
+  document.addEventListener('DOMContentLoaded', () => {
+    let basePrice = 499;
+    let selectedMultiplier = 1;
+    let currentTitle = '';
+    let currentVenue = '';
+    let currentPoster = '';
+
+    const modalTitle = document.querySelector('#modal-event-title');
+    const modalVenue = document.querySelector('#modal-event-venue');
+    const modalPoster = document.querySelector('#modal-event-poster');
+    const silverPriceEl = document.querySelector('#tier-silver-price');
+    const goldPriceEl = document.querySelector('#tier-gold-price');
+    const vipPriceEl = document.querySelector('#tier-vip-price');
+    const totalEl = document.querySelector('#modal-total-price');
+    const confirmBtn = document.querySelector('#modal-confirm-btn');
+
+    document.querySelectorAll('.book-event-btn').forEach((btn) => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        basePrice = Number(btn.dataset.price) || 499;
+        currentTitle = btn.dataset.title;
+        currentVenue = btn.dataset.venue;
+        currentPoster = btn.dataset.poster;
+
+        modalTitle.textContent = currentTitle;
+        modalVenue.textContent = `📍 ${currentVenue}`;
+        modalPoster.src = currentPoster;
+        modalPoster.alt = currentTitle;
+
+        silverPriceEl.textContent = `₹${basePrice}`;
+        goldPriceEl.textContent = `₹${Math.round(basePrice * 1.6)}`;
+        vipPriceEl.textContent = `₹${Math.round(basePrice * 2.5)}`;
+
+        selectedMultiplier = 1;
+        document.querySelectorAll('.tier-pill').forEach((p, idx) => p.classList.toggle('selected', idx === 0));
+        totalEl.textContent = `₹${basePrice}`;
+
+        window.location.hash = 'event-booking-modal';
+      });
+    });
+
+    document.querySelectorAll('.tier-pill').forEach((pill) => {
+      pill.addEventListener('click', () => {
+        document.querySelectorAll('.tier-pill').forEach((p) => p.classList.remove('selected'));
+        pill.classList.add('selected');
+        selectedMultiplier = Number(pill.dataset.multiplier) || 1;
+        const total = Math.round(basePrice * selectedMultiplier);
+        totalEl.textContent = `₹${total}`;
+      });
+    });
+
+    confirmBtn.addEventListener('click', () => {
+      const activeTier = document.querySelector('.tier-pill.selected')?.dataset.tier || 'General Pass';
+      const finalPrice = Math.round(basePrice * selectedMultiplier);
+
+      const booking = {
+        movie: currentTitle,
+        poster: currentPoster, // Transports the event poster to checkout and confirmation!
+        format: activeTier,
+        venue: currentVenue,
+        certificate: 'LIVE EVENT',
+        language: 'Hindi · English',
+        runtime: '3h Event',
+        date: 'Upcoming Weekend',
+        show: '07:30 PM',
+        seats: ['PASS-01'],
+        subtotal: finalPrice,
+        amount: finalPrice,
+        ticketPrice: finalPrice,
+        paymentStatus: 'confirmed',
+        id: `EVT-${Date.now().toString().slice(-6)}`
+      };
+
+      if (window.saveBooking) {
+        window.saveBooking(booking);
+      } else {
+        sessionStorage.setItem('cinebuzzBooking', JSON.stringify(booking));
+      }
+
+      window.location.href = 'confirmation.html';
+    });
+  });
+</script>
 </body>
 </html>

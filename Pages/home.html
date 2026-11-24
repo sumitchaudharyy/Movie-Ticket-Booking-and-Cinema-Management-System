@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CineBuzz — Movies and cinemas near you</title>
+<meta name="description" content="Discover live-action movies, nearby cinemas, showtimes and ticket prices near you.">
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body class="cinema-page">
+<header class="site-header cinema-site-header">
+  <div class="container header-inner">
+    <a class="brand" href="home.html"><span class="logo-ic">🎬</span> CineBuzz</a>
+    <div class="search cinema-header-search"><span class="ic">⌕</span><input type="search" placeholder="Search movies or cinemas" aria-label="Search movies or cinemas" onkeydown="if(event.key==='Enter') location.href='movies.html?q='+encodeURIComponent(this.value)"></div>
+    <a class="loc location-nav" href="movies.html#location-panel"><span class="pin">⌖</span><span><small>Your location</small><strong class="location-name">Choose city</strong></span><span class="location-chevron">⌄</span></a>
+    <nav class="nav-actions">
+      <a class="nav-link active" href="movies.html"><span class="ic">🎞️</span>Movies</a>
+      <a class="nav-link" href="offers.html"><span class="ic">🎁</span>Offers</a>
+      <a class="nav-link" href="events.html"><span class="ic">🎟️</span>Events</a>
+      <a class="nav-link" href="about.html"><span class="ic">🛈</span>About</a>
+      <a class="btn btn-ghost btn-sm signin-btn" href="home.html#signin">Sign in</a>
+    </nav>
+    <a class="menu-toggle" href="#mobile-nav" aria-label="Open menu">☰</a>
+  </div>
+</header>
+<nav class="mobile-nav" id="mobile-nav">
+  <a href="movies.html">🎞️ Movies <span class="ic">›</span></a><a href="offers.html">🎁 Offers <span class="ic">›</span></a>
+  <a href="events.html">🎟️ Events <span class="ic">›</span></a><a href="about.html">🛈 About <span class="ic">›</span></a>
+  <a href="contact.html">📞 Contact <span class="ic">›</span></a><a href="home.html#signin">👤 Sign in <span class="ic">›</span></a>
+</nav>
+
+<main>
+  <section class="hero">
+    <img class="hero-img" src="../assets/hero.jpg" alt="Movie theatre auditorium">
+    <div class="hero-content">
+      <span class="hero-tag">🎬 CINEMA, CLOSER TO YOU</span>
+      <h1>Good movies.<br>Great nights.</h1>
+      <p class="home-hero-subtitle">Find a film, choose your city and see the real showtimes.</p>
+      <a class="btn-play" href="movies.html#location-panel">⌖ Find movies near me</a>
+    </div>
+  </section>
+
+  <section class="container home-location-wrap">
+    <div class="home-location-cta glass-panel">
+      <div class="location-heading-icon">⌖</div>
+      <div><span class="eyebrow">START WITH YOUR CITY</span><h2>Find a cinema near you</h2><p>Choose a state and city, or let CineBuzz find the nearest supported city.</p></div>
+      <a class="location-go-button" href="movies.html#location-panel">Choose location <span>→</span></a>
+    </div>
+  </section>
+
+  <section class="section container home-featured">
+    <div class="browse-summary"><div><span class="eyebrow">REAL FILMS · BOOK ON CINEBUZZ</span><h2>Featured in cinemas</h2><p>Explore a film, choose a nearby show and book your seats here.</p></div><a class="all-movies-link" href="movies.html">Browse all movies <span>→</span></a></div>
+    <div class="real-movie-grid" id="home-now-showing"></div>
+  </section>
+
+  <section class="section container home-featured">
+    <div class="browse-summary"><div><span class="eyebrow">COMING SOON</span><h2>Plan your next movie night</h2><p>Save upcoming titles for pre-booking updates on CineBuzz.</p></div></div>
+    <div class="real-movie-grid" id="home-upcoming"></div>
+  </section>
+
+  <section class="container home-live-cta">
+    <div><span class="eyebrow">CITY LISTINGS</span><h2>See movies and cinemas near you</h2><p>Choose a state and city to browse cinemas, showtimes and ticket prices.</p></div>
+    <a class="location-go-button" href="movies.html#location-panel">Choose state &amp; city <span>→</span></a>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div><a class="brand" href="home.html"><span class="logo-ic">🎬</span> CineBuzz</a><p style="margin-top:14px;">Real movies and cinema listings near you.</p></div>
+    <div><h4>Movies</h4><a href="movies.html">Browse by city</a><a href="movies.html#nearby-title">Cinema listings</a><a href="offers.html">Offers</a></div>
+    <div><h4>Company</h4><a href="about.html">About Us</a><a href="contact.html">Contact Us</a></div>
+    <div><h4>Support</h4><a href="contact.html">Help Center</a><a href="contact.html">Terms &amp; Conditions</a><a href="contact.html">Privacy Policy</a></div>
+  </div>
+  <div class="container footer-bottom"><span>© 2026 CineBuzz Entertainment Pvt. Ltd.</span><span>Made with 🍿 in India</span></div>
+</footer>
+<div class="modal" id="signin">
+  <a class="modal-backdrop" href="home.html" aria-label="Close sign in"></a>
+  <div class="modal-card"><a class="close" href="home.html" aria-label="Close">✕</a><h2>Welcome to CineBuzz</h2><p class="sub">Sign in to save your preferences.</p><form onsubmit="alert('Sign in is a demo on this page.');return false;"><input class="a11y-input" type="email" placeholder="Email address" required><input class="a11y-input" type="password" placeholder="Password" required><button class="btn btn-primary submit" type="submit">Sign in</button></form></div>
+</div>
+<script src="../assets/js/movie-catalog.js" defer></script>
+<script src="../assets/js/app.js" defer></script>
+</body>
+</html>

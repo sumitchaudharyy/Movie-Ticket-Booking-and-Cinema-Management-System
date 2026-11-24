@@ -1,143 +1,1093 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Offers &amp; Gift Cards — CineBuzz</title>
-<meta name="description" content="Latest movie ticket offers, bank discounts and gift cards.">
-<link rel="stylesheet" href="assets/css/style.css">
-<style>
-  .offer-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:6px;}
-  .offer-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);overflow:hidden;display:flex;flex-direction:column;}
-  .offer-banner{padding:26px;color:#fff;background:linear-gradient(120deg,#f84464,#ff7a59);display:flex;align-items:center;gap:14px;}
-  .offer-banner.blue{background:linear-gradient(120deg,#2563eb,#38bdf8);}
-  .offer-banner.green{background:linear-gradient(120deg,#0e9f6e,#6ee7b7);}
-  .offer-banner.purple{background:linear-gradient(120deg,#7c3aed,#c084fc);}
-  .offer-banner.gold{background:linear-gradient(120deg,#b45309,#fbbf24);}
-  .offer-banner.teal{background:linear-gradient(120deg,#0f766e,#2dd4bf);}
-  .offer-banner .ob-ic{font-size:34px;}
-  .offer-banner b{font-size:1.25rem;display:block;}
-  .offer-body{padding:18px 20px;display:flex;flex-direction:column;gap:10px;flex:1;}
-  .offer-body p{color:var(--muted);font-size:.9rem;flex:1;}
-  .code{display:inline-flex;align-items:center;gap:8px;background:var(--navy);color:#fff;border-radius:8px;padding:7px 12px;font-weight:700;font-size:.82rem;letter-spacing:1px;align-self:flex-start;}
-  @media(max-width:900px){.offer-grid{grid-template-columns:1fr 1fr;}}
-  @media(max-width:620px){.offer-grid{grid-template-columns:1fr;}}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Offers & Partner Discounts — CineBuzz</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
 </head>
-<body>
+<body class="cinebuzz-body">
 
-<header class="site-header">
-  <div class="container header-inner">
-    <a class="brand" href="index.html"><span class="logo-ic">🎬</span> CineBuzz</a>
-    <div class="search"><span class="ic">🔍</span><input type="text" placeholder="Search for movies, events, plays, sports and activities"></div>
-    <a class="loc" href="about.html"><span class="pin">📍</span><span><small>Location</small>New Delhi</span></a>
-    <nav class="nav-actions">
-      <a class="nav-link" href="movies.html"><span class="ic">🎞️</span>Movies</a>
-      <a class="nav-link active" href="offers.html"><span class="ic">🎁</span>Offers</a>
-      <a class="nav-link" href="events.html"><span class="ic">🎟️</span>Events</a>
-      <a class="nav-link" href="about.html"><span class="ic">🛈</span>About</a>
-      <a class="btn btn-ghost btn-sm signin-btn" href="index.html#signin">Sign in</a>
-    </nav>
-    <a class="menu-toggle" href="#mobile-nav">☰</a>
-  </div>
-</header>
-<nav class="mobile-nav" id="mobile-nav">
-  <a href="movies.html">🎞️ Movies <span class="ic">›</span></a>
-  <a href="offers.html">🎁 Offers <span class="ic">›</span></a>
-  <a href="events.html">🎟️ Events <span class="ic">›</span></a>
-  <a href="about.html">🛈 About <span class="ic">›</span></a>
-  <a href="contact.html">📞 Contact <span class="ic">›</span></a>
-  <a href="index.html#signin">👤 Sign in <span class="ic">›</span></a>
-</nav>
+  <!-- Header Navigation -->
+  <header class="navbar-glass">
+    <div class="nav-container">
+      <a href="home.html" class="brand-logo">
+        <span class="logo-icon">🎬</span>
+        <span class="logo-text">Cine<span class="text-gradient">Buzz</span></span>
+      </a>
 
-<section class="page-hero">
-  <div class="container">
-    <div class="crumb">Home / Offers</div>
-    <h1>Offers &amp; Gift Cards</h1>
-    <p>Save big on every booking — bank offers, first-movie deals, f&amp;b combos and CineBuzz gift cards.</p>
-  </div>
-</section>
+      <!-- Location Selector -->
+      <div class="location-picker">
+        <button id="header-location-btn" class="glass-pill-btn" title="Change City">
+          <span class="pin-icon">📍</span>
+          <span id="header-location-text">Detecting City...</span>
+          <span class="chevron">▾</span>
+        </button>
+      </div>
 
-<section class="section container">
-  <div class="chip-row" style="padding-top:0;">
-    <button class="chip on">All offers</button>
-    <button class="chip">Bank offers</button>
-    <button class="chip">Wallet / UPI</button>
-    <button class="chip">Food &amp; Beverage</button>
-    <button class="chip">Gift Cards</button>
-  </div>
+      <!-- Navigation Links -->
+      <nav class="nav-menu">
+        <a href="home.html" class="nav-link">Home</a>
+        <a href="movies.html" class="nav-link">Movies</a>
+        <a href="events.html" class="nav-link">Events</a>
+        <a href="offers.html" class="nav-link active">Offers</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
 
-  <div class="offer-grid">
-    <div class="offer-card">
-      <div class="offer-banner"><span class="ob-ic">🍿</span><div><b>Flat ₹125 OFF</b><span style="font-size:.8rem;opacity:.9;">on Tuesdays</span></div></div>
-      <div class="offer-body">
-        <p>Book any movie on a Tuesday and get ₹125 off on 2 or more tickets. Applies automatically with the code.</p>
-        <span class="code">TUESDAY50</span>
+      <!-- Search & Booking Action -->
+      <div class="nav-actions">
+        <div class="nav-search-bar">
+          <input type="text" id="header-search" placeholder="Search movies, events, shows...">
+          <button class="search-submit" title="Search">🔍</button>
+        </div>
+        <a href="movies.html" class="btn btn-primary btn-sm glow-btn">Book Tickets</a>
       </div>
     </div>
-    <div class="offer-card">
-      <div class="offer-banner blue"><span class="ob-ic">🏦</span><div><b>15% OFF · HDFC</b><span style="font-size:.8rem;opacity:.9;">cards, up to ₹150</span></div></div>
-      <div class="offer-body">
-        <p>Pay with your HDFC Bank credit or debit card on weekends and get 15% instant discount.</p>
-        <span class="code">HDFC15</span>
+  </header>
+
+  <!-- Location Change Modal -->
+  <div id="location-modal" class="modal-overlay hidden">
+    <div class="modal-card glass-panel">
+      <div class="modal-header">
+        <h3>Select Your City</h3>
+        <button id="close-location-modal" class="modal-close">&times;</button>
       </div>
-    </div>
-    <div class="offer-card">
-      <div class="offer-banner green"><span class="ob-ic">👶</span><div><b>First Movie FREE</b><span style="font-size:.8rem;opacity:.9;">for new users</span></div></div>
-      <div class="offer-body">
-        <p>New to CineBuzz? Your first-ever booking's convenience fee is on us — ₹0 platform fee.</p>
-        <span class="code">WELCOME0</span>
+      <div class="location-body">
+        <div class="quick-detect-row">
+          <button id="btn-detect-location" class="btn btn-outline-cyan w-full">
+            <span>🎯</span> Use Current GPS Location
+          </button>
+        </div>
+        <div class="select-group">
+          <label for="state-select">Select State</label>
+          <select id="state-select" class="glass-input">
+            <option value="">-- Choose Indian State --</option>
+          </select>
+        </div>
+        <div class="select-group">
+          <label for="city-select">Select City</label>
+          <select id="city-select" class="glass-input" disabled>
+            <option value="">-- Choose City --</option>
+          </select>
+        </div>
       </div>
-    </div>
-    <div class="offer-card">
-      <div class="offer-banner purple"><span class="ob-ic">📱</span><div><b>₹75 OFF via UPI</b><span style="font-size:.8rem;opacity:.9;">daily 9 AM – 11 AM</span></div></div>
-      <div class="offer-body">
-        <p>Morning-show lovers rejoice — pay via any UPI app before 11 AM and get ₹75 cashback.</p>
-        <span class="code">EARLYBIRD</span>
-      </div>
-    </div>
-    <div class="offer-card">
-      <div class="offer-banner gold"><span class="ob-ic">🎟️</span><div><b>Gift Cards</b><span style="font-size:.8rem;opacity:.9;">₹500 – ₹5000</span></div></div>
-      <div class="offer-body">
-        <p>Gift movie magic to someone you love. Valid for tickets, food &amp; beverages at all partner cinemas.</p>
-        <a class="btn btn-dark btn-sm" href="offers.html">Buy a gift card</a>
-      </div>
-    </div>
-    <div class="offer-card">
-      <div class="offer-banner teal"><span class="ob-ic">🥤</span><div><b>Combo @ ₹199</b><span style="font-size:.8rem;opacity:.9;">medium popcorn + Coke</span></div></div>
-      <div class="offer-body">
-        <p>Add a medium salted popcorn and a soft drink to any booking for just ₹199.</p>
-        <span class="code">COMBO199</span>
+      <div class="modal-footer">
+        <button id="save-location-btn" class="btn btn-primary w-full" disabled>Apply City</button>
       </div>
     </div>
   </div>
 
-  <div class="promo-banner" style="margin-top:36px;">
-    <span class="pb-ic">🎁</span>
-    <div>
-      <h3>Refer a friend, both get ₹100</h3>
-      <p>Share your referral link. Your friend gets ₹100 off their first booking — and so do you.</p>
+  <!-- Active Booking Floating Ribbon (Shows only if booking is in progress) -->
+  <div id="pending-booking-ribbon" class="booking-ribbon-glass hidden">
+    <div class="ribbon-content">
+      <span class="ribbon-icon">🎟️</span>
+      <div class="ribbon-text">
+        <span class="ribbon-title">Active Booking in Progress:</span>
+        <span id="ribbon-movie-title" class="ribbon-details">Pushpa 2 • Inox Megaplex</span>
+      </div>
+      <a href="payment.html" class="btn btn-xs btn-primary glow-btn">Go to Checkout</a>
     </div>
-    <a class="btn btn-block" href="contact.html">Invite now</a>
   </div>
-</section>
 
-<footer class="site-footer">
-  <div class="container footer-grid">
-    <div>
-      <a class="brand" href="index.html"><span class="logo-ic">🎬</span> CineBuzz</a>
-      <p style="margin-top:14px;">India's friendliest movie ticket booking &amp; cinema management platform.</p>
-      <div class="social-row"><a href="#">f</a><a href="#">𝕏</a><a href="#">◎</a><a href="#">▶</a></div>
+  <main class="page-main container">
+    <!-- Offers Hero Header -->
+    <section class="offers-hero-section">
+      <div class="hero-badge-pill">
+        <span class="pulse-dot"></span>
+        <span>VERIFIED CINEMA & EVENT DISCOUNTS</span>
+      </div>
+      <h1 class="offers-main-heading">Exclusive <span class="text-gradient">Bank & UPI</span> Offers</h1>
+      <p class="offers-subheading">
+        Save up to 50% or claim Buy 1 Get 1 Free on movie passes, live concerts, and cinema snack combos with leading Indian banks and digital wallets.
+      </p>
+
+      <!-- Search & Filters Container -->
+      <div class="offers-controls-glass glass-panel">
+        <div class="search-field-wrapper">
+          <span class="search-icon">🔍</span>
+          <input type="text" id="offer-search-input" placeholder="Search by bank (HDFC, ICICI, SBI), UPI (CRED, Paytm), movie, code, or keyword...">
+          <button id="offer-search-clear" class="clear-search-btn hidden" title="Clear Search">&times;</button>
+        </div>
+
+        <div class="offer-categories-strip">
+          <button class="offer-filter-chip active" data-category="all">
+            <span class="chip-dot"></span> All Offers (<span class="count-all">18</span>)
+          </button>
+          <button class="offer-filter-chip" data-category="bank">
+            💳 Bank & Cards (<span class="count-bank">6</span>)
+          </button>
+          <button class="offer-filter-chip" data-category="upi">
+            ⚡ UPI & Wallets (<span class="count-upi">4</span>)
+          </button>
+          <button class="offer-filter-chip" data-category="movie">
+            🎬 Cinema Specials (<span class="count-movie">4</span>)
+          </button>
+          <button class="offer-filter-chip" data-category="events">
+            🎤 Live Events (<span class="count-events">2</span>)
+          </button>
+          <button class="offer-filter-chip" data-category="combos">
+            🍿 Snacks & Perks (<span class="count-combos">2</span>)
+          </button>
+        </div>
+      </div>
+
+      <div class="offers-status-bar">
+        <span id="offers-count-label">Showing <strong>18</strong> active promotional offers</span>
+        <div class="trust-pill">
+          <span>🛡️ 100% Guaranteed Redemption at Checkout</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Offers Grid -->
+    <section class="offers-display-area">
+      <div id="offers-cards-grid" class="offers-grid">
+
+        <!-- 1. HDFC BANK BOGO -->
+        <article class="offer-card glass-panel" data-category="bank" data-code="HDFCBOGO" data-partner="HDFC Bank" data-terms="hdfcbogo">
+          <div class="offer-card-top bank-hdfc">
+            <div class="partner-meta">
+              <span class="bank-avatar hdfc-bg">HDFC</span>
+              <div>
+                <h4 class="partner-name">HDFC Bank Cards</h4>
+                <span class="offer-tag tag-bogo">BUY 1 GET 1 FREE</span>
+              </div>
+            </div>
+            <span class="validity-badge">Valid till 31 May 2026</span>
+          </div>
+
+          <div class="offer-card-body">
+            <h3 class="offer-headline">Buy 1 Get 1 Free on Regalia, Diners & Millennia Cards</h3>
+            <p class="offer-desc">Book 2 or more tickets for any movie or live event and get the 2nd ticket free up to ₹250 instant off.</p>
+
+            <div class="offer-meta-points">
+              <span>• Min 2 Tickets</span>
+              <span>• Max Savings: ₹250</span>
+              <span>• 2X Per Month</span>
+            </div>
+          </div>
+
+          <!-- Perforated Ticket Voucher Stub -->
+          <div class="offer-voucher-stub">
+            <div class="voucher-notch notch-left"></div>
+            <div class="voucher-dash-line"></div>
+            <div class="voucher-notch notch-right"></div>
+
+            <div class="voucher-code-wrap">
+              <div class="code-box">
+                <span class="code-label">PROMO CODE</span>
+                <span class="code-value">HDFCBOGO</span>
+              </div>
+              <button class="btn-copy-code" data-code="HDFCBOGO" title="Copy Promo Code">
+                <span class="copy-icon">📋</span>
+                <span class="copy-text">COPY</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="offer-card-footer">
+            <button class="btn-view-terms" data-target="hdfcbogo">Terms & Conditions</button>
+            <button class="btn btn-sm btn-primary glow-btn btn-apply-offer" data-code="HDFCBOGO">Use Code</button>
+          </div>
+        </article>
+
+        <!-- 2. ICICI BANK 25% OFF -->
+        <article class="offer-card glass-panel" data-category="bank" data-code="ICICI25" data-partner="ICICI Bank" data-terms="icici25">
+          <div class="offer-card-top bank-icici">
+            <div class="partner-meta">
+              <span class="bank-avatar icici-bg">ICICI</span>
+              <div>
+                <h4 class="partner-name">ICICI Bank Cards</h4>
+                <span class="offer-tag tag-discount">FLAT 25% OFF</span>
+              </div>
+            </div>
+            <span class="validity-badge">Valid till 30 Jun 2026</span>
+          </div>
+
+          <div class="offer-card-body">
+            <h3 class="offer-headline">Flat 25% Instant Savings on Coral, Rubyx & Sapphiro</h3>
+            <p class="offer-desc">Enjoy up to ₹200 instant deduction on your total booking value across all 2D, 3D, and IMAX screenings.</p>
+
+            <div class="offer-meta-points">
+              <span>• Min Spend: ₹300</span>
+              <span>• Max Discount: ₹200</span>
+              <span>• Min 2 Tickets</span>
+            </div>
+          </div>
+
+          <div class="offer-voucher-stub">
+            <div class="voucher-notch notch-left"></div>
+            <div class="voucher-dash-line"></div>
+            <div class="voucher-notch notch-right"></div>
+
+            <div class="voucher-code-wrap">
+              <div class="code-box">
+                <span class="code-label">PROMO CODE</span>
+                <span class="code-value">ICICI25</span>
+              </div>
+              <button class="btn-copy-code" data-code="ICICI25" title="Copy Promo Code">
+                <span class="copy-icon">📋</span>
+                <span class="copy-text">COPY</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="offer-card-footer">
+            <button class="btn-view-terms" data-target="icici25">Terms & Conditions</button>
+            <button class="btn btn-sm btn-primary glow-btn btn-apply-offer" data-code="ICICI25">Use Code</button>
+          </div>
+        </article>
+
+        <!-- 3. CRED PAY FLAT 100 -->
+        <article class="offer-card glass-panel" data-category="upi" data-code="CRED100" data-partner="CRED Pay" data-terms="cred100">
+          <div class="offer-card-top upi-cred">
+            <div class="partner-meta">
+              <span class="bank-avatar cred-bg">CRED</span>
+              <div>
+                <h4 class="partner-name">CRED Pay Exclusive</h4>
+                <span class="offer-tag tag-cashback">FLAT ₹100 OFF</span>
+              </div>
+            </div>
+            <span class="validity-badge">Valid till 15 Jul 2026</span>
+          </div>
+
+          <div class="offer-card-body">
+            <h3 class="offer-headline">Flat ₹100 Off Instantly via CRED Pay UPI</h3>
+            <p class="offer-desc">Checkout using your CRED UPI ID on CineBuzz to get a flat ₹100 cut on movies, live music festivals, and standup events.</p>
+
+            <div class="offer-meta-points">
+              <span>• Min Spend: ₹300</span>
+              <span>• Instant UPI deduction</span>
+              <span>• All Members</span>
+            </div>
+          </div>
+
+          <div class="offer-voucher-stub">
+            <div class="voucher-notch notch-left"></div>
+            <div class="voucher-dash-line"></div>
+            <div class="voucher-notch notch-right"></div>
+
+            <div class="voucher-code-wrap">
+              <div class="code-box">
+                <span class="code-label">PROMO CODE</span>
+                <span class="code-value">CRED100</span>
+              </div>
+              <button class="btn-copy-code" data-code="CRED100" title="Copy Promo Code">
+                <span class="copy-icon">📋</span>
+                <span class="copy-text">COPY</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="offer-card-footer">
+            <button class="btn-view-terms" data-target="cred100">Terms & Conditions</button>
+            <button class="btn btn-sm btn-primary glow-btn btn-apply-offer" data-code="CRED100">Use Code</button>
+          </div>
+        </article>
+
+        <!-- 4. BLOCKBUSTER TUESDAY FLAT 125 -->
+        <article class="offer-card glass-panel" data-category="movie" data-code="TUESDAY50" data-partner="CineBuzz Specials" data-terms="tuesday50">
+          <div class="offer-card-top cinema-buzz">
+            <div class="partner-meta">
+              <span class="bank-avatar cine-bg">CB</span>
+              <div>
+                <h4 class="partner-name">Blockbuster Tuesday</h4>
+                <span class="offer-tag tag-special">EVERY TUESDAY</span>
+              </div>
+            </div>
+            <span class="validity-badge">Weekly Special</span>
+          </div>
+
+          <div class="offer-card-body">
+            <h3 class="offer-headline">Flat ₹125 Off on Tuesday Movie Screenings</h3>
+            <p class="offer-desc">Catch the latest releases on Tuesday at unbelievable flat rates. Valid across all cinema chains and seating tiers.</p>
+
+            <div class="offer-meta-points">
+              <span>• Min Spend: ₹150</span>
+              <span>• No Ticket Min Limit</span>
+              <span>• All Theaters</span>
+            </div>
+          </div>
+
+          <div class="offer-voucher-stub">
+            <div class="voucher-notch notch-left"></div>
+            <div class="voucher-dash-line"></div>
+            <div class="voucher-notch notch-right"></div>
+
+            <div class="voucher-code-wrap">
+              <div class="code-box">
+                <span class="code-label">PROMO CODE</span>
+                <span class="code-value">TUESDAY50</span>
+              </div>
+              <button class="btn-copy-code" data-code="TUESDAY50" title="Copy Promo Code">
+                <span class="copy-icon">📋</span>
+                <span class="copy-text">COPY</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="offer-card-footer">
+            <button class="btn-view-terms" data-target="tuesday50">Terms & Conditions</button>
+            <button class="btn btn-sm btn-primary glow-btn btn-apply-offer" data-code="TUESDAY50">Use Code</button>
+          </div>
+        </article>
+
+        <!-- 5. SBI CARD SIMPLYCLICK -->
+        <article class="offer-card glass-panel" data-category="bank" data-code="SBICLICK" data-partner="SBI Card" data-terms="sbiclick">
+          <div class="offer-card-top bank-sbi">
+            <div class="partner-meta">
+              <span class="bank-avatar sbi-bg">SBI</span>
+              <div>
+                <h4 class="partner-name">SBI SimplyCLICK & Elite</h4>
+                <span class="offer-tag tag-discount">FLAT ₹100 OFF</span>
+              </div>
+            </div>
+            <span class="validity-badge">Valid till 31 Aug 2026</span>
+          </div>
+
+          <div class="offer-card-body">
+            <h3 class="offer-headline">Flat ₹100 Discount on SBI Credit Cards</h3>
+            <p class="offer-desc">Use your SBI SimplyCLICK, Prime, or Elite Credit Card during checkout and unlock instant ₹100 discount + 10X reward points.</p>
+
+            <div class="offer-meta-points">
+              <span>• Min Spend: ₹400</span>
+              <span>• Valid Once/Month</span>
+              <span>• 10X Rewards</span>
+            </div>
+          </div>
+
+          <div class="offer-voucher-stub">
+            <div class="voucher-notch notch-left"></div>
+            <div class="voucher-dash-line"></div>
+            <div class="voucher-notch notch-right"></div>
+
+            <div class="voucher-code-wrap">
+              <div class="code-box">
+                <span class="code-label">PROMO CODE</span>
+                <span class="code-value">SBICLICK</span>
+              </div>
+              <button class="btn-copy-code" data-code="SBICLICK" title="Copy Promo Code">
+                <span class="copy-icon">📋</span>
+                <span class="copy-text">COPY</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="offer-card-footer">
+            <button class="btn-view-terms" data-target="sbiclick">Terms & Conditions</button>
+            <button class="btn btn-sm btn-primary glow-btn btn-apply-offer" data-code="SBICLICK">Use Code</button>
+          </div>
+        </article>
+
+        <!-- 6. AXIS BANK NEO & MAGNUS -->
+        <article class="offer-card glass-panel" data-category="bank" data-code="AXIS150" data-partner="Axis Bank" data-terms="axis150">
+          <div class="offer-card-top bank-axis">
+            <div class="partner-meta">
+              <span class="bank-avatar axis-bg">AXIS</span>
+              <div>
+                <h4 class="partner-name">Axis Bank Neo & Magnus</h4>
+                <span class="offer-tag tag-discount">FLAT ₹150 OFF</span>
+              </div>
+            </div>
+            <span class="validity-badge">Valid till 30 Jun 2026</span>
+          </div>
+
+          <div class="offer-card-body">
+            <h3 class="offer-headline">Flat ₹150 Off on Movie & Live Event Passes</h3>
+            <p class="offer-desc">Pay with your Axis Bank Credit or Debit Cards to get an immediate ₹150 deduction on premium cinema and concert reservations.</p>
+
+            <div class="offer-meta-points">
+              <span>• Min Spend: ₹500</span>
+              <span>• Flat ₹150 Savings</span>
+              <span>• Max 2x / User</span>
+            </div>
+          </div>
+
+          <div class="offer-voucher-stub">
+            <div class="voucher-notch notch-left"></div>
+            <div class="voucher-dash-line"></div>
+            <div class="voucher-notch notch-right"></div>
+
+            <div class="voucher-code-wrap">
+              <div class="code-box">
+                <span class="code-label">PROMO CODE</span>
+                <span class="code-value">AXIS150</span>
+              </div>
+              <button class="btn-copy-code" data-code="AXIS150" title="Copy Promo Code">
+                <span class="copy-icon">📋</span>
+                <span class="copy-text">COPY</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="offer-card-footer">
+            <button class="btn-view-terms" data-target="axis150">Terms & Conditions</button>
+            <button class="btn btn-sm btn-primary glow-btn btn-apply-offer" data-code="AXIS150">Use Code</button>
+          </div>
+        </article>
+
+        <!-- 7. PAYTM UPI -->
+        <article class="offer-card glass-panel" data-category="upi" data-code="PAYTM50" data-partner="Paytm UPI" data-terms="paytm50">
+          <div class="offer-card-top upi-paytm">
+            <div class="partner-meta">
+              <span class="bank-avatar paytm-bg">PAYTM</span>
+              <div>
+                <h4 class="partner-name">Paytm UPI Special</h4>
+                <span class="offer-tag tag-cashback">FLAT ₹50 OFF</span>
+              </div>
+            </div>
+            <span class="validity-badge">Valid till 31 Jul 2026</span>
+          </div>
+
+          <div class="offer-card-body">
+            <h3 class="offer-headline">Flat ₹50 Instant Discount via Paytm UPI</h3>
+            <p class="offer-desc">Lightning-fast UPI checkout with guaranteed ₹50 off on movies, cricket tickets, and theater reservations.</p>
+
+            <div class="offer-meta-points">
+              <span>• Min Spend: ₹250</span>
+              <span>• Direct Wallet/Bank Cut</span>
+              <span>• Any Theater</span>
+            </div>
+          </div>
+
+          <div class="offer-voucher-stub">
+            <div class="voucher-notch notch-left"></div>
+            <div class="voucher-dash-line"></div>
+            <div class="voucher-notch notch-right"></div>
+
+            <div class="voucher-code-wrap">
+              <div class="code-box">
+                <span class="code-label">PROMO CODE</span>
+                <span class="code-value">PAYTM50</span>
+              </div>
+              <button class="btn-copy-code" data-code="PAYTM50" title="Copy Promo Code">
+                <span class="copy-icon">📋</span>
+                <span class="copy-text">COPY</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="offer-card-footer">
+            <button class="btn-view-terms" data-target="paytm50">Terms & Conditions</button>
+            <button class="btn btn-sm btn-primary glow-btn btn-apply-offer" data-code="PAYTM50">Use Code</button>
+          </div>
+        </article>
+
+        <!-- 8. LIVE EVENTS EARLY BIRD -->
+        <article class="offer-card glass-panel" data-category="events" data-code="EARLYBIRD" data-partner="CineBuzz Live" data-terms="earlybird">
+          <div class="offer-card-top events-live">
+            <div class="partner-meta">
+              <span class="bank-avatar live-bg">LIVE</span>
+              <div>
+                <h4 class="partner-name">Concerts & Comedy</h4>
+                <span class="offer-tag tag-events">FLAT 20% OFF</span>
+              </div>
+            </div>
+            <span class="validity-badge">Valid till 15 Jun 2026</span>
+          </div>
+
+          <div class="offer-card-body">
+            <h3 class="offer-headline">20% Off on Arijit Singh, Zakir Khan & Alan Walker Passes</h3>
+            <p class="offer-desc">Book your passes early for live music concerts, standup comedy, and arena spectacles across Indian stadiums.</p>
+
+            <div class="offer-meta-points">
+              <span>• Min Spend: ₹600</span>
+              <span>• Max Discount: ₹300</span>
+              <span>• All Live Events</span>
+            </div>
+          </div>
+
+          <div class="offer-voucher-stub">
+            <div class="voucher-notch notch-left"></div>
+            <div class="voucher-dash-line"></div>
+            <div class="voucher-notch notch-right"></div>
+
+            <div class="voucher-code-wrap">
+              <div class="code-box">
+                <span class="code-label">PROMO CODE</span>
+                <span class="code-value">EARLYBIRD</span>
+              </div>
+              <button class="btn-copy-code" data-code="EARLYBIRD" title="Copy Promo Code">
+                <span class="copy-icon">📋</span>
+                <span class="copy-text">COPY</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="offer-card-footer">
+            <button class="btn-view-terms" data-target="earlybird">Terms & Conditions</button>
+            <button class="btn btn-sm btn-primary glow-btn btn-apply-offer" data-code="EARLYBIRD">Use Code</button>
+          </div>
+        </article>
+
+        <!-- 9. WELCOME OFFER - ZERO CONVENIENCE FEE -->
+        <article class="offer-card glass-panel" data-category="combos" data-code="WELCOME0" data-partner="New User Special" data-terms="welcome0">
+          <div class="offer-card-top fee-waiver">
+            <div class="partner-meta">
+              <span class="bank-avatar free-bg">FREE</span>
+              <div>
+                <h4 class="partner-name">Welcome to CineBuzz</h4>
+                <span class="offer-tag tag-waiver">100% FEE WAIVER</span>
+              </div>
+            </div>
+            <span class="validity-badge">1st Booking Perk</span>
+          </div>
+
+          <div class="offer-card-body">
+            <h3 class="offer-headline">Zero Convenience Fee on Your First Booking</h3>
+            <p class="offer-desc">First time on CineBuzz? Pay zero platform processing or internet handling fees on your very first cinema ticket reservation.</p>
+
+            <div class="offer-meta-points">
+              <span>• No Minimum Spend</span>
+              <span>• Waives ₹30 Fee</span>
+              <span>• Valid Across India</span>
+            </div>
+          </div>
+
+          <div class="offer-voucher-stub">
+            <div class="voucher-notch notch-left"></div>
+            <div class="voucher-dash-line"></div>
+            <div class="voucher-notch notch-right"></div>
+
+            <div class="voucher-code-wrap">
+              <div class="code-box">
+                <span class="code-label">PROMO CODE</span>
+                <span class="code-value">WELCOME0</span>
+              </div>
+              <button class="btn-copy-code" data-code="WELCOME0" title="Copy Promo Code">
+                <span class="copy-icon">📋</span>
+                <span class="copy-text">COPY</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="offer-card-footer">
+            <button class="btn-view-terms" data-target="welcome0">Terms & Conditions</button>
+            <button class="btn btn-sm btn-primary glow-btn btn-apply-offer" data-code="WELCOME0">Use Code</button>
+          </div>
+        </article>
+
+        <!-- 10. HDFC SMARTBUY 15% -->
+        <article class="offer-card glass-panel" data-category="bank" data-code="HDFC15" data-partner="HDFC Bank" data-terms="hdfc15">
+          <div class="offer-card-top bank-hdfc">
+            <div class="partner-meta">
+              <span class="bank-avatar hdfc-bg">HDFC</span>
+              <div>
+                <h4 class="partner-name">HDFC Debit & Credit</h4>
+                <span class="offer-tag tag-discount">15% INSTANT OFF</span>
+              </div>
+            </div>
+            <span class="validity-badge">Valid till 31 Dec 2026</span>
+          </div>
+
+          <div class="offer-card-body">
+            <h3 class="offer-headline">15% Instant Savings with Any HDFC Card</h3>
+            <p class="offer-desc">Universal banking deal for all HDFC debit and credit cardholders. Save up to ₹150 instantly on your entertainment outings.</p>
+
+            <div class="offer-meta-points">
+              <span>• Min Spend: ₹350</span>
+              <span>• Max Discount: ₹150</span>
+              <span>• Debit & Credit</span>
+            </div>
+          </div>
+
+          <div class="offer-voucher-stub">
+            <div class="voucher-notch notch-left"></div>
+            <div class="voucher-dash-line"></div>
+            <div class="voucher-notch notch-right"></div>
+
+            <div class="voucher-code-wrap">
+              <div class="code-box">
+                <span class="code-label">PROMO CODE</span>
+                <span class="code-value">HDFC15</span>
+              </div>
+              <button class="btn-copy-code" data-code="HDFC15" title="Copy Promo Code">
+                <span class="copy-icon">📋</span>
+                <span class="copy-text">COPY</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="offer-card-footer">
+            <button class="btn-view-terms" data-target="hdfc15">Terms & Conditions</button>
+            <button class="btn btn-sm btn-primary glow-btn btn-apply-offer" data-code="HDFC15">Use Code</button>
+          </div>
+        </article>
+
+        <!-- 11. MORNING SHOW SAVER -->
+        <article class="offer-card glass-panel" data-category="movie" data-code="MORNING99" data-partner="Cinema Chain" data-terms="morning99">
+          <div class="offer-card-top cinema-buzz">
+            <div class="partner-meta">
+              <span class="bank-avatar cine-bg">AM</span>
+              <div>
+                <h4 class="partner-name">Morning Bliss Shows</h4>
+                <span class="offer-tag tag-special">BEFORE 12 PM</span>
+              </div>
+            </div>
+            <span class="validity-badge">Daily Morning Deals</span>
+          </div>
+
+          <div class="offer-card-body">
+            <h3 class="offer-headline">Flat ₹99 Off on All Morning Shows Before Noon</h3>
+            <p class="offer-desc">Early risers enjoy cinema magic at unbeatable prices! Book any movie show commencing before 12:00 PM and save ₹99 instantly.</p>
+
+            <div class="offer-meta-points">
+              <span>• Min Spend: ₹200</span>
+              <span>• Shows before 12:00 PM</span>
+              <span>• Daily Applicability</span>
+            </div>
+          </div>
+
+          <div class="offer-voucher-stub">
+            <div class="voucher-notch notch-left"></div>
+            <div class="voucher-dash-line"></div>
+            <div class="voucher-notch notch-right"></div>
+
+            <div class="voucher-code-wrap">
+              <div class="code-box">
+                <span class="code-label">PROMO CODE</span>
+                <span class="code-value">MORNING99</span>
+              </div>
+              <button class="btn-copy-code" data-code="MORNING99" title="Copy Promo Code">
+                <span class="copy-icon">📋</span>
+                <span class="copy-text">COPY</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="offer-card-footer">
+            <button class="btn-view-terms" data-target="morning99">Terms & Conditions</button>
+            <button class="btn btn-sm btn-primary glow-btn btn-apply-offer" data-code="MORNING99">Use Code</button>
+          </div>
+        </article>
+
+        <!-- 12. STUDENT RUSH -->
+        <article class="offer-card glass-panel" data-category="movie" data-code="STUDENT25" data-partner="Campus Privileges" data-terms="student25">
+          <div class="offer-card-top student-pass">
+            <div class="partner-meta">
+              <span class="bank-avatar student-bg">🎓</span>
+              <div>
+                <h4 class="partner-name">Campus Student Pass</h4>
+                <span class="offer-tag tag-discount">25% OFF</span>
+              </div>
+            </div>
+            <span class="validity-badge">Valid Academic Year</span>
+          </div>
+
+          <div class="offer-card-body">
+            <h3 class="offer-headline">Flat 25% Off for College Students with Valid ID</h3>
+            <p class="offer-desc">Hang out with friends after lectures! Claim 25% off up to ₹120 on all weekdays from Monday through Thursday.</p>
+
+            <div class="offer-meta-points">
+              <span>• Min Spend: ₹200</span>
+              <span>• Max Discount: ₹120</span>
+              <span>• Student ID verification</span>
+            </div>
+          </div>
+
+          <div class="offer-voucher-stub">
+            <div class="voucher-notch notch-left"></div>
+            <div class="voucher-dash-line"></div>
+            <div class="voucher-notch notch-right"></div>
+
+            <div class="voucher-code-wrap">
+              <div class="code-box">
+                <span class="code-label">PROMO CODE</span>
+                <span class="code-value">STUDENT25</span>
+              </div>
+              <button class="btn-copy-code" data-code="STUDENT25" title="Copy Promo Code">
+                <span class="copy-icon">📋</span>
+                <span class="copy-text">COPY</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="offer-card-footer">
+            <button class="btn-view-terms" data-target="student25">Terms & Conditions</button>
+            <button class="btn btn-sm btn-primary glow-btn btn-apply-offer" data-code="STUDENT25">Use Code</button>
+          </div>
+        </article>
+
+        <!-- 13. PHONEPE UPI -->
+        <article class="offer-card glass-panel" data-category="upi" data-code="PHONEPE10" data-partner="PhonePe" data-terms="phonepe10">
+          <div class="offer-card-top upi-phonepe">
+            <div class="partner-meta">
+              <span class="bank-avatar phonepe-bg">पे</span>
+              <div>
+                <h4 class="partner-name">PhonePe UPI</h4>
+                <span class="offer-tag tag-cashback">10% INSTANT OFF</span>
+              </div>
+            </div>
+            <span class="validity-badge">Valid till 31 Aug 2026</span>
+          </div>
+
+          <div class="offer-card-body">
+            <h3 class="offer-headline">10% Instant Discount via PhonePe UPI Gateway</h3>
+            <p class="offer-desc">Fast, frictionless payment directly from your linked bank account. Get 10% off up to ₹80 on cinema and comedy show tickets.</p>
+
+            <div class="offer-meta-points">
+              <span>• Min Spend: ₹250</span>
+              <span>• Max Discount: ₹80</span>
+              <span>• Twice Per Month</span>
+            </div>
+          </div>
+
+          <div class="offer-voucher-stub">
+            <div class="voucher-notch notch-left"></div>
+            <div class="voucher-dash-line"></div>
+            <div class="voucher-notch notch-right"></div>
+
+            <div class="voucher-code-wrap">
+              <div class="code-box">
+                <span class="code-label">PROMO CODE</span>
+                <span class="code-value">PHONEPE10</span>
+              </div>
+              <button class="btn-copy-code" data-code="PHONEPE10" title="Copy Promo Code">
+                <span class="copy-icon">📋</span>
+                <span class="copy-text">COPY</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="offer-card-footer">
+            <button class="btn-view-terms" data-target="phonepe10">Terms & Conditions</button>
+            <button class="btn btn-sm btn-primary glow-btn btn-apply-offer" data-code="PHONEPE10">Use Code</button>
+          </div>
+        </article>
+
+        <!-- 14. KOTAK DELIGHT WEEKEND -->
+        <article class="offer-card glass-panel" data-category="bank" data-code="KOTAK20" data-partner="Kotak Mahindra Bank" data-terms="kotak20">
+          <div class="offer-card-top bank-kotak">
+            <div class="partner-meta">
+              <span class="bank-avatar kotak-bg">KOTAK</span>
+              <div>
+                <h4 class="partner-name">Kotak Mahindra Bank</h4>
+                <span class="offer-tag tag-discount">20% WEEKEND OFF</span>
+              </div>
+            </div>
+            <span class="validity-badge">Valid till 30 Sep 2026</span>
+          </div>
+
+          <div class="offer-card-body">
+            <h3 class="offer-headline">20% Off on Saturday & Sunday Movie Screenings</h3>
+            <p class="offer-desc">Spend quality weekend time at the movies with Kotak League, White, and 811 debit/credit cards. Save up to ₹175 instantly.</p>
+
+            <div class="offer-meta-points">
+              <span>• Min Spend: ₹400</span>
+              <span>• Max Discount: ₹175</span>
+              <span>• Sat & Sun Screenings</span>
+            </div>
+          </div>
+
+          <div class="offer-voucher-stub">
+            <div class="voucher-notch notch-left"></div>
+            <div class="voucher-dash-line"></div>
+            <div class="voucher-notch notch-right"></div>
+
+            <div class="voucher-code-wrap">
+              <div class="code-box">
+                <span class="code-label">PROMO CODE</span>
+                <span class="code-value">KOTAK20</span>
+              </div>
+              <button class="btn-copy-code" data-code="KOTAK20" title="Copy Promo Code">
+                <span class="copy-icon">📋</span>
+                <span class="copy-text">COPY</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="offer-card-footer">
+            <button class="btn-view-terms" data-target="kotak20">Terms & Conditions</button>
+            <button class="btn btn-sm btn-primary glow-btn btn-apply-offer" data-code="KOTAK20">Use Code</button>
+          </div>
+        </article>
+
+        <!-- 15. IMAX & 4DX FORMAT SPECIAL -->
+        <article class="offer-card glass-panel" data-category="movie" data-code="IMAX150" data-partner="Premium Cinema Formats" data-terms="imax150">
+          <div class="offer-card-top cinema-imax">
+            <div class="partner-meta">
+              <span class="bank-avatar imax-bg">IMAX</span>
+              <div>
+                <h4 class="partner-name">IMAX • 4DX • ICE</h4>
+                <span class="offer-tag tag-special">FLAT ₹150 OFF</span>
+              </div>
+            </div>
+            <span class="validity-badge">Valid till 31 Jul 2026</span>
+          </div>
+
+          <div class="offer-card-body">
+            <h3 class="offer-headline">Flat ₹150 Off on Premium Large Screen Formats</h3>
+            <p class="offer-desc">Immerse yourself in giant screen visuals and vibrating sound stages. Flat ₹150 reduction on IMAX 2D/3D, 4DX, and ICE auditoriums.</p>
+
+            <div class="offer-meta-points">
+              <span>• Min Spend: ₹400</span>
+              <span>• IMAX & 4DX Screens</span>
+              <span>• Any Day / Any Show</span>
+            </div>
+          </div>
+
+          <div class="offer-voucher-stub">
+            <div class="voucher-notch notch-left"></div>
+            <div class="voucher-dash-line"></div>
+            <div class="voucher-notch notch-right"></div>
+
+            <div class="voucher-code-wrap">
+              <div class="code-box">
+                <span class="code-label">PROMO CODE</span>
+                <span class="code-value">IMAX150</span>
+              </div>
+              <button class="btn-copy-code" data-code="IMAX150" title="Copy Promo Code">
+                <span class="copy-icon">📋</span>
+                <span class="copy-text">COPY</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="offer-card-footer">
+            <button class="btn-view-terms" data-target="imax150">Terms & Conditions</button>
+            <button class="btn btn-sm btn-primary glow-btn btn-apply-offer" data-code="IMAX150">Use Code</button>
+          </div>
+        </article>
+
+        <!-- 16. GOOGLE PAY SCRATCH & SAVE -->
+        <article class="offer-card glass-panel" data-category="upi" data-code="GPAY60" data-partner="Google Pay" data-terms="gpay60">
+          <div class="offer-card-top upi-gpay">
+            <div class="partner-meta">
+              <span class="bank-avatar gpay-bg">GPay</span>
+              <div>
+                <h4 class="partner-name">Google Pay</h4>
+                <span class="offer-tag tag-cashback">FLAT ₹60 OFF</span>
+              </div>
+            </div>
+            <span class="validity-badge">Valid till 31 Oct 2026</span>
+          </div>
+
+          <div class="offer-card-body">
+            <h3 class="offer-headline">Flat ₹60 Off + Assured In-App Scratch Reward</h3>
+            <p class="offer-desc">Pay directly via Google Pay UPI intent to unlock a flat ₹60 ticket discount plus an assured cashback scratch card in your GPay app.</p>
+
+            <div class="offer-meta-points">
+              <span>• Min Spend: ₹350</span>
+              <span>• Instant ₹60 Off</span>
+              <span>• Bonus Scratch Card</span>
+            </div>
+          </div>
+
+          <div class="offer-voucher-stub">
+            <div class="voucher-notch notch-left"></div>
+            <div class="voucher-dash-line"></div>
+            <div class="voucher-notch notch-right"></div>
+
+            <div class="voucher-code-wrap">
+              <div class="code-box">
+                <span class="code-label">PROMO CODE</span>
+                <span class="code-value">GPAY60</span>
+              </div>
+              <button class="btn-copy-code" data-code="GPAY60" title="Copy Promo Code">
+                <span class="copy-icon">📋</span>
+                <span class="copy-text">COPY</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="offer-card-footer">
+            <button class="btn-view-terms" data-target="gpay60">Terms & Conditions</button>
+            <button class="btn btn-sm btn-primary glow-btn btn-apply-offer" data-code="GPAY60">Use Code</button>
+          </div>
+        </article>
+
+        <!-- 17. INDUSIND BANK BOGO -->
+        <article class="offer-card glass-panel" data-category="bank" data-code="INDUSBOGO" data-partner="IndusInd Bank" data-terms="indusbogo">
+          <div class="offer-card-top bank-indus">
+            <div class="partner-meta">
+              <span class="bank-avatar indus-bg">INDUS</span>
+              <div>
+                <h4 class="partner-name">IndusInd Pioneer & Legend</h4>
+                <span class="offer-tag tag-bogo">BUY 1 GET 1 FREE</span>
+              </div>
+            </div>
+            <span class="validity-badge">Valid till 30 Nov 2026</span>
+          </div>
+
+          <div class="offer-card-body">
+            <h3 class="offer-headline">Buy 1 Get 1 Free on Recliner & Luxury Classes</h3>
+            <p class="offer-desc">Indulge in plush cinema comfort! Buy one ticket and receive the second ticket complimentary up to ₹200 off across premium venues.</p>
+
+            <div class="offer-meta-points">
+              <span>• Min 2 Tickets</span>
+              <span>• Max Savings: ₹200</span>
+              <span>• Luxury / Recliner Class</span>
+            </div>
+          </div>
+
+          <div class="offer-voucher-stub">
+            <div class="voucher-notch notch-left"></div>
+            <div class="voucher-dash-line"></div>
+            <div class="voucher-notch notch-right"></div>
+
+            <div class="voucher-code-wrap">
+              <div class="code-box">
+                <span class="code-label">PROMO CODE</span>
+                <span class="code-value">INDUSBOGO</span>
+              </div>
+              <button class="btn-copy-code" data-code="INDUSBOGO" title="Copy Promo Code">
+                <span class="copy-icon">📋</span>
+                <span class="copy-text">COPY</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="offer-card-footer">
+            <button class="btn-view-terms" data-target="indusbogo">Terms & Conditions</button>
+            <button class="btn btn-sm btn-primary glow-btn btn-apply-offer" data-code="INDUSBOGO">Use Code</button>
+          </div>
+        </article>
+
+        <!-- 18. GOURMET POPCORN COMBO -->
+        <article class="offer-card glass-panel" data-category="combos" data-code="COMBO199" data-partner="Cinema Concessions" data-terms="combo199">
+          <div class="offer-card-top food-combo">
+            <div class="partner-meta">
+              <span class="bank-avatar fnb-bg">🍿</span>
+              <div>
+                <h4 class="partner-name">CineBuzz Concessions</h4>
+                <span class="offer-tag tag-waiver">FLAT ₹50 OFF</span>
+              </div>
+            </div>
+            <span class="validity-badge">Available Everyday</span>
+          </div>
+
+          <div class="offer-card-body">
+            <h3 class="offer-headline">Flat ₹50 Off on Large Popcorn & Beverage Combos</h3>
+            <p class="offer-desc">Pre-order hot buttery popcorn, nachos, and chilled drinks when booking your seats and save ₹50 directly off the snack counter price.</p>
+
+            <div class="offer-meta-points">
+              <span>• Min Spend: ₹199</span>
+              <span>• Skip Counter Lines</span>
+              <span>• Pre-book with ticket</span>
+            </div>
+          </div>
+
+          <div class="offer-voucher-stub">
+            <div class="voucher-notch notch-left"></div>
+            <div class="voucher-dash-line"></div>
+            <div class="voucher-notch notch-right"></div>
+
+            <div class="voucher-code-wrap">
+              <div class="code-box">
+                <span class="code-label">PROMO CODE</span>
+                <span class="code-value">COMBO199</span>
+              </div>
+              <button class="btn-copy-code" data-code="COMBO199" title="Copy Promo Code">
+                <span class="copy-icon">📋</span>
+                <span class="copy-text">COPY</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="offer-card-footer">
+            <button class="btn-view-terms" data-target="combo199">Terms & Conditions</button>
+            <button class="btn btn-sm btn-primary glow-btn btn-apply-offer" data-code="COMBO199">Use Code</button>
+          </div>
+        </article>
+
+      </div>
+
+      <!-- No Results State -->
+      <div id="no-offers-state" class="empty-state-glass glass-panel hidden">
+        <div class="empty-icon">🎟️</div>
+        <h3>No matching offers found</h3>
+        <p>We couldn't find any discounts matching your query. Try searching for "HDFC", "CRED", "IMAX", or "BOGO".</p>
+        <button id="btn-reset-filters" class="btn btn-primary glow-btn">Reset Filters</button>
+      </div>
+    </section>
+  </main>
+
+  <!-- Terms & Conditions Modal -->
+  <div id="terms-modal" class="modal-overlay hidden">
+    <div class="modal-card terms-modal-card glass-panel">
+      <div class="modal-header">
+        <div class="terms-modal-title-box">
+          <span id="terms-partner-tag" class="terms-tag">HDFC Bank</span>
+          <h3 id="terms-modal-heading">Offer Terms & Conditions</h3>
+        </div>
+        <button id="close-terms-modal" class="modal-close">&times;</button>
+      </div>
+
+      <div class="terms-modal-body">
+        <div class="terms-code-summary">
+          <div>
+            <span class="terms-code-lbl">PROMO CODE:</span>
+            <span id="terms-code-text" class="terms-code-val">HDFCBOGO</span>
+          </div>
+          <button id="terms-copy-btn" class="btn btn-xs btn-outline-cyan">Copy Code</button>
+        </div>
+
+        <ul id="terms-points-list" class="terms-bullets">
+          <!-- Dynamically populated via JS -->
+        </ul>
+
+        <div class="terms-redemption-steps">
+          <h4>How to Redeem:</h4>
+          <ol>
+            <li>Select your favorite movie or live event and choose your seats.</li>
+            <li>Proceed to the checkout payment page.</li>
+            <li>Enter the promo code in the "Apply Coupon" input field and click Apply.</li>
+            <li>Complete payment using the eligible bank card or UPI ID to enjoy your discount.</li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="modal-footer terms-footer">
+        <button id="btn-terms-use-now" class="btn btn-primary w-full glow-btn">Use Code & Book Now</button>
+      </div>
     </div>
-    <div><h4>Movies</h4><a href="movies.html">Now Showing</a><a href="movies.html">Coming Soon</a><a href="movies.html">Top Rated</a><a href="offers.html">Offers</a></div>
-    <div><h4>Company</h4><a href="about.html">About Us</a><a href="about.html">Careers</a><a href="contact.html">Contact Us</a><a href="about.html">Press</a></div>
-    <div><h4>Support</h4><a href="contact.html">Help Center</a><a href="contact.html">Payment Options</a><a href="contact.html">Terms &amp; Conditions</a><a href="contact.html">Privacy Policy</a></div>
   </div>
-  <div class="container footer-bottom">
-    <span>© 2026 CineBuzz Entertainment Pvt. Ltd. All rights reserved.</span>
-    <span>Made with 🍿 in India · Front-end demo</span>
-  </div>
-</footer>
 
+  <!-- Glass Toast Notification -->
+  <div id="offers-toast" class="glass-toast hidden">
+    <span id="toast-icon">✨</span>
+    <span id="toast-msg">Coupon code copied to clipboard!</span>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer-glass">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <a href="home.html" class="brand-logo">
+          <span class="logo-icon">🎬</span>
+          <span class="logo-text">Cine<span class="text-gradient">Buzz</span></span>
+        </a>
+        <p class="footer-tagline">India's most delightful cinematic and live events destination. Experience every moment in pure high definition.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Explore</h4>
+        <a href="movies.html">Movies Now Showing</a>
+        <a href="events.html">Live Concerts & Standup</a>
+        <a href="offers.html">Partner Offers</a>
+      </div>
+      <div class="footer-links">
+        <h4>Support</h4>
+        <a href="about.html">About CineBuzz</a>
+        <a href="contact.html">Help & FAQs</a>
+        <a href="contact.html">Cinema Venues</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 CineBuzz Entertainment Network. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="../assets/js/cinema-browser.js"></script>
+  <script src="../assets/js/app.js"></script>
 </body>
 </html>
+
+
+
+
+

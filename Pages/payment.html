@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Payment — CineBuzz</title>
 <meta name="description" content="Secure checkout for your CineBuzz booking.">
-<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="../assets/css/style.css">
 <style>
   /* Live card preview (pure CSS) */
   .cp-num[contenteditable], .cp-row [contenteditable]{outline:none;border-radius:4px;background:rgba(255,255,255,.08);padding:2px 6px;min-width:12px;display:inline-block;}
@@ -23,15 +23,15 @@
 
 <header class="site-header">
   <div class="container header-inner">
-    <a class="brand" href="index.html"><span class="logo-ic">🎬</span> CineBuzz</a>
+    <a class="brand" href="home.html"><span class="logo-ic">🎬</span> CineBuzz</a>
     <div class="search"><span class="ic">🔍</span><input type="text" placeholder="Search for movies, events, plays, sports and activities"></div>
-    <a class="loc" href="about.html"><span class="pin">📍</span><span><small>Location</small>New Delhi</span></a>
+    <a class="loc location-nav" href="movies.html#location-panel"><span class="pin">⌖</span><span><small>Your location</small><strong class="location-name">Choose city</strong></span><span class="location-chevron">⌄</span></a>
     <nav class="nav-actions">
       <a class="nav-link" href="movies.html"><span class="ic">🎞️</span>Movies</a>
       <a class="nav-link" href="offers.html"><span class="ic">🎁</span>Offers</a>
       <a class="nav-link" href="events.html"><span class="ic">🎟️</span>Events</a>
       <a class="nav-link" href="about.html"><span class="ic">🛈</span>About</a>
-      <a class="btn btn-ghost btn-sm signin-btn" href="index.html#signin">Sign in</a>
+      <a class="btn btn-ghost btn-sm signin-btn" href="home.html#signin">Sign in</a>
     </nav>
     <a class="menu-toggle" href="#mobile-nav">☰</a>
   </div>
@@ -42,12 +42,12 @@
   <a href="events.html">🎟️ Events <span class="ic">›</span></a>
   <a href="about.html">🛈 About <span class="ic">›</span></a>
   <a href="contact.html">📞 Contact <span class="ic">›</span></a>
-  <a href="index.html#signin">👤 Sign in <span class="ic">›</span></a>
+  <a href="home.html#signin">👤 Sign in <span class="ic">›</span></a>
 </nav>
 
 <section class="page-hero">
   <div class="container">
-    <div class="crumb">Home / The Last Horizon / Seats / Payment</div>
+    <div class="crumb">Home / Booking / Payment</div>
     <h1>Secure Payment</h1>
     <p>Pay securely to confirm your seats. Time left to complete payment: <b>04:38</b></p>
   </div>
@@ -62,9 +62,9 @@
 
       <div class="pay-methods">
         <button class="pay-method on">💳 Card</button>
-        <button class="pay-method" onclick="alert('UPI payment (demo)')">🏦 UPI</button>
-        <button class="pay-method" onclick="alert('Net banking (demo)')">🏛️ Net Banking</button>
-        <button class="pay-method" onclick="alert('Wallet payment (demo)')">👛 Wallet</button>
+        <button class="pay-method">🏦 UPI</button>
+        <button class="pay-method">🏛️ Net Banking</button>
+        <button class="pay-method">👛 Wallet</button>
       </div>
 
       <!-- live card preview driven by the inputs below -->
@@ -79,7 +79,7 @@
         </div>
       </div>
 
-      <form onsubmit="alert('Payment successful! 🎉 (demo — this would charge your card)');location.href='confirmation.html';return false;">
+      <form>
         <div class="field" style="margin-bottom:14px;">
           <label>Card number</label>
           <input type="text" inputmode="numeric" maxlength="19" placeholder="1234 5678 9012 3456"
@@ -99,9 +99,9 @@
         </div>
         <div class="field" style="margin:16px 0 18px;">
           <label>Promo code</label>
-          <input type="text" placeholder="TUESDAY50" value="TUESDAY50" oninput="document.getElementById('promo-line').style.display=(this.value.toLowerCase()==='tuesday50'||this.value.toLowerCase()==='saket25')?'flex':'none';">
+          <input type="text" placeholder="Enter code if you have one">
         </div>
-        <button class="btn btn-primary btn-block submit" type="submit" style="padding:14px;">Pay ₹715 securely →</button>
+        <button class="btn btn-primary btn-block submit" type="submit" style="padding:14px;">Pay securely →</button>
         <div class="secure-note">🔒 256-bit SSL encrypted · PCI-DSS compliant gateway (demo)</div>
       </form>
     </div>
@@ -109,15 +109,15 @@
     <!-- RIGHT: order summary -->
     <aside class="order-box">
       <h2 style="font-size:1.1rem;margin-bottom:14px;">Order summary</h2>
-      <div class="order-line"><span>The Last Horizon (IMAX)</span></div>
-      <div class="order-line"><span>CineBuzz Super Cinemas — Select Citywalk</span></div>
-      <div class="order-line"><span>Tue, 22 Sep · 06:10 PM</span></div>
-      <div class="order-line"><span>Seats</span><b>H1, H2 (Recliner)</b></div>
-      <div class="order-line"><span>Recliner × 2</span><b>₹840</b></div>
-      <div class="order-line"><span>Convenience fee</span><b>₹0 (Offer)</b></div>
-      <div class="order-line" id="promo-line" style="display:flex;color:var(--green);"><span>Promo TUESDAY50</span><b>−₹125</b></div>
-      <div class="order-bold"><span>Amount payable</span><span>₹715</span></div>
-      <button class="btn btn-outline btn-block" style="margin-top:16px;" onclick="alert('Cancelled. Your seats were released (demo).');location.href='booking.html';">Cancel booking</button>
+      <div class="order-line"><span>Selected movie</span></div>
+      <div class="order-line"><span>Selected cinema</span></div>
+      <div class="order-line"><span>Selected date and showtime</span></div>
+      <div class="order-line"><span>Seats</span><b>Selected seats</b></div>
+      <div class="order-line"><span>Tickets</span><b>Amount from selected show</b></div>
+      <div class="order-line"><span>Convenience fee</span><b>Shown at checkout</b></div>
+      <div class="order-line" id="promo-line" style="display:none;color:var(--green);"><span></span><b></b></div>
+      <div class="order-bold"><span>Amount payable</span><span>—</span></div>
+      <button class="btn btn-outline btn-block" style="margin-top:16px;">Cancel booking</button>
     </aside>
 
   </div>
@@ -126,7 +126,7 @@
 <footer class="site-footer">
   <div class="container footer-grid">
     <div>
-      <a class="brand" href="index.html"><span class="logo-ic">🎬</span> CineBuzz</a>
+      <a class="brand" href="home.html"><span class="logo-ic">🎬</span> CineBuzz</a>
       <p style="margin-top:14px;">India's friendliest movie ticket booking &amp; cinema management platform.</p>
       <div class="social-row"><a href="#">f</a><a href="#">𝕏</a><a href="#">◎</a><a href="#">▶</a></div>
     </div>
@@ -140,5 +140,6 @@
   </div>
 </footer>
 
+  <script src="../assets/js/app.js" defer></script>
 </body>
 </html>
